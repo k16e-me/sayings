@@ -5,7 +5,7 @@ import { useStoryblokApi } from '@storyblok/astro'
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/home', {
-    version: import.meta.env.DEV ? 'draft' : 'published',
+    version: import.meta.env.DEV ? 'draft' : 'published'
 })
 
 const content = data.story.content

@@ -6,14 +6,13 @@ import { useStoryblokApi } from '@storyblok/astro'
 const storyblokApi = useStoryblokApi()
 
 const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
-    version: import.meta.env.DEV ? 'draft' : 'published',
+    version: import.meta.env.DEV ? 'draft' : 'published'
 })
 
 const site = settings.story.content
 ---
 
 <!doctype html>
-
 <html lang="en">
 	<head>
 		<meta charset="UTF-8"/>
@@ -27,22 +26,16 @@ const site = settings.story.content
 	</head>
 
 	<body class="text-gray-700 text-lg flex min-h-screen flex-col">
-        <header class="flex items-center justify-center text-center px-3 py-4">
+        <header class="flex items-center justify-center text-center p-4">
             <a href="/" class="inline-block">
                 <Logo/>
             </a>
         </header>
-
 		<main class="flex-1">
             <slot/>
         </main>
-
-        <footer class="flex items-center justify-center text-center">
+        <footer class="flex items-center justify-center text-center p-4">
             Coming soon...
         </footer>
 	</body>
 </html>
-
-<style is:global>
-
-</style>

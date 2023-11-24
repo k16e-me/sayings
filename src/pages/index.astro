@@ -10,13 +10,8 @@ const { data } = await storyblokApi.get('cdn/stories/home', {
 const content = data.story.content
 ---
 
-<Layout title="These are the sayings of Kabolobari">
-    <div class="px-3 py-4 text-center">
-        <h1 class="font-display">
-            <span class="text-7xl lg:text-9xl">Sayings</span>
-            <span class="block text-xl lg:text-3xl font-bold mt-1 opacity-70">of Kabolobari</span>
-        </h1>
-    </div>
+<Layout
+    title="These are the sayings of Kabolobari">
 
     <StoryblokComponent blok={ content } />
 </Layout>

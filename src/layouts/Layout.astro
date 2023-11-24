@@ -35,7 +35,9 @@ const year = new Date().getFullYear()
             <slot/>
         </main>
         <footer class="flex items-center justify-center text-center p-3 text-brand-500 text-base">
-            { year } { site.preferredName }. All rights waived
+            <div class="max-w-2xl">
+                { year } { site.preferredName }. All rights waived
+            </div>
         </footer>
 	</body>
 </html>

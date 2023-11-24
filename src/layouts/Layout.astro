@@ -5,12 +5,11 @@ import Logo from '../components/Logo.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 
 const storyblokApi = useStoryblokApi()
-
 const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
     version: import.meta.env.DEV ? 'draft' : 'published'
 })
-
 const site = settings.story.content
+const year = new Date().getFullYear()
 ---
 
 <!doctype html>
@@ -35,8 +34,8 @@ const site = settings.story.content
 		<main class="flex-1">
             <slot/>
         </main>
-        <footer class="flex items-center justify-center text-center p-4 text-brand-700 text-base">
-            Uncopyright 2023. Kabolobari Benakole. All rights waived.
+        <footer class="flex items-center justify-center text-center p-4 text-brand-500 text-base">
+            { year }, Kabolobari Benakole. All rights waived
         </footer>
 	</body>
 </html>

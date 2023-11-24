@@ -1,5 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { useStoryblokApi } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+
+const storyblokApi = useStoryblokApi()
+
+const { data } = await storyblokApi.get('cdn/stories/home', {
+    version: import.meta.env.DEV ? 'draft' : 'published',
+})
+
+const content = data.story.content
 ---
 
 <Layout title="These are the sayings of Kabolobari">
@@ -10,5 +20,7 @@ import Layout from '../layouts/Layout.astro'
                 <span class="block text-xl lg:text-3xl font-bold mt-1 opacity-70">of Kabolobari</span>
             </h1>
         </div>
+
+        <StoryblokComponent blok={content} />
 	</main>
 </Layout>

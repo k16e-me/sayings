@@ -25,21 +25,17 @@ const site = settings.story.content
         </title>
 	</head>
 
-	<body class="text-gray-700 text-lg flex min-h-screen flex-col">
+	<body class="text-brand-800 text-lg flex min-h-screen flex-col">
         <header class="flex items-center justify-center text-center p-4">
             <a href="/" class="inline-block">
-                <Logo
-                    classes="h-20 lg:h-28"
-                    wordmarkFill="#121617"
-                    bylineFill="#121617"
-                />
+                <Logo classes="h-20 lg:h-28 text-brand-900"/>
             </a>
         </header>
 		<main class="flex-1">
             <slot/>
         </main>
-        <footer class="flex items-center justify-center text-center p-4">
-            Uncopyright 2023. Kabolobari Benakole. No rights reserved.
+        <footer class="flex items-center justify-center text-center p-4 text-brand-700 text-base">
+            Uncopyright 2023. Kabolobari Benakole. All rights waived.
         </footer>
 	</body>
 </html>

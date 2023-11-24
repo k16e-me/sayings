@@ -7,11 +7,12 @@ const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/home', {
     version: import.meta.env.DEV ? 'draft' : 'published',
 })
+const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
+    version: import.meta.env.DEV ? 'draft' : 'published',
+})
 const content = data.story.content
+const site = settings.story.content
 ---
-
-<Layout
-    title="These are the sayings of Kabolobari">
-
+<Layout title={site.title}>
     <StoryblokComponent blok={ content } />
 </Layout>

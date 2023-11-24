@@ -26,13 +26,20 @@ const site = settings.story.content
         </title>
 	</head>
 
-	<body class="text-gray-700 text-lg">
-        <header class="text-center px-3 py-4">
+	<body class="text-gray-700 text-lg flex min-h-screen flex-col">
+        <header class="flex items-center justify-center text-center px-3 py-4">
             <a href="/" class="inline-block">
                 <Logo/>
             </a>
         </header>
-		<slot/>
+
+		<main class="flex-1">
+            <slot/>
+        </main>
+
+        <footer class="flex items-center justify-center text-center">
+            Coming soon...
+        </footer>
 	</body>
 </html>
 

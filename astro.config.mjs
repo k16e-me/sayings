@@ -11,7 +11,8 @@ export default defineConfig({
         storyblok({
             accessToken: env.STORYBLOK_TOKEN,
             components: {
-                page: 'storyblok/page'
+                page: 'storyblok/Page',
+                bookCard: 'storyblok/BookCard'
             }
         })
     ]

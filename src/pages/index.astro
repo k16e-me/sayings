@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import { useStoryblokApi, storyblokEditable } from '@storyblok/astro'
-import SayingsList from '../storyblok/SayingsList.astro'
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/home', {

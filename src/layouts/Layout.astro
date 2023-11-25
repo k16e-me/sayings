@@ -4,6 +4,7 @@ import '@fontsource-variable/dm-sans'
 import Logo from '../components/Logo.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 
+
 const storyblokApi = useStoryblokApi()
 const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
     version: import.meta.env.DEV ? 'draft' : 'published'

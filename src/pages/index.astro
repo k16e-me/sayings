@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
-import { useStoryblokApi } from '@storyblok/astro'
+import { useStoryblokApi, storyblokEditable } from '@storyblok/astro'
+import SayingsList from '../storyblok/SayingsList.astro'
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/home', {
@@ -9,7 +10,39 @@ const { data } = await storyblokApi.get('cdn/stories/home', {
 })
 
 const content = data.story.content
+
+const { data: collection } = await storyblokApi.get('cdn/stories/', {
+	version: import.meta.env.DEV ? 'draft' : 'published',
+    content_type: 'Collection'
+})
+
+const collectionAll = collection.stories.map(c => {
+	return {
+		title: c.content.title,
+        bookcard: c.content.body.filter(obj => { return obj.component === 'BookCard' }),
+		slug: c.full_slug,
+	}
+})
+console.log(collectionAll[0])
 ---
 <Layout>
-    <StoryblokComponent blok={ content } />
+    <div>
+        <StoryblokComponent blok={ content } />
+    </div>
+    <ul
+        { ...storyblokEditable(collectionAll) }
+        class="inline-flex gap-3">
+        {
+            collectionAll.map(c => (
+                <li
+                    style={`background-color: #${ c.bookcard[0].pastel }`}
+                    class="p-3">
+                    <h2>{ c.title }</h2>
+                    <img src={c.bookcard[0].illustration.filename} alt="" class="h-32"/>
+                    <p>{ c.bookcard[0].pastel }</p>
+                </li>
+            ))
+        }
+    </ul>
+    <!-- class={`bg-[#${c.bookcard[0].pastel}]`} -->
 </Layout>

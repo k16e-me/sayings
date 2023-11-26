@@ -14,7 +14,8 @@ const content = data.story.content
 const { data: collection } = await storyblokApi.get('cdn/stories/', {
 	version: import.meta.env.DEV ? 'draft' : 'published',
     content_type: 'Collection',
-    sort_by: 'first_published_at:asc'
+    // sort_by: 'first_published_at:asc'
+    sort_by: 'content.position:desc'
 })
 
 const collectionAll = collection.stories.map(c => {

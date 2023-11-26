@@ -24,21 +24,22 @@ const collectionAll = collection.stories.map(c => {
 })
 ---
 <Layout>
-    <div>
-        <StoryblokComponent blok={ content } />
+    <div class="max-w-3xl mx-auto">
+        <ul
+            { ...storyblokEditable(collectionAll) }
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {
+                collectionAll.map(c => (
+                    <li
+                        style={`background-color: #${ c.bookcard[0].pastel }`}
+                        class="p-3 h-96">
+                        <h2>{ c.title }</h2>
+                        <div class="h-48 w-48 r-center">
+                            <img src={c.bookcard[0].illustration.filename} alt="" class="h-32"/>
+                        </div>
+                    </li>
+                ))
+            }
+        </ul>
     </div>
-    <ul
-        { ...storyblokEditable(collectionAll) }
-        class="inline-flex gap-3">
-        {
-            collectionAll.map(c => (
-                <li
-                    style={`background-color: #${ c.bookcard[0].pastel }`}
-                    class="p-3">
-                    <h2>{ c.title }</h2>
-                    <img src={c.bookcard[0].illustration.filename} alt="" class="h-32"/>
-                </li>
-            ))
-        }
-    </ul>
 </Layout>

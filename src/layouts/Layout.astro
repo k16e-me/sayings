@@ -32,7 +32,7 @@ const year = new Date().getFullYear()
                 <Logo classes="h-20 lg:h-28 text-brand-900"/>
             </a>
         </header>
-		<main class="flex-1">
+		<main class="flex-1 py-7 sm:py-9 lg:py-12">
             <slot/>
         </main>
         <footer class="flex items-center justify-center text-center p-3 text-brand-500 text-base">
@@ -42,3 +42,9 @@ const year = new Date().getFullYear()
         </footer>
 	</body>
 </html>
+
+<style is:global>
+    .r-center {
+        @apply flex items-center justify-center text-center;
+    }
+</style>

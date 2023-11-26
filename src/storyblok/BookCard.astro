@@ -10,10 +10,10 @@ const pathname = new URL(Astro.request.url).pathname
     () => {
         if (pathname.includes('/c/')) {
             return (
-                <header class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <header class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     <div
                         style={`background-color: #${ blok.pastel }`}
-                        class="p-3 sm:p-5 h-96">
+                        class="p-3 sm:p-5 h-96 rounded-xl">
                         <h1 class="font-display r-center sm:text-xl">
                             { blok.title }
                         </h1>
@@ -30,7 +30,7 @@ const pathname = new URL(Astro.request.url).pathname
             return (
                 <article
                     style={`background-color: #${ blok.pastel }`}
-                    class="p-3 sm:p-5 h-96 shadow-lg hover:shadow-xl rounded-xl transition duration-300">
+                    class="p-3 sm:p-5 h-96 shadow-xl hover:shadow-2xl rounded-xl transition duration-300">
                     <h2 class="font-display r-center sm:text-xl text-brand-950">
                         { blok.title }
                     </h2>

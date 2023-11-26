@@ -12,7 +12,8 @@ const content = data.story.content
 
 const { data: collection } = await storyblokApi.get('cdn/stories/', {
 	version: import.meta.env.DEV ? 'draft' : 'published',
-    content_type: 'Collection'
+    content_type: 'Collection',
+    sort_by: 'first_published_at:asc'
 })
 
 const collectionAll = collection.stories.map(c => {
@@ -24,10 +25,10 @@ const collectionAll = collection.stories.map(c => {
 })
 ---
 <Layout>
-    <div class="max-w-3xl mx-auto">
+    <div class="max-w-3xl mx-auto px-3 sm:px-5">
         <ul
             { ...storyblokEditable(collectionAll) }
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {
                 collectionAll.map(c => (
                     <li>

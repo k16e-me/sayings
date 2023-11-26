@@ -27,12 +27,12 @@ const year = new Date().getFullYear()
 	</head>
 
 	<body class="text-brand-800 text-lg flex min-h-screen flex-col">
-        <header class="flex items-center justify-center text-center p-3">
+        <header class="flex items-center justify-center text-center p-3 sm:p-5 md:p-7 lg:p-9">
             <a href="/" class="inline-block">
                 <Logo classes="h-20 lg:h-28 text-brand-900"/>
             </a>
         </header>
-		<main class="flex-1 py-7 sm:py-9 lg:py-12">
+		<main class="flex-1 py-9 sm:py-12 lg:py-16">
             <slot/>
         </main>
         <footer class="flex items-center justify-center text-center p-3 text-brand-500 text-base">

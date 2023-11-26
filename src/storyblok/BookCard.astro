@@ -7,16 +7,10 @@ const { blok } = Astro.props
 <article
     style={`background-color: #${ blok.pastel }`}
     class="p-3 sm:p-5 h-96">
-    <h2>
+    <h2 class="font-display r-center sm:text-xl">
         { blok.title }
     </h2>
     <div class="h-48 w-48 r-center">
         <img src={blok.illustration.filename} alt="" class="h-32"/>
     </div>
 </article>
-<!--
-<article { ...storyblokEditable(blok) }>
-	<h2>
-        { blok.pastel }
-    </h2>
-</article> -->

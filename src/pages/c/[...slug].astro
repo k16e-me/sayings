@@ -3,6 +3,7 @@ import { useStoryblokApi } from '@storyblok/astro'
 // import StoryblokComponent from '@storyblok/astro/components/StoryblokComponent.astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Layout from '../../layouts/Layout.astro'
+import Wrapper from '../../layouts/Wrapper.astro'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -29,7 +30,7 @@ const { data } = await sbApi.get(`cdn/stories/c/${slug}`, {
 const story = data.story
 ---
 <Layout>
-    <div>
+    <Wrapper>
         <StoryblokComponent blok={ story.content } />
-    </div>
+    </Wrapper>
 </Layout>

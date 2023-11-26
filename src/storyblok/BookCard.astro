@@ -4,15 +4,41 @@ import { storyblokEditable, renderRichText } from '@storyblok/astro'
 const { blok } = Astro.props
 // const content = renderRichText(blok.content)
 
-console.log(blok)
+const pathname = new URL(Astro.request.url).pathname
 ---
-<article
-    style={`background-color: #${ blok.pastel }`}
-    class="p-3 sm:p-5 h-96">
-    <h2 class="font-display r-center sm:text-xl">
-        { blok.title }
-    </h2>
-    <div class="h-48 w-48 r-center">
-        <img src={blok.illustration.filename} alt="" class="h-32"/>
-    </div>
-</article>
+{
+    () => {
+        if (pathname.includes('/c/')) {
+            return (
+                <header class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <div
+                        style={`background-color: #${ blok.pastel }`}
+                        class="p-3 sm:p-5 h-96">
+                        <h1 class="font-display r-center sm:text-xl">
+                            { blok.title }
+                        </h1>
+                        <div class="h-48 w-48 r-center">
+                            <img src={blok.illustration.filename} alt="" class="h-32"/>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi a sit, ex soluta iste assumenda consequatur laborum doloremque unde, laboriosam sint! Magni ab officia iusto modi qui! Dolore, animi consectetur.
+                    </div>
+                </header>
+            )
+        } else {
+            return (
+                <article
+                    style={`background-color: #${ blok.pastel }`}
+                    class="p-3 sm:p-5 h-96">
+                    <h2 class="font-display r-center sm:text-xl">
+                        { blok.title }
+                    </h2>
+                    <div class="h-48 w-48 r-center">
+                        <img src={blok.illustration.filename} alt="" class="h-32"/>
+                    </div>
+                </article>
+            )
+        }
+    }
+}

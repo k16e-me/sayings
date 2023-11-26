@@ -30,8 +30,8 @@ const pathname = new URL(Astro.request.url).pathname
             return (
                 <article
                     style={`background-color: #${ blok.pastel }`}
-                    class="p-3 sm:p-5 h-96">
-                    <h2 class="font-display r-center sm:text-xl">
+                    class="p-3 sm:p-5 h-96 shadow-lg hover:shadow-xl rounded-xl transition duration-300">
+                    <h2 class="font-display r-center sm:text-xl text-brand-950">
                         { blok.title }
                     </h2>
                     <div class="h-48 w-48 r-center">

@@ -1,8 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro'
 import { useStoryblokApi, storyblokEditable } from '@storyblok/astro'
-import BookCard from '../storyblok/BookCard.astro'
+import Layout from '../layouts/Layout.astro'
 import Wrapper from '../layouts/Wrapper.astro'
+import BookCard from '../storyblok/BookCard.astro'
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/home', {

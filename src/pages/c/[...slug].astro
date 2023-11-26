@@ -13,9 +13,9 @@ export async function getStaticPaths() {
 
 	const stories = Object.values(data.stories)
 
-	return stories.map((story: any) => {
+	return stories.map((s: any) => {
 		return {
-			params: { slug: story.slug },
+			params: { slug: s.slug },
 		}
 	})
 }

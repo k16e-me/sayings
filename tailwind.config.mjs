@@ -7,7 +7,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['DM Sans Variable', ...defaultTheme.fontFamily.sans],
-                display: 'Limelight, sans- serif'
+                display: 'Limelight, sans-serif'
             }
         }
 	}

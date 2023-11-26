@@ -2,11 +2,21 @@
 import { storyblokEditable, renderRichText } from '@storyblok/astro'
 
 const { blok } = Astro.props
-const content = renderRichText(blok.content)
+// const content = renderRichText(blok.content)
 ---
-
+<article
+    style={`background-color: #${ blok.pastel }`}
+    class="p-3 sm:p-5 h-96">
+    <h2>
+        { blok.title }
+    </h2>
+    <div class="h-48 w-48 r-center">
+        <img src={blok.illustration.filename} alt="" class="h-32"/>
+    </div>
+</article>
+<!--
 <article { ...storyblokEditable(blok) }>
 	<h2>
         { blok.pastel }
     </h2>
-</article>
+</article> -->

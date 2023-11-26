@@ -26,16 +26,16 @@ const year = new Date().getFullYear()
         </title>
 	</head>
 
-	<body class="text-brand-700 bg-white text-lg flex min-h-screen flex-col">
+	<body class="text-slate-700 bg-white text-lg flex min-h-screen flex-col">
         <header class="r-center p-5 sm:p-7 lg:p-9">
             <a href="/" class="inline-block">
-                <Logo classes="h-20 lg:h-28 fill-brand-950"/>
+                <Logo classes="h-20 lg:h-28 fill-slate-950"/>
             </a>
         </header>
 		<main class="flex-1 py-8 sm:py-12 lg:py-16">
             <slot/>
         </main>
-        <footer class="r-center p-5 text-brand-400 text-base">
+        <footer class="r-center p-5 text-slate-500 text-base">
             <div class="max-w-2xl">
                 { year } { site.preferredName }. All rights waived
             </div>

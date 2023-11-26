@@ -32,7 +32,9 @@ const collectionAll = collection.stories.map(c => {
             {
                 collectionAll.map(c => (
                     <li>
-                        <BookCard blok={c.bookcard[0]}/>
+                        <a href={`/${c.slug}`}>
+                            <BookCard blok={c.bookcard[0]}/>
+                        </a>
                     </li>
                 ))
             }

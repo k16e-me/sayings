@@ -25,10 +25,7 @@ const collectionAll = collection.stories.map(c => {
 	}
 })
 ---
-<Layout>
-    <h1 class="sr-only">
-        { content.title }
-    </h1>
+<Layout pageTitle={ content.title }>
     <Wrapper>
         <ul
             { ...storyblokEditable(collectionAll) }

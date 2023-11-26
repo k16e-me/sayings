@@ -4,6 +4,7 @@ import '@fontsource-variable/dm-sans'
 import Logo from '../components/Logo.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 
+const { pageTitle } = Astro.props
 
 const storyblokApi = useStoryblokApi()
 const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
@@ -27,6 +28,7 @@ const year = new Date().getFullYear()
 	</head>
 
 	<body class="text-slate-700 bg-white text-lg flex min-h-screen flex-col">
+        <h1 class='sr-only'>{ pageTitle }</h1>
         <header class="r-center p-5 sm:p-7 lg:p-9">
             <a href="/" class="inline-block">
                 <Logo classes="h-20 lg:h-28 fill-slate-950"/>

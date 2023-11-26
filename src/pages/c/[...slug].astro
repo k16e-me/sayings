@@ -26,11 +26,10 @@ const { slug } = Astro.params
 const { data } = await sbApi.get(`cdn/stories/c/${slug}`, {
 	version: import.meta.env.DEV ? 'draft' : 'published',
 })
-
-const story = data.story
+const page = data.story
 ---
-<Layout>
+<Layout pageTitle={ page.content.title }>
     <Wrapper>
-        <StoryblokComponent blok={ story.content } />
+        <StoryblokComponent blok={ page.content } />
     </Wrapper>
 </Layout>

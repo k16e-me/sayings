@@ -1,9 +1,5 @@
 ---
-import { storyblokEditable, renderRichText } from '@storyblok/astro'
-
 const { blok } = Astro.props
-// const content = renderRichText(blok.content)
-
 const pathname = new URL(Astro.request.url).pathname
 ---
 {
@@ -14,9 +10,9 @@ const pathname = new URL(Astro.request.url).pathname
                     <div
                         style={`background-color: #${ blok.pastel }`}
                         class="p-7 h-[480px] lg:h-[424px] rounded-xl flex flex-col">
-                        <h1 class="lowercase font-display text-2xl text-slate-950 r-center">
+                        <p class="lowercase font-display text-2xl text-slate-950 r-center">
                             { blok.title }
-                        </h1>
+                        </p>
                         <div class="w-full r-center flex-1">
                             <div class="h-64 w-64 r-center">
                                 <img src={blok.illustration.filename} alt="" class="h-40"/>

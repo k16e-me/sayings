@@ -10,15 +10,17 @@ const pathname = new URL(Astro.request.url).pathname
     () => {
         if (pathname.includes('/c/')) {
             return (
-                <header class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <header class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
                     <div
                         style={`background-color: #${ blok.pastel }`}
-                        class="p-3 sm:p-5 h-96 rounded-xl">
-                        <h1 class="font-display r-center text-xl">
+                        class="p-7 h-[480px] lg:h-[424px] rounded-xl flex flex-col">
+                        <h1 class="font-display r-center text-2xl text-brand-950">
                             { blok.title }
                         </h1>
-                        <div class="h-48 w-48 r-center">
-                            <img src={blok.illustration.filename} alt="" class="h-32"/>
+                        <div class="w-full r-center flex-1">
+                            <div class="h-64 w-64 r-center">
+                                <img src={blok.illustration.filename} alt="" class="h-40"/>
+                            </div>
                         </div>
                     </div>
                     <div class="lg:col-span-2">
@@ -30,13 +32,13 @@ const pathname = new URL(Astro.request.url).pathname
             return (
                 <article
                     style={`background-color: #${ blok.pastel }`}
-                    class="p-5 h-[480px] lg:h-96 hover:shadow-2xl rounded-xl transition duration-300">
+                    class="p-7 h-[480px] lg:h-[424px] hover:shadow-2xl rounded-xl transition duration-300 flex flex-col">
                     <h2 class="font-display r-center text-2xl text-brand-950">
                         { blok.title }
                     </h2>
-                    <div class="w-full r-center">
-                        <div class="h-48 w-48 r-center">
-                            <img src={blok.illustration.filename} alt="" class="h-32"/>
+                    <div class="w-full r-center flex-1">
+                        <div class="h-64 w-64 r-center">
+                            <img src={blok.illustration.filename} alt="" class="h-40"/>
                         </div>
                     </div>
                 </article>

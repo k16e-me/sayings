@@ -27,7 +27,7 @@ const year = new Date().getFullYear()
 	</head>
 
 	<body class="text-brand-200 bg-brand-950 text-lg flex min-h-screen flex-col">
-        <header class="flex items-center justify-center text-center p-4 sm:p-8 lg:p-12">
+        <header class="r-center p-5 sm:p-7 lg:p-9">
             <a href="/" class="inline-block">
                 <Logo classes="h-20 lg:h-28 fill-brand-50"/>
             </a>
@@ -35,7 +35,7 @@ const year = new Date().getFullYear()
 		<main class="flex-1 py-8 sm:py-12 lg:py-16">
             <slot/>
         </main>
-        <footer class="flex items-center justify-center text-center p-3 text-brand-400 text-base">
+        <footer class="r-center p-5 text-brand-400 text-base">
             <div class="max-w-2xl">
                 { year } { site.preferredName }. All rights waived
             </div>

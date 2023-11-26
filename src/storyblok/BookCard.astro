@@ -14,7 +14,7 @@ const pathname = new URL(Astro.request.url).pathname
                     <div
                         style={`background-color: #${ blok.pastel }`}
                         class="p-3 sm:p-5 h-96 rounded-xl">
-                        <h1 class="font-display r-center sm:text-xl">
+                        <h1 class="font-display r-center text-xl">
                             { blok.title }
                         </h1>
                         <div class="h-48 w-48 r-center">
@@ -30,12 +30,14 @@ const pathname = new URL(Astro.request.url).pathname
             return (
                 <article
                     style={`background-color: #${ blok.pastel }`}
-                    class="p-3 sm:p-5 h-96 shadow-xl hover:shadow-2xl rounded-xl transition duration-300">
-                    <h2 class="font-display r-center sm:text-xl text-brand-950">
+                    class="p-5 h-[480px] lg:h-96 hover:shadow-2xl rounded-xl transition duration-300">
+                    <h2 class="font-display r-center text-xl sm:text-2xl text-brand-950">
                         { blok.title }
                     </h2>
-                    <div class="h-48 w-48 r-center">
-                        <img src={blok.illustration.filename} alt="" class="h-32"/>
+                    <div class="w-full r-center">
+                        <div class="h-48 w-48 r-center">
+                            <img src={blok.illustration.filename} alt="" class="h-32"/>
+                        </div>
                     </div>
                 </article>
             )

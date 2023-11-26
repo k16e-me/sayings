@@ -29,10 +29,10 @@ const collectionAll = collection.stories.map(c => {
     <Wrapper>
         <ul
             { ...storyblokEditable(collectionAll) }
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {
                 collectionAll.map(c => (
-                    <li>
+                    <li class="">
                         <a href={`/${c.slug}`}>
                             <BookCard blok={c.bookcard[0]}/>
                         </a>

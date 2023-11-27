@@ -1,6 +1,7 @@
 ---
 import Lipsum from '../components/Lipsum.astro'
 import BookCover from '../components/BookCover.astro'
+import BackTo from '../components/BackTo.astro'
 
 const { blok } = Astro.props
 const pathname = new URL(Astro.request.url).pathname
@@ -10,12 +11,15 @@ const pathname = new URL(Astro.request.url).pathname
         if (pathname.includes('/c/')) {
             return (
                 <header class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-                    <div class="md:sticky top-7">
-                        <BookCover
-                            bg={ blok.pastel }
-                            title={ blok.title }
-                            filename={ blok.illustration.filename }
-                        />
+                    <div class="col-span-1">
+                        <div class="md:sticky top-7 space-y-7 flex flex-col">
+                            <BackTo href={ `/` } text={ 'Collections' }/>
+                            <BookCover
+                                bg={ blok.pastel }
+                                title={ blok.title }
+                                filename={ blok.illustration.filename }
+                            />
+                        </div>
                     </div>
                     <div class="lg:col-span-2">
                         <Lipsum/>

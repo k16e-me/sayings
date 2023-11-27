@@ -10,9 +10,9 @@ const pathname = new URL(Astro.request.url).pathname
     () => {
         if (pathname.includes('/c/')) {
             return (
-                <header class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                <header class="grid grid-cols-1 lg:grid-cols-3 gap-7">
                     <div class="col-span-1">
-                        <div class="md:sticky top-7 space-y-7 flex flex-col">
+                        <div class="lg:sticky top-7 space-y-7 flex flex-col md:items-end lg:items-stretch">
                             <BackTo href={ `/` } text={ 'Collections' }/>
                             <BookCover
                                 bg={ blok.pastel }

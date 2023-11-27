@@ -28,12 +28,12 @@ const year = new Date().getFullYear()
 
 	<body class="text-slate-700 bg-white text-lg flex min-h-screen flex-col">
         <h1 class='sr-only'>{ pageTitle }</h1>
-        <header class="r-center p-5 sm:p-7 lg:p-9">
+        <header class="r-center p-7 sm:p-9">
             <a href="/" class="inline-block">
-                <Logo classes="h-20 lg:h-28 fill-slate-950"/>
+                <Logo classes="h-16 lg:h-20 fill-slate-950"/>
             </a>
         </header>
-		<main class="flex-1 py-8 sm:py-12 lg:py-16">
+		<main class="flex-1 py-5">
             <slot/>
         </main>
         <footer class="r-center p-5 text-slate-500 text-base">

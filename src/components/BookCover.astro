@@ -4,11 +4,11 @@ const { bg, title, filename } = Astro.props
 <div
     style={`background-color: #${ bg }`}
     class="p-7 h-[496px] lg:h-[472px] rounded-xl flex flex-col">
-    <p class="lowercase font-display text-2xl text-slate-950 r-center">
+    <p class="lowercase font-display text-2xl text-slate-950 text-center">
         { title }
     </p>
-    <div class="w-full r-center flex-1">
-        <div class="h-64 w-64 r-center">
+    <div class="w-full flex-1">
+        <div class="h-64 w-64 flex items-center justify-center">
             <img src={ filename } alt="" class="h-40"/>
         </div>
     </div>

@@ -1,26 +1,21 @@
 ---
 import Lipsum from '../components/Lipsum.astro'
+import BookCover from '../components/BookCover.astro'
+
 const { blok } = Astro.props
 const pathname = new URL(Astro.request.url).pathname
-const parent = `/${pathname[1]}`
-console.log(parent)
 ---
 {
     () => {
         if (pathname.includes('/c/')) {
             return (
                 <header class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-                    <div
-                        style={`background-color: #${ blok.pastel }`}
-                        class="p-7 h-[480px] lg:h-[424px] rounded-xl flex flex-col lg:sticky top-7">
-                        <p class="lowercase font-display text-2xl text-slate-950 r-center">
-                            { blok.title }
-                        </p>
-                        <div class="w-full r-center flex-1">
-                            <div class="h-64 w-64 r-center">
-                                <img src={blok.illustration.filename} alt="" class="h-40"/>
-                            </div>
-                        </div>
+                    <div class="md:sticky top-7">
+                        <BookCover
+                            bg={ blok.pastel }
+                            title={ blok.title }
+                            filename={ blok.illustration.filename }
+                        />
                     </div>
                     <div class="lg:col-span-2">
                         <Lipsum/>
@@ -29,17 +24,12 @@ console.log(parent)
             )
         } else {
             return (
-                <article
-                    style={`background-color: #${ blok.pastel }`}
-                    class="p-7 h-[480px] lg:h-[424px] hover:shadow-2xl rounded-xl transition duration-300 flex flex-col">
-                    <h2 class="lowercase font-display text-2xl text-slate-950 r-center">
-                        { blok.title }
-                    </h2>
-                    <div class="w-full r-center flex-1">
-                        <div class="h-64 w-64 r-center">
-                            <img src={blok.illustration.filename} alt="" class="h-40"/>
-                        </div>
-                    </div>
+                <article class="hover:shadow-2xl transition duration-300">
+                    <BookCover
+                        bg={ blok.pastel }
+                        title={ blok.title }
+                        filename={ blok.illustration.filename }
+                    />
                 </article>
             )
         }

@@ -28,7 +28,7 @@ const { data } = await sbApi.get(`cdn/stories/c/${slug}`, {
 const page = data.story
 ---
 <Layout pageTitle={ page.content.title }>
-    <Wrapper>
+    <Wrapper classes="lg:pr-24">
         <StoryblokComponent blok={ page.content } />
     </Wrapper>
 </Layout>

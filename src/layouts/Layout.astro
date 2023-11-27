@@ -2,6 +2,7 @@
 import '@fontsource/limelight'
 import '@fontsource-variable/dm-sans'
 import Logo from '../components/Logo.astro'
+import BackToTop from '../components/BackToTop.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 
 const { pageTitle } = Astro.props
@@ -35,6 +36,9 @@ const year = new Date().getFullYear()
         </header>
 		<main class="flex-1 py-5">
             <slot/>
+            <div class="fixed bottom-48 right-9">
+                <BackToTop/>
+            </div>
         </main>
         <footer class="flex items-center justify-center p-5 text-slate-500 text-base">
             <div class="max-w-2xl">

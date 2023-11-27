@@ -2,6 +2,7 @@
 import Lipsum from '../components/Lipsum.astro'
 import BookCover from '../components/BookCover.astro'
 import BackTo from '../components/BackTo.astro'
+import ChapterToggle from '../components/ChapterToggle.astro'
 
 const { blok } = Astro.props
 const pathname = new URL(Astro.request.url).pathname
@@ -19,6 +20,7 @@ const pathname = new URL(Astro.request.url).pathname
                                 title={ blok.title }
                                 filename={ blok.illustration.filename }
                             />
+                            <ChapterToggle/>
                         </div>
                     </div>
                     <div class="lg:col-span-3">

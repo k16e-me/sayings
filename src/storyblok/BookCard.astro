@@ -1,4 +1,5 @@
 ---
+import Lipsum from '../components/Lipsum.astro'
 const { blok } = Astro.props
 const pathname = new URL(Astro.request.url).pathname
 ---
@@ -9,7 +10,7 @@ const pathname = new URL(Astro.request.url).pathname
                 <header class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
                     <div
                         style={`background-color: #${ blok.pastel }`}
-                        class="p-7 h-[480px] lg:h-[424px] rounded-xl flex flex-col">
+                        class="p-7 h-[480px] lg:h-[424px] rounded-xl flex flex-col lg:sticky top-7">
                         <p class="lowercase font-display text-2xl text-slate-950 r-center">
                             { blok.title }
                         </p>
@@ -20,7 +21,7 @@ const pathname = new URL(Astro.request.url).pathname
                         </div>
                     </div>
                     <div class="lg:col-span-2">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi a sit, ex soluta iste assumenda consequatur laborum doloremque unde, laboriosam sint! Magni ab officia iusto modi qui! Dolore, animi consectetur.
+                        <Lipsum/>
                     </div>
                 </header>
             )

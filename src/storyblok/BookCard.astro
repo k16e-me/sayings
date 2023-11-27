@@ -2,8 +2,8 @@
 import Lipsum from '../components/Lipsum.astro'
 const { blok } = Astro.props
 const pathname = new URL(Astro.request.url).pathname
-const url = new URL(Astro.request.url)
-console.log(url)
+const parent = `/${pathname[1]}`
+console.log(parent)
 ---
 {
     () => {

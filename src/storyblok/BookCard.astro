@@ -2,12 +2,14 @@
 import Lipsum from '../components/Lipsum.astro'
 const { blok } = Astro.props
 const pathname = new URL(Astro.request.url).pathname
+const url = new URL(Astro.request.url)
+console.log(url)
 ---
 {
     () => {
         if (pathname.includes('/c/')) {
             return (
-                <header class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+                <header class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                     <div
                         style={`background-color: #${ blok.pastel }`}
                         class="p-7 h-[480px] lg:h-[424px] rounded-xl flex flex-col lg:sticky top-7">

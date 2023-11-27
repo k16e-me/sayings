@@ -12,7 +12,7 @@ const pathname = new URL(Astro.request.url).pathname
             return (
                 <header class="grid grid-cols-1 lg:grid-cols-3 gap-7">
                     <div class="col-span-1">
-                        <div class="lg:sticky top-7 space-y-7 flex flex-col md:items-end lg:items-stretch">
+                        <div class="lg:sticky top-7 space-y-7 flex flex-col items-end lg:items-stretch">
                             <BackTo href={ `/` } text={ 'Collections' }/>
                             <BookCover
                                 bg={ blok.pastel }
@@ -28,7 +28,7 @@ const pathname = new URL(Astro.request.url).pathname
             )
         } else {
             return (
-                <article class="hover:shadow-2xl transition duration-300">
+                <article class="rounded-xl hover:shadow-2xl transition duration-300">
                     <BookCover
                         bg={ blok.pastel }
                         title={ blok.title }

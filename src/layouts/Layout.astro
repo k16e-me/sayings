@@ -36,9 +36,7 @@ const year = new Date().getFullYear()
         </header>
 		<main class="flex-1 py-5">
             <slot/>
-            <div class="fixed bottom-44 right-3 sm:right-5 lg:right-7">
-                <BackToTop/>
-            </div>
+            <BackToTop/>
         </main>
         <footer class="flex items-center justify-center p-5 text-slate-500 text-base">
             <div class="max-w-2xl">

@@ -11,8 +11,8 @@ const pathname = new URL(Astro.request.url).pathname
     () => {
         if (pathname.includes('/c/')) {
             return (
-                <header class="grid grid-cols-1 lg:grid-cols-5 gap-x-0 gap-y-7 lg:gap-7">
-                    <div class="col-span-2">
+                <header class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-7 lg:gap-7">
+                    <div class="col-span-1">
                         <div class="lg:sticky top-7 space-y-7 flex flex-col items-end lg:items-stretch">
                             <BackTo href={ `/` } text={ 'Collections' }/>
                             <BookCover
@@ -23,7 +23,7 @@ const pathname = new URL(Astro.request.url).pathname
                             <ChapterToggle/>
                         </div>
                     </div>
-                    <div class="lg:col-span-3">
+                    <div class="lg:col-span-2">
                         <Lipsum/>
                     </div>
                 </header>

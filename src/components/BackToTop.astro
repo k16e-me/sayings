@@ -28,4 +28,6 @@ import { Icon } from 'astro-icon'
             backToTop.classList.add(...leave)
         }
     })
+
+    button.addEventListener('click', () => window.scrollTo({ top: 0, left: 0, behavior: 'smooth'}), false)
 </script>

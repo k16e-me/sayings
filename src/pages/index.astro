@@ -9,11 +9,11 @@ const { data } = await storyblokApi.get('cdn/stories/home', {
     version: import.meta.env.DEV ? 'draft' : 'published'
 })
 
-const content = data.story.content
+const page = data.story
 
 const { data: collection } = await storyblokApi.get('cdn/stories/', {
 	version: import.meta.env.DEV ? 'draft' : 'published',
-    content_type: 'Collection',
+    starts_with: `${page.content.list}/`,
     sort_by: 'content.position:desc'
 })
 
@@ -25,7 +25,7 @@ const collectionAll = collection.stories.map(c => {
 	}
 })
 ---
-<Layout pageTitle={ content.title }>
+<Layout pageTitle={ page.content.title }>
     <Wrapper>
         <ul
             { ...storyblokEditable(collectionAll) }

@@ -13,7 +13,10 @@ const { bg, title, filename, subtitle } = Astro.props
         </div>
     </div>
     <div class="flex flex-col text-center text-slate-950 space-y-1">
-        <span class="font-medium text-lg italic text-slate-700">{ `${subtitle} by` }</span>
-        <span class="font-display text-[1.65rem] leading-8">Kabolobari Benakole</span>
+        <span class="block font-medium text-lg italic text-slate-700">{ `${subtitle} by` }</span>
+        <div class="font-display text-[1.65rem] leading-8 flex flex-col">
+            <span>Kabolobari</span>
+            <span>Benakole</span>
+        </div>
     </div>
 </div>

@@ -31,6 +31,7 @@ const pathname = new URL(Astro.request.url).pathname
         } else {
             return (
                 <article class="rounded-xl hover:shadow-2xl transition duration-300">
+                    <h2 class="sr-only">{ blok.title + ' ' + blok.subtitle }</h2>
                     <BookCover
                         bg={ blok.pastel }
                         title={ blok.title }

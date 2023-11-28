@@ -1,5 +1,5 @@
 ---
-const { bg, title, filename } = Astro.props
+const { bg, title, filename, subtitle } = Astro.props
 ---
 <div
     style={`background-color: #${ bg }`}
@@ -12,7 +12,8 @@ const { bg, title, filename } = Astro.props
             <img src={ filename } alt="" class="h-40"/>
         </div>
     </div>
-    <div>
-        
+    <div class="flex flex-col text-center text-slate-950 space-y-1">
+        <span class="font-medium text-lg italic text-slate-700">{ `${subtitle} by` }</span>
+        <span class="font-display text-[1.65rem] leading-8">Kabolobari Benakole</span>
     </div>
 </div>

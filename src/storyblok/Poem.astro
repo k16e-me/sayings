@@ -3,7 +3,7 @@ import { renderRichText } from '@storyblok/astro'
 const { blok } = Astro.props
 const content = renderRichText(blok.poem)
 ---
-<div>
+<article>
     <div class="text-slate-950">
         <h3 class="font-display text-2xl">
             { blok.title }
@@ -12,4 +12,4 @@ const content = renderRichText(blok.poem)
     <div class="mt-4">
         <Fragment set:html={content}/>
     </div>
-</div>
+</article>

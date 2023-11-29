@@ -6,6 +6,7 @@ import Wrapper from '../../layouts/Wrapper.astro'
 import BookCover from '../../components/BookCover.astro'
 import BackTo from '../../components/BackTo.astro'
 import ChapterToggle from '../../components/ChapterToggle.astro'
+import TitlePiece from '../../components/TitlePiece.astro'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -45,6 +46,7 @@ const cover = page.content.cover[0]
                         subtitle={ cover.subtitle }
                     />
                     <ChapterToggle/>
+                    <TitlePiece bg={ cover.pastel }/>
                 </div>
             </div>
             <div class="lg:col-span-2 lg:pt-[82px] r-poem flex justify-center lg:justify-start">
@@ -55,7 +57,7 @@ const cover = page.content.cover[0]
 </Layout>
 
 <style is:global>
-    .r-poem p { @apply text-[1.065rem] leading-[1.625rem]; }
+    .r-poem p { @apply text-[1.055rem] leading-[1.605rem]; }
     .r-poem p:empty { @apply my-5 sm:my-7; }
     .r-poem hr { @apply max-w-[256px]; }
 </style>

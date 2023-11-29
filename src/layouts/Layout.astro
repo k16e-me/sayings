@@ -2,7 +2,7 @@
 import '@fontsource/limelight'
 import '@fontsource-variable/dm-sans'
 import Head from '../components/Head.astro'
-import Logo from '../components/Logo.astro'
+import Header from '../components/Header.astro'
 import BackToTop from '../components/BackToTop.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 
@@ -17,16 +17,12 @@ const year = new Date().getFullYear()
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-	<Head title={ site.title }/>
+	<Head title={ pageTitle + ' | ' + site.title }/>
 	<body class="text-slate-700 bg-white flex min-h-screen flex-col">
         <h1 class='sr-only'>{ pageTitle }</h1>
-        <header class="flex items-center justify-center p-7 sm:p-9">
-            <a href="/" class="inline-block">
-                <Logo classes="h-16 lg:h-20 fill-slate-950"/>
-            </a>
-        </header>
+        <Header/>
 		<main
-            class="flex-1 py-5">
+            class="flex-1 py-3">
             <slot/>
             <BackToTop/>
         </main>

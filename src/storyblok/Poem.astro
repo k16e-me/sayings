@@ -4,12 +4,12 @@ const { blok } = Astro.props
 const content = renderRichText(blok.poem)
 ---
 <div>
-    <div class="text-slate-950 py-5 px-7 bg-slate-100 rounded-xl">
-        <h3 class="font-display text-2xl sm:text-3xl">
+    <div class="text-slate-950">
+        <h3 class="font-display text-2xl">
             { blok.title }
         </h3>
     </div>
-    <div class="mt-7">
+    <div class="mt-5">
         <Fragment set:html={content}/>
     </div>
 </div>

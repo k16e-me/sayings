@@ -33,7 +33,7 @@ const page = data.story
 const cover = page.content.cover[0]
 ---
 <Layout pageTitle={ page.content.title }>
-    <Wrapper classes="lg:pr-20">
+    <Wrapper>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-7 lg:gap-7">
             <div class="col-span-1">
                 <div class="lg:sticky top-7 space-y-7 flex flex-col items-end lg:items-stretch">
@@ -47,9 +47,14 @@ const cover = page.content.cover[0]
                     <ChapterToggle/>
                 </div>
             </div>
-            <div class="lg:col-span-2 lg:pt-[82px]">
+            <div class="lg:col-span-2 lg:pt-[82px] r-poem flex justify-center lg:justify-start">
                 <StoryblokComponent blok={ page.content } />
             </div>
         </div>
     </Wrapper>
 </Layout>
+
+<style is:global>
+    .r-poem p { @apply text-base leading-[22px]; }
+    .r-poem p:empty { @apply my-5 sm:my-7; }
+</style>

@@ -1,7 +1,7 @@
 ---
-import { storyblokEditable, renderRichText } from '@storyblok/astro'
+import { renderRichText } from '@storyblok/astro'
 const { blok } = Astro.props
-// const content = renderRichText(blok.content)
+const content = renderRichText(blok.poem)
 ---
 <div>
     <div class="text-slate-950">
@@ -10,6 +10,6 @@ const { blok } = Astro.props
         </h3>
     </div>
     <div>
-        <!-- <Fragment set:html={content} /> -->
+        <Fragment set:html={content}/>
     </div>
 </div>

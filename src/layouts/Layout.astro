@@ -1,6 +1,7 @@
 ---
 import '@fontsource/limelight'
 import '@fontsource-variable/dm-sans'
+import Head from '../components/Head.astro'
 import Logo from '../components/Logo.astro'
 import BackToTop from '../components/BackToTop.astro'
 import { useStoryblokApi } from '@storyblok/astro'
@@ -16,15 +17,7 @@ const year = new Date().getFullYear()
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8"/>
-		<meta name="description" content="Astro description"/>
-		<meta name="viewport" content="width=device-width"/>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-		<meta name="generator" content={ Astro.generator }/>
-		<title>{ site.title }</title>
-	</head>
-
+	<Head title={ site.title }/>
 	<body class="text-slate-700 bg-white flex min-h-screen flex-col">
         <h1 class='sr-only'>{ pageTitle }</h1>
         <header class="flex items-center justify-center p-7 sm:p-9">

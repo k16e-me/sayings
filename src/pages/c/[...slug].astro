@@ -46,7 +46,10 @@ const cover = page.content.cover[0]
                         subtitle={ cover.subtitle }
                     />
                     <ChapterToggle/>
-                    <TitlePiece bg={ cover.pastel }/>
+                    <TitlePiece
+                        linkFragment={ cover.title }
+                        bg={ cover.pastel }
+                    />
                 </div>
             </div>
             <div class="lg:col-span-2 lg:pt-[82px] r-poem flex justify-center lg:justify-start">

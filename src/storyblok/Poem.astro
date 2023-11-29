@@ -1,11 +1,17 @@
 ---
 import { renderRichText } from '@storyblok/astro'
+import kebabCase from 'lodash/kebabCase'
+
 const { blok } = Astro.props
 const content = renderRichText(blok.poem)
+
+const slugify = str => kebabCase(str.replace(/&/g, '-and-'))
 ---
 <article>
     <div class="text-slate-950">
-        <h3 class="font-display text-2xl">
+        <h3
+            id={ slugify(blok.title.split('.')[1]) }
+            class="font-display text-2xl">
             { blok.title }
         </h3>
     </div>

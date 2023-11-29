@@ -2,7 +2,7 @@
 import { useStoryblokApi, storyblokEditable } from '@storyblok/astro'
 import Layout from '../layouts/Layout.astro'
 import Wrapper from '../layouts/Wrapper.astro'
-import Book from '../storyblok/Book.astro'
+import BookCover from '../components/BookCover.astro'
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/home', {
@@ -20,7 +20,7 @@ const { data: collection } = await storyblokApi.get('cdn/stories/', {
 const collectionAll = collection.stories.map(c => {
 	return {
 		title: c.content.title,
-        book: c.content.body.filter(obj => { return obj.component === 'Book' }),
+        cover: c.content.cover[0],
 		slug: c.full_slug,
 	}
 })
@@ -34,7 +34,15 @@ const collectionAll = collection.stories.map(c => {
                 collectionAll.map(c => (
                     <li>
                         <a href={`/${c.slug}`}>
-                            <Book blok={c.book[0]}/>
+                            <article class="rounded-xl hover:shadow-2xl transition duration-300">
+                                <h2 class="sr-only">{ c.cover.title + ' ' + c.cover.subtitle }</h2>
+                                <BookCover
+                                    bg={ c.cover.pastel }
+                                    title={ c.cover.title }
+                                    filename={ c.cover.illustration.filename }
+                                    subtitle={ c.cover.subtitle }
+                                />
+                            </article>
                         </a>
                     </li>
                 ))

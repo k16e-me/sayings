@@ -3,11 +3,14 @@ import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Layout from '../../layouts/Layout.astro'
 import Wrapper from '../../layouts/Wrapper.astro'
+import BookCover from '../../components/BookCover.astro'
+import BackTo from '../../components/BackTo.astro'
+import ChapterToggle from '../../components/ChapterToggle.astro'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
 	const { data } = await sbApi.get('cdn/stories/', {
-		content_type: 'Collection',
+		starts_with: 'c/',
 		version: import.meta.env.DEV ? 'draft' : 'published',
 	})
 
@@ -25,10 +28,28 @@ const { slug } = Astro.params
 const { data } = await sbApi.get(`cdn/stories/c/${slug}`, {
 	version: import.meta.env.DEV ? 'draft' : 'published',
 })
+
 const page = data.story
+const cover = page.content.cover[0]
 ---
 <Layout pageTitle={ page.content.title }>
     <Wrapper classes="lg:pr-20">
-        <StoryblokComponent blok={ page.content } />
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-7 lg:gap-7">
+            <div class="col-span-1">
+                <div class="lg:sticky top-7 space-y-7 flex flex-col items-end lg:items-stretch">
+                    <BackTo href={ `/` } text={ 'Collections' }/>
+                    <BookCover
+                        bg={ cover.pastel }
+                        title={ cover.title }
+                        filename={ cover.illustration.filename }
+                        subtitle={ cover.subtitle }
+                    />
+                    <ChapterToggle/>
+                </div>
+            </div>
+            <div class="lg:col-span-2">
+                <StoryblokComponent blok={ page.content } />
+            </div>
+        </div>
     </Wrapper>
 </Layout>

@@ -1,5 +1,5 @@
 ---
-import { storyblokEditable, renderRichText } from '@storyblok/astro'
+import { storyblokEditable } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 const { blok } = Astro.props
@@ -8,7 +8,9 @@ const { blok } = Astro.props
 <div {...storyblokEditable(blok)}>
     {
         blok.body?.map((blok: any) => {
-            return <StoryblokComponent blok={ blok } />
+            if (blok > 1) {
+                return <StoryblokComponent blok={ blok } />
+            }
         })
     }
 </div>

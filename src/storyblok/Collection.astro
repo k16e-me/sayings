@@ -5,7 +5,7 @@ import Lipsum from '../components/Lipsum.astro'
 
 const { blok } = Astro.props
 ---
-<div {...storyblokEditable(blok)}>
+<div {...storyblokEditable(blok)} class="space-y-7 sm:space-y-9 lg:space-y-12">
     {
         () => {
             if (blok.poems) {

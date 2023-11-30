@@ -1,0 +1,70 @@
+---
+import Lipsum from './Lipsum.astro'
+import Icon from 'astro-icon'
+const { book = '' } = Astro.props
+---
+<button
+    class="fixed left-3 bottom-20 md:bottom-28 lg:static text-slate-950 z-40"
+    data-toggle-chapters>
+    <div class="flex items-center justify-center text-center lg:space-x-5 w-14 h-14 lg:h-auto bg-slate-100 rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100 pointer-events-none">
+        <Icon name="list" class="w-7"/>
+        <span class="sr-only lg:not-sr-only lg:font-display pointer-events-none">Chapters</span>
+    </div>
+</button>
+<div
+    class="fixed inset-0 bg-slate-950 z-40 overflow-hidden transition duration-500 ease-in-out !m-0 opacity-0 invisible"
+    data-slideover>
+</div>
+<aside class="fixed inset-0 z-50 justify-end items-center w-full h-full opacity-0 invisible hidden">
+    <div class="bg-white sm:max-w-sm rounded-xl lg:rounded-2xl h-full max-h-[calc(100vh-96px)] m-5 lg:mr-12 flex flex-col shadow-xl overflow-hidden">
+        <div class="p-5 bg-slate-100">
+            <h2 class="font-display text-xl">
+                Chapters <span class="sr-only">in { book }</span>
+            </h2>
+        </div>
+        <div class="flex-1 overflow-auto p-3 sm:p-5">
+            <Lipsum>
+        </div>
+    </div>
+</aside>
+
+<style>
+    /* @keyframes to-displayed {
+        0% { @apply opacity-0; }
+        100% { @apply opacity-50; }
+    }
+    @keyframes to-hidden {
+        0% { @apply opacity-50; }
+        100% { @apply opacity-0; }
+    }
+    .r-displayed {
+        animation: to-displayed 500ms linear;
+    }
+    .r-hidden {
+        animation: to-hidden 500ms linear;
+    } */
+</style>
+
+<script>
+    const
+        button = document.querySelector('[data-toggle-chapters]'),
+        backdrop = document.querySelector('[data-slideover]'),
+        chaptersHidden = ['invisible', 'opacity-0'],
+        chaptersVisible = ['visible', 'opacity-50']
+
+    button.addEventListener('click', () => {
+        backdrop.classList.remove('opacity-0')
+        backdrop.classList.add('opacity-50')
+        backdrop.classList.remove(...chaptersHidden)
+        backdrop.classList.add(...chaptersVisible)
+    })
+
+    backdrop.addEventListener('click', () => {
+        backdrop.classList.remove('opacity-50')
+        backdrop.classList.add('opacity-0')
+        document.addEventListener('transitionend', () => {
+            backdrop.classList.remove(...chaptersVisible)
+            backdrop.classList.add(...chaptersHidden)
+        })
+    })
+</script>

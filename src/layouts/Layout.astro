@@ -7,7 +7,7 @@ import Footer from '../components/Footer.astro'
 import BackToTop from '../components/BackToTop.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 
-const { pageTitle } = Astro.props
+const { pageTitle, pageDescription } = Astro.props
 const storyblokApi = useStoryblokApi()
 const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
     version: import.meta.env.DEV ? 'draft' : 'published'
@@ -17,7 +17,10 @@ const site = settings.story.content
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-	<Head title={ pageTitle + ' | ' + site.title }/>
+	<Head
+        title={ pageTitle + ' | ' + site.title }
+        description={ pageDescription }
+    />
 	<body class="text-slate-700 bg-white flex min-h-screen flex-col">
         <h1 class='sr-only'>{ pageTitle }</h1>
         <Header/>

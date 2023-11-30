@@ -25,7 +25,9 @@ const collectionAll = collection.stories.map(c => {
 	}
 })
 ---
-<Layout pageTitle={ page.content.title }>
+<Layout
+    pageTitle={ page.content.title }
+    pageDescription={ page.content.description }>
     <Wrapper>
         <ul
             { ...storyblokEditable(collectionAll) }

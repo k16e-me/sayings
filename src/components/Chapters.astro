@@ -16,16 +16,16 @@ const { book = '' } = Astro.props
 <aside class="fixed inset-y-0 right-0 z-50 flex items-center ml-auto !m-0 h-screen opacity-0 translate-x-full transition duration-300 ease-in-out" data-chapters>
     <div class="bg-white max-w-xs sm:max-w-sm rounded-xl lg:rounded-2xl h-full max-h-[calc(100vh-80px)] mr-3 sm:mr-5 lg:mr-9 overflow-hidden">
         <div class="flex flex-col flex-shrink-0 overflow-hidden w-full h-full">
-            <div class="bg-slate-100 flex items-center justify-between pr-5 shadow">
-                <h2 class="font-display text-xl p-5 h-full">
+            <div class="bg-slate-100 flex items-center justify-between pr-5 shadow h-16">
+                <h2 class="font-display text-xl p-5 h-full flex items-center">
                     Chapters <span class="sr-only">in { book }</span>
                 </h2>
-                <button class="h-12 w-12 flex items-center justify-center rounded-full bg-white shadow hover:shadow-xl" data-close>
-                    <Icon name="close" class="w-6"/>
+                <button class="h-11 w-11 flex items-center justify-center rounded-full bg-white shadow hover:shadow-xl text-slate-950 text-opacity-70 hover:text-opacity-100 transition-opacity duration-300" data-close>
+                    <Icon name="close" class="w-5"/>
                     <span class="sr-only">Close</span>
                 </button>
             </div>
-            <div class="flex-1 overflow-auto p-3 sm:p-5">
+            <div class="flex-1 overflow-auto p-5">
                 <Lipsum />
             </div>
         </div>

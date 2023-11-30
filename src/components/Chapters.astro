@@ -17,9 +17,10 @@ const { book = '' } = Astro.props
 	data-slideover>
 </div>
 <aside
-	class='fixed inset-0 z-50 justify-end items-center w-full h-full opacity-0 invisible hidden'>
+	class='fixed inset-y-0 right-5 z-50 flex items-center justify-end !m-0 h-full opacity-0 translate-x-full transition duration-300 ease-in-out'
+    data-chapters>
 	<div
-		class='bg-white sm:max-w-sm rounded-xl lg:rounded-2xl h-full max-h-[calc(100vh-96px)] m-5 lg:mr-12 flex flex-col shadow-xl overflow-hidden'>
+		class='bg-white sm:max-w-sm rounded-xl lg:rounded-2xl h-full max-h-[calc(100vh-96px)] flex flex-col shadow-xl overflow-hidden'>
 		<div class='p-5 bg-slate-100'>
 			<h2 class='font-display text-xl'>
 				Chapters <span class='sr-only'>in { book }</span>
@@ -35,19 +36,26 @@ const { book = '' } = Astro.props
     const
         button = document.querySelector('[data-toggle-chapters]'),
         backdrop = document.querySelector('[data-slideover]'),
+        chapters = document.querySelector('[data-chapters]'),
+        translateIn = ['translate-x-0', 'opacity-100'],
+        translateOut = ['translate-x-full', 'opacity-0'],
         hidden = ['invisible']
 
     button.addEventListener('click', () => {
         backdrop.classList.remove('opacity-0')
         backdrop.classList.add('opacity-60')
         backdrop.classList.remove(...hidden)
+        chapters.classList.add(...translateIn)
+        chapters.classList.remove(...translateOut)
     })
 
     backdrop.addEventListener('click', () => {
         backdrop.classList.add('opacity-0')
         backdrop.classList.remove('opacity-60')
+        chapters.classList.remove(...translateIn)
+        chapters.classList.add(...translateOut)
         setTimeout(() => {
             backdrop.classList.add(...hidden)
-        }, 500)
+        }, 300)
     })
 </script>

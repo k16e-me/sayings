@@ -3,37 +3,33 @@ import Lipsum from './Lipsum.astro'
 import Icon from 'astro-icon'
 const { book = '' } = Astro.props
 ---
-<button
-	class='fixed left-3 bottom-20 md:bottom-28 lg:static text-slate-950 z-40'
-	data-toggle-chapters>
-	<div
-		class='flex items-center justify-center text-center lg:space-x-5 w-14 h-14 lg:h-auto bg-slate-100 rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-xl transition duration-700 opacity-80 hover:opacity-100 pointer-events-none'>
-		<Icon name='list' class='w-7' />
-		<span class='sr-only lg:not-sr-only lg:font-display pointer-events-none'>Chapters</span>
-	</div>
+<button class="fixed left-3 bottom-20 md:bottom-28 lg:static text-slate-950 z-40" data-toggle-chapters>
+    <div
+        class="flex items-center justify-center text-center lg:space-x-5 w-14 h-14 lg:h-auto bg-slate-100 rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-xl transition duration-700 opacity-80 hover:opacity-100 pointer-events-none">
+        <Icon name="list" class="w-7"/>
+        <span class="sr-only lg:not-sr-only lg:font-display pointer-events-none">Chapters</span>
+    </div>
 </button>
 
-<div
-	class='fixed inset-0 bg-slate-950 z-40 overflow-hidden transition duration-500 ease-in-out !m-0 opacity-0 invisible'
-	data-slideover>
-</div>
+<div class="fixed inset-0 bg-slate-950 z-40 overflow-hidden transition duration-500 ease-in-out !m-0 opacity-0 invisible" data-slideover></div>
 
-<aside
-	class='fixed inset-y-0 right-0 z-50 flex items-center ml-auto !m-0 h-screen opacity-0 translate-x-full transition duration-300 ease-in-out'
-    data-chapters>
-	<div
-		class='bg-white max-w-xs sm:max-w-sm rounded-xl lg:rounded-2xl h-full max-h-[calc(100vh-96px)] mr-3 sm:mr-5 lg:mr-12 overflow-hidden'>
-		<div class="flex flex-col flex-shrink-0 overflow-hidden w-full h-full">
-            <div class='p-5 bg-slate-100'>
-                <h2 class='font-display text-xl'>
-                    Chapters <span class='sr-only'>in { book }</span>
+<aside class="fixed inset-y-0 right-0 z-50 flex items-center ml-auto !m-0 h-screen opacity-0 translate-x-full transition duration-300 ease-in-out" data-chapters>
+    <div class="bg-white max-w-xs sm:max-w-sm rounded-xl lg:rounded-2xl h-full max-h-[calc(100vh-96px)] mr-3 sm:mr-5 lg:mr-12 overflow-hidden">
+        <div class="flex flex-col flex-shrink-0 overflow-hidden w-full h-full">
+            <div class="bg-slate-100 flex items-center justify-between pr-5">
+                <h2 class="font-display text-xl p-5 h-full">
+                    Chapters <span class="sr-only">in { book }</span>
                 </h2>
+                <button class="h-12 w-12 flex items-center justify-center rounded-full bg-white shadow hover:shadow-xl" data-close>
+                    <Icon name="close" class="w-6"/>
+                    <span class="sr-only">Close</span>
+                </button>
             </div>
-            <div class='flex-1 overflow-auto p-3 sm:p-5'>
+            <div class="flex-1 overflow-auto p-3 sm:p-5">
                 <Lipsum />
             </div>
         </div>
-	</div>
+    </div>
 </aside>
 
 <script>
@@ -41,6 +37,7 @@ const { book = '' } = Astro.props
         button = document.querySelector('[data-toggle-chapters]'),
         backdrop = document.querySelector('[data-slideover]'),
         chapters = document.querySelector('[data-chapters]'),
+        close = document.querySelector('[data-close]'),
         translateIn = ['translate-x-0', 'opacity-100'],
         translateOut = ['translate-x-full', 'opacity-0'],
         body = document.body,
@@ -55,7 +52,10 @@ const { book = '' } = Astro.props
         chapters.classList.remove(...translateOut)
     })
 
-    backdrop.addEventListener('click', () => {
+    backdrop.addEventListener('click', () => removeSlideover())
+    close.addEventListener('click', () => removeSlideover())
+
+    function removeSlideover() {
         body.style.overflow = ''
         backdrop.classList.add('opacity-0')
         backdrop.classList.remove('opacity-60')
@@ -64,5 +64,5 @@ const { book = '' } = Astro.props
         setTimeout(() => {
             backdrop.classList.add(...hidden)
         }, 300)
-    })
+    }
 </script>

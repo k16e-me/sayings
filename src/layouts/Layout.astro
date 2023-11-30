@@ -21,7 +21,9 @@ const site = settings.story.content
         title={ pageTitle + ' - ' + site.title }
         description={ pageDescription }
     />
-	<body class="text-slate-700 bg-white flex min-h-screen flex-col">
+	<body
+        class="text-slate-700 bg-white flex min-h-screen flex-col"
+        data-body>
         <h1 class='sr-only'>{ pageTitle }</h1>
         <Header/>
 		<main class="flex-1 relative">

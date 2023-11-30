@@ -3,25 +3,18 @@ import Lipsum from './Lipsum.astro'
 const { book = '' } = Astro.props
 ---
 <div
-    class="fixed inset-0 bg-slate-950 bg-opacity-60 z-50 overflow-hidden flex items-center justify-end translate-x-full opacity-0"
+    class="fixed inset-0 bg-slate-950 z-40 overflow-hidden flex items-center justify-end opacity-50 transition duration-300"
     data-slideover>
-    <div data-slideover-content class="flex justify-end items-center w-full h-full max-h-[calc(100vh-96px)] m-5 lg:mr-12">
-        <aside class="bg-white sm:max-w-sm rounded-xl lg:rounded-2xl h-full flex flex-col shadow-xl overflow-hidden">
-            <div class="p-5 bg-slate-100">
-                <h2 class="font-display text-xl">
-                    Chapters <span class="sr-only">in { book }</span>
-                </h2>
-            </div>
-            <div class="flex-1 overflow-auto p-3 sm:p-5">
-                <Lipsum>
-            </div>
-        </aside>
-    </div>
 </div>
-
-<script>
-    const
-        toggle = document.querySelector('[data-toggle-chapters-panel]')
-
-    console.log(toggle)
-</script>
+<aside class="fixed inset-0 z-50 flex justify-end items-center w-full h-full">
+    <div class="bg-white sm:max-w-sm rounded-xl lg:rounded-2xl h-full max-h-[calc(100vh-96px)] m-5 lg:mr-12 flex flex-col shadow-xl overflow-hidden">
+        <div class="p-5 bg-slate-100">
+            <h2 class="font-display text-xl">
+                Chapters <span class="sr-only">in { book }</span>
+            </h2>
+        </div>
+        <div class="flex-1 overflow-auto p-3 sm:p-5">
+            <Lipsum>
+        </div>
+    </div>
+</>

@@ -7,6 +7,7 @@ import BookCover from '../../components/BookCover.astro'
 import BackTo from '../../components/BackTo.astro'
 import ChapterToggle from '../../components/ChapterToggle.astro'
 import TitlePiece from '../../components/TitlePiece.astro'
+import ChaptersPanel from '../../components/ChaptersPanel.astro'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -57,6 +58,7 @@ const cover = page.content.cover[0]
             </div>
         </div>
     </Wrapper>
+    <!-- <ChaptersPanel book={ cover.title }/> -->
 </Layout>
 
 <style is:global>

@@ -1,0 +1,24 @@
+---
+const { book = '' } = Astro.props
+---
+<div
+    class="fixed inset-0 bg-slate-950 bg-opacity-60 z-50 overflow-hidden"
+    data-slideover>
+    <aside class="">
+        <div>
+            <h2 class="font-display text-2xl">
+                Chapters in { book }
+            </h2>
+        </div>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, aliquam sunt eligendi repellat ipsa voluptas sequi, recusandae expedita quas, assumenda voluptates! Nemo vitae beatae expedita! Veritatis incidunt culpa saepe eius.
+        </div>
+    </aside>
+</div>
+
+<script>
+    const
+        toggle = document.querySelector('[data-toggle-chapters-panel]')
+
+    console.log(toggle)
+</script>

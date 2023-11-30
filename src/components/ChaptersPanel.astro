@@ -2,18 +2,20 @@
 const { book = '' } = Astro.props
 ---
 <div
-    class="fixed inset-0 bg-slate-950 bg-opacity-60 z-50 overflow-hidden"
+    class="fixed inset-0 bg-slate-950 bg-opacity-60 z-50 overflow-hidden flex items-center justify-end "
     data-slideover>
-    <aside class="">
-        <div>
-            <h2 class="font-display text-2xl">
-                Chapters in { book }
-            </h2>
-        </div>
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, aliquam sunt eligendi repellat ipsa voluptas sequi, recusandae expedita quas, assumenda voluptates! Nemo vitae beatae expedita! Veritatis incidunt culpa saepe eius.
-        </div>
-    </aside>
+    <div data-slideover-content class="flex justify-end items-center w-full h-full max-h-[calc(100vh-96px)] m-5 lg:mr-12">
+        <aside class="bg-white sm:max-w-sm rounded-xl h-full flex flex-col shadow-xl">
+            <div>
+                <h2 class="font-display text-2xl">
+                    Chapters in { book }
+                </h2>
+            </div>
+            <div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, aliquam sunt eligendi repellat ipsa voluptas sequi, recusandae expedita quas, assumenda voluptates! Nemo vitae beatae expedita! Veritatis incidunt culpa saepe eius.
+            </div>
+        </aside>
+    </div>
 </div>
 
 <script>

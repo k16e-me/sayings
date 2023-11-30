@@ -1,18 +1,19 @@
 ---
+import Lipsum from './Lipsum.astro'
 const { book = '' } = Astro.props
 ---
 <div
-    class="fixed inset-0 bg-slate-950 bg-opacity-60 z-50 overflow-hidden flex items-center justify-end "
+    class="fixed inset-0 bg-slate-950 bg-opacity-60 z-50 overflow-hidden flex items-center justify-end translate-x-full opacity-0"
     data-slideover>
     <div data-slideover-content class="flex justify-end items-center w-full h-full max-h-[calc(100vh-96px)] m-5 lg:mr-12">
-        <aside class="bg-white sm:max-w-sm rounded-xl h-full flex flex-col shadow-xl">
-            <div>
-                <h2 class="font-display text-2xl">
-                    Chapters in { book }
+        <aside class="bg-white sm:max-w-sm rounded-xl lg:rounded-2xl h-full flex flex-col shadow-xl overflow-hidden">
+            <div class="p-5 bg-slate-100">
+                <h2 class="font-display text-xl">
+                    Chapters <span class="sr-only">in { book }</span>
                 </h2>
             </div>
-            <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, aliquam sunt eligendi repellat ipsa voluptas sequi, recusandae expedita quas, assumenda voluptates! Nemo vitae beatae expedita! Veritatis incidunt culpa saepe eius.
+            <div class="flex-1 overflow-auto p-3 sm:p-5">
+                <Lipsum>
             </div>
         </aside>
     </div>

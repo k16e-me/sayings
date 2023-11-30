@@ -14,7 +14,7 @@ const { book = '' } = Astro.props
 <div class="fixed inset-0 bg-slate-950 z-40 overflow-hidden transition duration-500 ease-in-out !m-0 opacity-0 invisible" data-slideover></div>
 
 <aside class="fixed inset-y-0 right-0 z-50 flex items-center ml-auto !m-0 h-screen opacity-0 translate-x-full transition duration-300 ease-in-out" data-chapters>
-    <div class="bg-white max-w-xs sm:max-w-sm rounded-xl lg:rounded-2xl h-full max-h-[calc(100vh-96px)] mr-3 sm:mr-5 lg:mr-12 overflow-hidden">
+    <div class="bg-white max-w-xs sm:max-w-sm rounded-xl lg:rounded-2xl h-full max-h-[calc(100vh-80px)] mr-3 sm:mr-5 lg:mr-9 overflow-hidden">
         <div class="flex flex-col flex-shrink-0 overflow-hidden w-full h-full">
             <div class="bg-slate-100 flex items-center justify-between pr-5 shadow">
                 <h2 class="font-display text-xl p-5 h-full">
@@ -63,6 +63,6 @@ const { book = '' } = Astro.props
         chapters.classList.add(...translateOut)
         setTimeout(() => {
             backdrop.classList.add(...hidden)
-        }, 300)
+        }, 700)
     }
 </script>

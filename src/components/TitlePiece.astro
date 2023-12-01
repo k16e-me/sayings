@@ -6,7 +6,7 @@ import FabToCard from './FabToCard.astro'
 const { linkFragment, bg } = Astro.props
 const slugify = str => kebabCase(str.replace(/&/g, '-and-'))
 ---
-<div class="fixed left-3 bottom-3 md:bottom-10 lg:static text-slate-950">
+<div class="fixed left-3 bottom-3 md:bottom-10 lg:static">
     <a href={ `#${slugify(linkFragment)}` }>
         <FabToCard bg={ bg }>
             <Icon name="paperclip" class="w-7"/>

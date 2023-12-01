@@ -1,16 +1,16 @@
 ---
 import Icon from 'astro-icon'
 import kebabCase from 'lodash/kebabCase'
+import FabToCard from './FabToCard.astro'
 
-const { linkFragment, bg, classes = '' } = Astro.props
+const { linkFragment, bg } = Astro.props
 const slugify = str => kebabCase(str.replace(/&/g, '-and-'))
 ---
 <div class="fixed left-3 bottom-3 md:bottom-10 lg:static text-slate-950">
-    <a
-        href={ `#${slugify(linkFragment)}` }
-        class="flex items-center justify-center text-center lg:space-x-5 w-14 h-14 lg:h-auto rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow-sm hover:shadow-xl transition duration-300"
-        style={`background-color: #${ bg }`}>
-        <Icon name="paperclip" class="w-7"/>
-        <h2 class="sr-only lg:not-sr-only lg:font-display pointer-events-none">Title Piece</h2>
+    <a href={ `#${slugify(linkFragment)}` }>
+        <FabToCard bg={ bg }>
+            <Icon name="paperclip" class="w-7"/>
+            <h2 class="sr-only lg:not-sr-only lg:font-display pointer-events-none">Title Piece</h2>
+        </FabToCard>
     </a>
 </div>

@@ -23,11 +23,13 @@ import { Icon } from 'astro-icon'
             backToTop.classList.add(...enter)
             backToTop.classList.remove(...leave)
         }
-        else {
-            backToTop.classList.remove(...enter)
-            backToTop.classList.add(...leave)
-        }
+        else removeBackToTop()
     })
 
     button.addEventListener('click', () => window.scrollTo({ top: 0, left: 0, behavior: 'smooth'}), false)
+
+    function removeBackToTop() {
+        backToTop.classList.remove(...enter)
+        backToTop.classList.add(...leave)
+    }
 </script>

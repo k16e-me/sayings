@@ -5,8 +5,8 @@ import Layout from '../../layouts/Layout.astro'
 import Wrapper from '../../layouts/Wrapper.astro'
 import BookCover from '../../components/BookCover.astro'
 import BackTo from '../../components/BackTo.astro'
-import Chapters from '../../components/Chapters.astro'
 import TitlePiece from '../../components/TitlePiece.astro'
+import Icon from 'astro-icon'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -45,7 +45,13 @@ const cover = page.content.cover[0]
                         filename={ cover.illustration.filename }
                         subtitle={ cover.subtitle }
                     />
-                    <Chapters book={ cover.title }/>
+                    <button class="fixed left-3 bottom-20 md:bottom-28 lg:static text-slate-950 z-40" data-toggle-chapters>
+                        <div
+                            class="flex items-center justify-center text-center lg:space-x-5 w-14 h-14 lg:h-auto bg-slate-100 rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-xl transition duration-700 opacity-80 hover:opacity-100 pointer-events-none">
+                            <Icon name="list" class="w-7"/>
+                            <span class="sr-only lg:not-sr-only lg:font-display pointer-events-none">Chapters</span>
+                        </div>
+                    </button>
                     <TitlePiece
                         linkFragment={ cover.title }
                         bg={ cover.pastel }

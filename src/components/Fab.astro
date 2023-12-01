@@ -1,0 +1,38 @@
+---
+const { id, small, asDiv } = Astro.props
+---
+{
+    () => {
+        if (small) {
+            return (
+                <button
+                    class='h-11 w-11 bg-white'
+                    id={ id }>
+                    <slot/>
+                </button>
+            )
+        } else if (asDiv) {
+            return (
+                <div
+                    class='h-14 w-14 bg-slate-100'
+                    id={ id }>
+                    <slot/>
+                </div>
+            )
+        } else {
+            return (
+                <button
+                    class='h-14 w-14 bg-slate-100'
+                    id={ id }>
+                    <slot/>
+                </button>
+            )
+        }
+    }
+}
+
+<style>
+    button, div {
+        @apply flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300;
+    }
+</style>

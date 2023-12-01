@@ -1,11 +1,14 @@
 ---
+import Fab from './Fab.astro'
 import { Icon } from 'astro-icon'
 
 const { href, text } = Astro.props
 ---
 <a
     href={ href }
-    class="flex items-center justify-center self-end h-14 w-14 rounded-full bg-slate-100 px-7 shadow hover:shadow-xl transition duration-300 text-slate-950 opacity-75 hover:opacity-100">
-    <Icon name="arrow-left" class="w-7"/>
-    <span class="font-display sr-only">{ text }</span>
+    class="self-end">
+    <Fab asDiv>
+        <Icon name="arrow-left" class="w-7"/>
+        <span class="font-display sr-only">{ text }</span>
+    </Fab>
 </a>

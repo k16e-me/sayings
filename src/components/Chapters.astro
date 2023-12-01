@@ -1,6 +1,7 @@
 ---
 import Lipsum from './Lipsum.astro'
 import Icon from 'astro-icon'
+import Backdrop from './Backdrop.astro'
 const { book = '' } = Astro.props
 ---
 <button class="fixed left-3 bottom-20 md:bottom-28 lg:static text-slate-950 z-40" data-toggle-chapters>
@@ -11,7 +12,7 @@ const { book = '' } = Astro.props
     </div>
 </button>
 
-<div class="fixed inset-0 bg-slate-950 z-40 overflow-hidden transition duration-500 ease-in-out !m-0 opacity-0 invisible" data-slideover></div>
+<Backdrop/>
 
 <aside class="fixed inset-y-0 right-0 z-50 flex items-center ml-auto !m-0 h-screen opacity-0 translate-x-full transition duration-300 ease-in-out" data-chapters>
     <div class="bg-white max-w-xs sm:max-w-sm rounded-xl lg:rounded-2xl h-full max-h-[calc(100vh-80px)] mr-3 sm:mr-5 lg:mr-9 overflow-hidden">
@@ -63,6 +64,6 @@ const { book = '' } = Astro.props
         chapters.classList.add(...translateOut)
         setTimeout(() => {
             backdrop.classList.add(...hidden)
-        }, 700)
+        }, 500)
     }
 </script>

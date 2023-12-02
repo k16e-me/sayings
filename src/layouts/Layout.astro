@@ -9,7 +9,7 @@ import Backdrop from '../components/Backdrop.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 import Chapters from '../components/Chapters.astro'
 
-const { pageTitle, pageDescription } = Astro.props
+const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 const storyblokApi = useStoryblokApi()
 const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
     version: import.meta.env.DEV ? 'draft' : 'published'
@@ -22,7 +22,7 @@ const site = settings.story.content
 	<Head
         title={ `${ site.title } | ${ pageTitle }` }
         description={ pageDescription }
-        image="/test.jpg"
+        image={ pageThumbnail || '/test.jpg' }
     />
 	<body
         class="text-slate-700 bg-white flex min-h-screen flex-col"

@@ -21,7 +21,7 @@ const site = settings.story.content
 <html lang="en" class="scroll-smooth">
 	<Head
         title={ `${ site.title } | ${ pageTitle }` }
-        description={ pageDescription }
+        description={ pageDescription || '' }
         image={ pageThumbnail || '/test.jpg' }
     />
 	<body

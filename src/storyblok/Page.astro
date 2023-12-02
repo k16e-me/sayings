@@ -8,9 +8,7 @@ const { blok } = Astro.props
 <div {...storyblokEditable(blok)}>
     {
         blok.body?.map((blok: any) => {
-            if (blok > 1) {
-                return <StoryblokComponent blok={ blok } />
-            }
+            return <StoryblokComponent blok={ blok } />
         })
     }
 </div>

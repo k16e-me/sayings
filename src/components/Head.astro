@@ -1,6 +1,6 @@
 ---
 import { SEO } from 'astro-seo'
-const { title, description = '' } = Astro.props
+const { title, image, description = '' } = Astro.props
 ---
 <head>
 	<meta charset='UTF-8' />
@@ -10,5 +10,12 @@ const { title, description = '' } = Astro.props
         title={ title }
         titleDefault="These are the Sayings of Kabolobari"
         description={ description }
+        openGraph={{
+            basic: {
+                title: title ,
+                type: 'website',
+                image: image,
+            }
+        }}
     />
 </head>

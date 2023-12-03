@@ -8,9 +8,9 @@ const { blok } = Astro.props
 <div {...storyblokEditable(blok)} class="space-y-12 sm:space-y-16 lg:space-y-20">
     {
         () => {
-            if (blok.poems) {
+            if (blok.pieces) {
                 return (
-                    blok.poems.map((blok: any) => {
+                    blok.pieces.map((blok: any) => {
                         return <StoryblokComponent blok={ blok } />
                     })
                 )

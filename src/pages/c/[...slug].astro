@@ -63,7 +63,7 @@ const pageTitle = page.content.title
                     </div>
                 </div>
             </div>
-            <div class="lg:col-span-2 lg:pt-16 lg:mt-1.5 r-poem flex justify-center lg:justify-start">
+            <div class="lg:col-span-2 lg:pt-16 lg:mt-1.5 r-piece flex justify-center lg:justify-start">
                 <StoryblokComponent blok={ page.content }/>
             </div>
         </div>
@@ -71,7 +71,7 @@ const pageTitle = page.content.title
     <Chapters book={ pageTitle }>
         <ul>
             {
-                page.content.poems.map(p => (
+                page.content.pieces.map(p => (
                     <li>
                         <ListLink
                             title={ p.title }
@@ -85,7 +85,7 @@ const pageTitle = page.content.title
 </Layout>
 
 <style is:global>
-    .r-poem p { @apply text-[1.055rem] leading-[1.605rem]; }
-    .r-poem p:empty { @apply my-6; }
-    .r-poem hr { @apply max-w-[256px]; }
+    .r-piece p { @apply text-[1.055rem] leading-[1.605rem]; }
+    .r-piece p:empty { @apply my-6; }
+    .r-piece hr { @apply max-w-[256px]; }
 </style>

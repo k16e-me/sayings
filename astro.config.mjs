@@ -13,7 +13,7 @@ export default defineConfig({
             components: {
                 page: 'storyblok/Page',
                 collection: 'storyblok/Collection',
-                poem: 'storyblok/Poem'
+                piece: 'storyblok/piece'
             }
         })
     ],

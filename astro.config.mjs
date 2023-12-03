@@ -16,5 +16,6 @@ export default defineConfig({
                 poem: 'storyblok/Poem'
             }
         })
-    ]
+    ],
+    site: 'https://sayings.cc'
 })

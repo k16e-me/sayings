@@ -19,7 +19,8 @@ export default defineConfig({
     ],
     site: 'https://sayings.cc',
     prefetch: {
-        prefetchAll: true
+        prefetchAll: true,
+        defaultStrategy: 'viewport'
     },
     // trailingSlash: 'never'
 })

@@ -77,7 +77,7 @@ const pageTitle = page.content.title
                         <ul>
                             {
                                 page.content.pieces.map(p => (
-                                    <li>
+                                    <li class="border-b border-dashed border-slate-300 last:border-0">
                                         <ListLink
                                             title={ p.title }
                                             linkFragment={ p.title.split('.')[1] }

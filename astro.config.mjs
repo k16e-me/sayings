@@ -18,5 +18,8 @@ export default defineConfig({
         })
     ],
     site: 'https://sayings.cc',
+    prefetch: {
+        prefetchAll: true
+    },
     // trailingSlash: 'never'
 })

@@ -18,7 +18,7 @@ const { book = '' } = Astro.props
                     <span class="sr-only">Close</span>
                 </Fab>
             </div>
-            <div class="flex-1 overflow-auto p-3">
+            <div class="flex-1 overflow-auto p-5">
                 <slot/>
             </div>
         </div>
@@ -40,7 +40,7 @@ const { book = '' } = Astro.props
     button.addEventListener('click', () => {
         body.style.overflow = 'hidden'
         backdrop.classList.remove('opacity-0')
-        backdrop.classList.add('opacity-60')
+        backdrop.classList.add('opacity-50')
         backdrop.classList.remove(...hidden)
         chapters.classList.add(...translateIn)
         chapters.classList.remove(...translateOut)
@@ -53,7 +53,7 @@ const { book = '' } = Astro.props
     function removeSlideover() {
         body.style.overflow = 'auto'
         backdrop.classList.add('opacity-0')
-        backdrop.classList.remove('opacity-60')
+        backdrop.classList.remove('opacity-50')
         chapters.classList.remove(...translateIn)
         chapters.classList.add(...translateOut)
         setTimeout(() => {

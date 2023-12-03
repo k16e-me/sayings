@@ -6,7 +6,8 @@ const slugify = str => kebabCase(str.replace(/&/g, '-and-'))
 ---
 <a
     href={ `#${slugify(linkFragment)}` }
-    class="flex items-center p-3 hover:bg-slate-100 transition duration-300">
+    class="flex items-center p-3 hover:bg-slate-100 transition duration-300"
+    data-link>
     <span>
         { title }
     </span>

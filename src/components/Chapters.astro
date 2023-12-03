@@ -34,7 +34,8 @@ const { book = '' } = Astro.props
         translateIn = ['translate-x-0', 'opacity-100'],
         translateOut = ['translate-x-full', 'opacity-0'],
         body = document.body,
-        hidden = ['invisible']
+        hidden = ['invisible'],
+        links = Array.from(document.querySelectorAll('[data-link]'))
 
     button.addEventListener('click', () => {
         body.style.overflow = 'hidden'
@@ -47,6 +48,7 @@ const { book = '' } = Astro.props
 
     backdrop.addEventListener('click', () => removeSlideover())
     close.addEventListener('click', () => removeSlideover())
+    links.map(link => link.addEventListener('click', () => removeSlideover()))
 
     function removeSlideover() {
         body.style.overflow = 'auto'

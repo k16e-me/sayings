@@ -18,5 +18,5 @@ export default defineConfig({
         })
     ],
     site: 'https://sayings.cc',
-    trailingSlash: 'never'
+    // trailingSlash: 'never'
 })

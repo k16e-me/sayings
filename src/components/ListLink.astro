@@ -1,10 +1,10 @@
 ---
 import kebabCase from 'lodash/kebabCase'
 
-const { href, id, title } = Astro.props
+const { linkFragment, title } = Astro.props
 const slugify = str => kebabCase(str.replace(/&/g, '-and-'))
 ---
-<a href={ `#${slugify(href)}` }>
+<a href={ `#${slugify(linkFragment)}` }>
     <span>
         { title }
     </span>

@@ -9,6 +9,7 @@ import TitlePiece from '../../components/TitlePiece.astro'
 import FabToCard from '../../components/FabToCard.astro'
 import Icon from 'astro-icon'
 import Chapters from '../../components/Chapters.astro'
+import ListLink from '../../components/ListLink.astro'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -67,7 +68,20 @@ const pageTitle = page.content.title
             </div>
         </div>
     </Wrapper>
-    <Chapters book={ pageTitle } />
+    <Chapters book={ pageTitle }>
+        <ul>
+            {
+                page.content.poems.map(p => (
+                    <li>
+                        <ListLink
+                            title={ p.title }
+                            href={ p.title.split('.')[1] }
+                        />
+                    </li>
+                ))
+            }
+        </ul>
+    </Chapters>
 </Layout>
 
 <style is:global>

@@ -13,7 +13,7 @@ export default defineConfig({
             components: {
                 page: 'storyblok/Page',
                 collection: 'storyblok/Collection',
-                piece: 'storyblok/piece'
+                piece: 'storyblok/Piece'
             }
         })
     ],
@@ -21,6 +21,5 @@ export default defineConfig({
     prefetch: {
         prefetchAll: true,
         defaultStrategy: 'viewport'
-    },
-    // trailingSlash: 'never'
+    }
 })

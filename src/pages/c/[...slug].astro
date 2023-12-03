@@ -10,6 +10,7 @@ import FabToCard from '../../components/FabToCard.astro'
 import Icon from 'astro-icon'
 import Chapters from '../../components/Chapters.astro'
 import ListLink from '../../components/ListLink.astro'
+import Lipsum from '../../components/Lipsum.astro'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -69,18 +70,28 @@ const pageTitle = page.content.title
         </div>
     </Wrapper>
     <Chapters book={ pageTitle }>
-        <ul>
-            {
-                page.content.pieces.map(p => (
-                    <li>
-                        <ListLink
-                            title={ p.title }
-                            linkFragment={ p.title.split('.')[1] }
-                        />
-                    </li>
-                ))
+        {
+            () => {
+                if (page.content.pieces) {
+                    return (
+                        <ul>
+                            {
+                                page.content.pieces.map(p => (
+                                    <li>
+                                        <ListLink
+                                            title={ p.title }
+                                            linkFragment={ p.title.split('.')[1] }
+                                        />
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    )
+                } else {
+                    return <Lipsum/>
+                }
             }
-        </ul>
+        }
     </Chapters>
 </Layout>
 

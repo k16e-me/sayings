@@ -8,6 +8,7 @@ import BackTo from '../../components/BackTo.astro'
 import TitlePiece from '../../components/TitlePiece.astro'
 import FabToCard from '../../components/FabToCard.astro'
 import Icon from 'astro-icon'
+import Chapters from '../../components/Chapters.astro'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -33,8 +34,9 @@ const { data } = await sbApi.get(`cdn/stories/c/${slug}`, {
 
 const page = data.story
 const cover = page.content.cover[0]
+const pageTitle = page.content.title
 ---
-<Layout pageTitle={ page.content.title }>
+<Layout pageTitle={ pageTitle }>
     <Wrapper>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-14 sm:gap-y-16 lg:gap-9">
             <div class="col-span-1">
@@ -65,11 +67,11 @@ const cover = page.content.cover[0]
             </div>
         </div>
     </Wrapper>
-
+    <Chapters book={ pageTitle }/>
 </Layout>
 
 <style is:global>
-    .r-poem p { @apply text-[1.055rem] leading-[1.605rem]; }
+    .r-poem p { @apply text-[1.055rem] leading-[1.605rem] whitespace-pre; }
     .r-poem p:empty { @apply my-6; }
     .r-poem hr { @apply max-w-[256px]; }
 </style>

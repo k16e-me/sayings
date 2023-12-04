@@ -6,7 +6,7 @@ const { bg, definedBg = 'bg-slate-100', classes } = Astro.props
         if (bg) {
             return (
                 <div
-                    class={ `flex items-center justify-center text-center lg:space-x-5 w-14 h-14 lg:h-auto rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-lg transition duration-300 text-slate-950 ` + classes }
+                    class={ `flex items-center justify-center text-center lg:space-x-3 w-14 h-14 lg:h-auto rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-lg transition duration-300 text-slate-950 ` + classes }
                     style={`background-color: #${ bg }`}>
                     <slot/>
                 </div>
@@ -14,7 +14,7 @@ const { bg, definedBg = 'bg-slate-100', classes } = Astro.props
         } else {
             return (
                 <div
-                    class={ `flex items-center justify-center text-center lg:space-x-5 w-14 h-14 lg:h-auto rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-lg transition duration-300 text-slate-950 ` + definedBg }>
+                    class={ `flex items-center justify-center text-center lg:space-x-3 w-14 h-14 lg:h-auto rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-lg transition duration-300 text-slate-950 ` + definedBg }>
                     <slot/>
                 </div>
             )

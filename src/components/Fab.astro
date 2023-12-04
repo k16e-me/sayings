@@ -1,12 +1,12 @@
 ---
-const { id, small, asDiv } = Astro.props
+const { id, small, asDiv, class: parentClass } = Astro.props
 ---
 {
     () => {
         if (small) {
             return (
                 <button
-                    class='h-11 w-11 bg-white'
+                    class:list={[ parentClass, `h-11 w-11 bg-white`]}
                     id={ id }>
                     <slot/>
                 </button>
@@ -14,7 +14,7 @@ const { id, small, asDiv } = Astro.props
         } else if (asDiv) {
             return (
                 <div
-                    class='h-14 w-14 bg-slate-100'
+                    class:list={[ parentClass, `h-14 w-14 bg-slate-100`]}
                     id={ id }>
                     <slot/>
                 </div>
@@ -22,7 +22,7 @@ const { id, small, asDiv } = Astro.props
         } else {
             return (
                 <button
-                    class='h-14 w-14 bg-slate-100'
+                    class:list={[ parentClass, `h-14 w-14 bg-slate-100`]}
                     id={ id }>
                     <slot/>
                 </button>

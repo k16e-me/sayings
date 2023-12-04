@@ -1,8 +1,10 @@
 ---
 import Logo from '../components/Logo.astro'
+import Search from '../components/Search.astro'
 ---
-<header class="flex items-center justify-center p-5 sm:p-7">
+<header class="flex items-center lg:justify-center p-5 sm:p-7 z-10">
     <a href="/" class="inline-block">
         <Logo classes="h-14 lg:h-16 fill-slate-950"/>
     </a>
+    <Search/>
 </header>

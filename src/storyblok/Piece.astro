@@ -8,14 +8,12 @@ const content = renderRichText(blok.piece)
 const slugify = str => kebabCase(str.replace(/&/g, '-and-'))
 ---
 <article>
-    <div class="text-slate-950">
-        <h3
-            id={ slugify(blok.title.split('.')[1]) }
-            class="font-display text-2xl">
-            { blok.title }
-        </h3>
-    </div>
-    <div class="mt-4">
+    <h3
+        id={ slugify(blok.title.split('.')[1]) }
+        class="font-display text-2xl text-slate-950 mb-5">
+        { blok.title }
+    </h3>
+    <div>
         <Fragment set:html={content}/>
     </div>
 </article>

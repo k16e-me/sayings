@@ -13,7 +13,7 @@
     "@astrojs/tailwind": "^5.0.3",
     "@fontsource-variable/dm-sans": "^5.0.3",
     "@fontsource/limelight": "^5.0.17",
-    "@storyblok/astro": "^3.0.1",
+    "@storyblok/astro": "^3.1.0-next.3",
     "astro": "^4.0.3",
     "astro-icon": "^0.8.2",
     "astro-seo": "^0.8.0",

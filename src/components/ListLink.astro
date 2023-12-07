@@ -1,8 +1,7 @@
 ---
-import kebabCase from 'lodash/kebabCase'
+import { slugify } from '../js/snips'
 
 const { linkFragment, title } = Astro.props
-const slugify = str => kebabCase(str.replace(/&/g, '-and-'))
 ---
 <a
     href={ `#${slugify(linkFragment)}` }

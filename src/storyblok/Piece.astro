@@ -1,19 +1,10 @@
 ---
 import { renderRichText } from '@storyblok/astro'
-import kebabCase from 'lodash/kebabCase'
+import PieceComponent from '../components/Piece.astro'
 
 const { blok } = Astro.props
-const content = renderRichText(blok.piece)
-
-const slugify = str => kebabCase(str.replace(/&/g, '-and-'))
 ---
-<article>
-    <h3
-        id={ slugify(blok.title.split('.')[1]) }
-        class="font-display text-2xl text-slate-950 mb-5">
-        { blok.title }
-    </h3>
-    <div>
-        <Fragment set:html={content}/>
-    </div>
-</article>
+<PieceComponent
+    title={ blok.title }
+    content={ renderRichText(blok.piece) }
+/>

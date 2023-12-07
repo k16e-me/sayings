@@ -1,5 +1,5 @@
 ---
-const { bg, title, filename, subtitle } = Astro.props
+const { bg, title, filename, alt, subtitle } = Astro.props
 ---
 <div
     style={`background-color: #${ bg }`}
@@ -8,8 +8,12 @@ const { bg, title, filename, subtitle } = Astro.props
         { title }
     </p>
     <div class="w-full flex-1 flex justify-center ">
-        <div class="h-64 w-64 flex items-center justify-center">
-            <img src={ filename } alt="" width="192px" height="100%"/>
+        <div class="h-64 w-64 flex items-center justify-center pt-7">
+            <img
+                src={ filename }
+                alt={ alt || `Illustration for the ${ title } collection` }
+                width="192px" height="100%"
+            />
         </div>
     </div>
     <div class="flex flex-col text-center text-slate-950 space-y-1">

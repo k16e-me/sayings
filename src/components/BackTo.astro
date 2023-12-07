@@ -9,6 +9,6 @@ const { href, text } = Astro.props
     class="self-end">
     <Fab asDiv>
         <Icon name="arrow-left" class="w-7"/>
-        <span class="font-display sr-only">{ text }</span>
+        <span class="font-display sr-only">{ text || 'Back to parent page' }</span>
     </Fab>
 </a>

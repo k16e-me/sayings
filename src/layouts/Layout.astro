@@ -28,7 +28,7 @@ const site = settings.story.content
         data-body
         style="overflow: auto;">
         <h1 class='sr-only'>{ pageTitle }</h1>
-        <Header/>
+        <Header title={ site.title }/>
 		<main class="flex-1 relative">
             <slot/>
         </main>

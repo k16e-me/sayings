@@ -6,7 +6,7 @@ const { title, content } = Astro.props
 <article>
     <h3
         id={ slugify(title.split('.')[1]) }
-        class="font-display text-2xl text-slate-950 mb-5">
+        class="font-display text-2xl text-slate-950 mb-5 inline-flex">
         { title }
     </h3>
     <div>

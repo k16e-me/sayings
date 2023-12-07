@@ -37,8 +37,11 @@ const { data } = await sbApi.get(`cdn/stories/c/${slug}`, {
 const page = data.story
 const cover = page.content.cover[0]
 const pageTitle = page.content.title
+const pageDescription = page.content.description
 ---
-<Layout pageTitle={ pageTitle }>
+<Layout
+    pageTitle={ pageTitle }
+    pageDescription={ pageDescription }>
     <Wrapper>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-14 sm:gap-y-16 lg:gap-9">
             <div class="col-span-1">

@@ -20,7 +20,7 @@ const site = settings.story.content
 <html lang="en" class="scroll-smooth">
 	<Head
         title={ `${ site.title } | ${ pageTitle }` }
-        description={ pageDescription || '' }
+        description={ pageDescription || site.description }
         image={ pageThumbnail || '/og-image.webp' }
     />
 	<body

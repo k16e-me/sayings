@@ -11,5 +11,12 @@ const slugify = str => {
 }
 
 
+const arrayFrom = (list, ref) => {
+    // Helper to convert nodelist to array literal
+    return Array.from(ref.querySelectorAll(list))
+}
+
+
+
 // Exports
-export { slugify }
+export { slugify, arrayFrom }

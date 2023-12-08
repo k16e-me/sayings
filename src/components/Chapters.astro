@@ -1,6 +1,7 @@
 ---
 import Icon from 'astro-icon'
 import Fab from './Fab.astro'
+
 const { book = '' } = Astro.props
 ---
 <aside
@@ -25,6 +26,8 @@ const { book = '' } = Astro.props
 </aside>
 
 <script>
+    import { arrayFrom } from '../js/snips'
+
     const
         button = document.querySelector('[data-toggle-chapters]'),
         backdrop = document.querySelector('[data-backdrop]'),
@@ -34,7 +37,7 @@ const { book = '' } = Astro.props
         translateOut = ['translate-x-full', 'opacity-0'],
         body = document.body,
         hidden = ['invisible'],
-        links = Array.from(document.querySelectorAll('[data-link]'))
+        links = arrayFrom('[data-link]', document)
 
     button.addEventListener('click', () => {
         body.style.overflow = 'hidden'
@@ -57,6 +60,6 @@ const { book = '' } = Astro.props
         chapters.classList.add(...translateOut)
         setTimeout(() => {
             backdrop.classList.add(...hidden)
-        }, 400)
+        }, 300)
     }
 </script>

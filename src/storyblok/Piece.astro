@@ -1,10 +1,10 @@
 ---
 import { renderRichText } from '@storyblok/astro'
-import PieceComponent from '../components/Piece.astro'
+import ThePiece from '../components/ThePiece.astro'
 
 const { blok } = Astro.props
 ---
-<PieceComponent
+<ThePiece
     title={ blok.title }
     content={ renderRichText(blok.piece) }
 />

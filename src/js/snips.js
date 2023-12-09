@@ -11,7 +11,7 @@ const slugify = str => {
 }
 
 
-const arrayFrom = (list, ref) => {
+const arrayFrom = (list, ref = document) => {
     // Helper to convert nodelist to array literal
     return Array.from(ref.querySelectorAll(list))
 }

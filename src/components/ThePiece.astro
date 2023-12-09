@@ -8,23 +8,17 @@ const { title, content } = Astro.props
 <article>
     <h3
         id={ slugify(title.split('.')[1]) }
-        class="font-display text-2xl text-slate-950 my-5 inline-flex items-center">
+        class="font-display text-2xl text-slate-950 mb-5 inline-flex items-center">
         <span class="inline-flex">{ title }</span>
-        <div class="flex items-center space-x-2 ml-2 text-fuchsia-700 mb-1">
-            <a href={ `#${slugify(title.split('.')[1])}` } data-jump-top>
+        <div class="flex items-center ml-2 text-fuchsia-700 mb-1">
+            <a
+                href={ `#${slugify(title.split('.')[1])}` }
+                data-copy>
                 <Fab small>
                     <Icon name="link" class="w-5"/>
                 </Fab>
                 <span class="sr-only">Jump to { title }</span>
             </a>
-            <!--
-                // TODO
-                1. When button/input click, copy to clipboard
-                2. When successfully copied to clipboard display toast "Link copied"
-             -->
-            <!-- <Fab small>
-                <Icon name="copy" class="w-5"/>
-            </Fab> -->
         </div>
     </h3>
     <div>

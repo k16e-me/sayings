@@ -9,14 +9,13 @@ const { title, content } = Astro.props
         id={ slugify(title.split('.')[1]) }
         class="font-display text-2xl text-slate-950 mb-5 inline-flex items-center">
         <span class="inline-flex">{ title }</span>
-        <div class="flex items-center ml-3 text-fuchsia-700">
-            <a
-                href={ `#${slugify(title.split('.')[1])}` }
-                data-copy>
-                <Icon name="link" class="w-6"/>
-                <span class="sr-only">Jump to { title }</span>
-            </a>
-        </div>
+        <a
+            href={ `#${slugify(title.split('.')[1])}` }
+            data-copy
+            class="flex items-center ml-3 text-fuchsia-700">
+            <Icon name="link" class="w-6"/>
+            <span class="sr-only">Jump to { title }</span>
+        </a>
     </h3>
     <div>
         <Fragment set:html={ content }/>

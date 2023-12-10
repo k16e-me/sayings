@@ -17,6 +17,20 @@ const arrayFrom = (list, ref = document) => {
 }
 
 
+const slideOut = (obj, enterClasses, leaveClasses) => {
+    obj.classList.remove(...enterClasses)
+    obj.classList.add(...leaveClasses)
+}
+const slideIn = (obj, leaveClasses, enterClasses) => {
+    obj.classList.remove(...leaveClasses)
+    obj.classList.add(...enterClasses)
+}
+
+
+const enter = () => ( new Array('opacity-100', 'translate-y-0') )
+const leave = () => ( new Array('opacity-0', 'translate-y-20') )
+
+
 
 // Exports
-export { slugify, arrayFrom }
+export { slugify, arrayFrom, slideOut, slideIn, enter, leave }

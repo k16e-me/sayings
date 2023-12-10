@@ -1,4 +1,30 @@
-<aside class="h-11 w-64 bg-slate-700 text-slate-50 flex items-center justify-center text-center">
-    <h2 class="sr-only">Toast</h2>
+<div
+    class="fixed flex justify-center w-full bottom-9 transition duration-300 ease-in-out opacity-0 translate-y-20"
+    data-toast>
+    <aside class="h-12 w-40 bg-slate-100 flex items-center justify-center text-center rounded-full shadow">
+        <h2 class="sr-only">Toast</h2>
+        <span class="text-base font-medium">
+            <!-- Make dynamic -->
+            Link copied 🎉
+        </span>
+    </aside>
+</div>
 
-</aside>
+<script>
+    import { arrayFrom, slideIn, slideOut, enter, leave } from '../js/snips'
+
+    const
+        linkCopy = arrayFrom('[data-copy]'),
+        toast = document.querySelector('[data-toast]')
+
+    linkCopy.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault()
+
+            navigator.clipboard.writeText(e.target.href)
+
+            slideIn(toast, leave(), enter())
+            setTimeout(() => ( slideOut(toast, enter(), leave()) ), 5000)
+        })
+    })
+</script>

@@ -12,24 +12,19 @@ import { Icon } from 'astro-icon'
 </div>
 
 <script>
+    import { slideOut, enter, leave } from '../js/snips'
+
     const
         backToTop = document.querySelector('[data-backtotop]'),
-        button = backToTop.querySelector('button'),
-        enter = ['opacity-100', 'translate-y-0'],
-        leave = ['opacity-0', 'translate-y-20']
+        button = backToTop.querySelector('button')
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 640) {
-            backToTop.classList.add(...enter)
-            backToTop.classList.remove(...leave)
+            backToTop.classList.add(...enter())
+            backToTop.classList.remove(...leave())
         }
-        else removeBackToTop()
+        else slideOut(backToTop, enter(), leave())
     })
 
     button.addEventListener('click', () => window.scrollTo({ top: 0, left: 0, behavior: 'smooth'}), false)
-
-    function removeBackToTop() {
-        backToTop.classList.remove(...enter)
-        backToTop.classList.add(...leave)
-    }
 </script>

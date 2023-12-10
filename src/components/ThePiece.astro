@@ -1,6 +1,7 @@
 ---
 import { slugify } from '../js/snips'
 import Icon from 'astro-icon'
+import Fab from './Fab.astro'
 
 const { title, content } = Astro.props
 ---
@@ -12,9 +13,11 @@ const { title, content } = Astro.props
         <a
             href={ `#${slugify(title.split('.')[1])}` }
             data-copy
-            class="flex items-center ml-3 text-fuchsia-700">
-            <Icon name="link" class="w-6"/>
-            <span class="sr-only">Jump to { title }</span>
+            class="flex items-center ml-2 text-fuchsia-700">
+            <Fab smallAndDiv class:list="bg-slate-100">
+                <Icon name="link" class="w-5"/>
+                <span class="sr-only">Jump to { title }</span>
+            </Fab>
         </a>
     </h3>
     <div>

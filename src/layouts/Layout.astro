@@ -7,7 +7,6 @@ import Footer from '../components/Footer.astro'
 import BackToTop from '../components/BackToTop.astro'
 import Backdrop from '../components/Backdrop.astro'
 import { useStoryblokApi } from '@storyblok/astro'
-import Toast from '../components/Toast.astro'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 const storyblokApi = useStoryblokApi()
@@ -35,7 +34,6 @@ const site = settings.story.content
         </main>
         <Footer preferredName={ site.preferredName }/>
 
-        <Toast/>
         <BackToTop/>
         <Backdrop/>
 	</body>

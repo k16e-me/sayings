@@ -12,6 +12,7 @@ import Chapters from '../../components/Chapters.astro'
 import ListLink from '../../components/ListLink.astro'
 import Lipsum from '../../components/Lipsum.astro'
 import Toast from '../../components/Toast.astro'
+import { splitFirstOccurrenceOnly } from '../../js/snips'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -84,7 +85,7 @@ const pageTitle = page.content.title
                                     <li class="border-b border-dashed border-slate-300 last:border-0">
                                         <ListLink
                                             title={ p.title }
-                                            linkFragment={ p.title.split('.')[1] }
+                                            linkFragment={ splitFirstOccurrenceOnly(p.title, '.') }
                                         />
                                     </li>
                                 ))

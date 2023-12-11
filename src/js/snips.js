@@ -27,10 +27,18 @@ const slideIn = (obj, leaveClasses, enterClasses) => {
 }
 
 
-const enter = () => ( new Array('opacity-100', 'translate-y-0') )
-const leave = () => ( new Array('opacity-0', 'translate-y-20') )
+const enter = () => (new Array('opacity-100', 'translate-y-0'))
+const leave = () => (new Array('opacity-0', 'translate-y-20'))
+
+
+const splitFirstOccurrenceOnly = (str, delim) => {
+    const [first, ...rest] = str.split(delim)
+    const remainder = rest.join('')
+
+    return remainder
+}
 
 
 
 // Exports
-export { slugify, arrayFrom, slideOut, slideIn, enter, leave }
+export { slugify, arrayFrom, slideOut, slideIn, enter, leave, splitFirstOccurrenceOnly }

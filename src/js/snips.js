@@ -32,10 +32,11 @@ const leave = () => (new Array('opacity-0', 'translate-y-20'))
 
 
 const splitFirstOccurrenceOnly = (str, delim) => {
+    // Credit to https://bobbyhadz.com/blog/javascript-split-string-only-on-first-instance-of-character
     const [first, ...rest] = str.split(delim)
-    const remainder = rest.join('')
+    const rem = rest.join('')
 
-    return remainder
+    return rem
 }
 
 

@@ -51,7 +51,7 @@ const scrollToTopOffset = (target, offset) => {
     const
         topOffset = offset,
         elPos = Math.round(target.getBoundingClientRect().top),
-        offsetPos = elPos + window.scrollY - topOffset
+        offsetPos = elPos + window.scrollY - (topOffset - 30)
 
     window.scrollTo({ top: offsetPos })
 }

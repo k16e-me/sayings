@@ -2,20 +2,20 @@
 import { storyblokEditable } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Lipsum from '../components/Lipsum.astro'
+import { isEmpty } from '../js/snips'
 
 const { blok } = Astro.props
 ---
 <div {...storyblokEditable(blok)} class="space-y-24 sm:space-y-28 lg:space-y-32">
     {
         () => {
-            if (blok.pieces) {
+            if (isEmpty(blok.pieces)) return <Lipsum/>
+            else {
                 return (
                     blok.pieces.map((blok: any) => {
                         return <StoryblokComponent blok={ blok } />
                     })
                 )
-            } else {
-                return <Lipsum/>
             }
         }
     }

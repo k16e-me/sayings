@@ -40,6 +40,13 @@ const splitFirstOccurrenceOnly = (str, delim) => {
 }
 
 
+const isEmpty = obj => {
+    // Credit here @ https://stackoverflow.com/questions/24403732/how-to-check-if-array-is-empty-or-does-not-exist#24403771
+    if (!Array.isArray(obj) || !obj.length) return true
+}
+
+
+
 
 // Exports
-export { slugify, arrayFrom, slideOut, slideIn, enter, leave, splitFirstOccurrenceOnly }
+export { slugify, arrayFrom, slideOut, slideIn, enter, leave, splitFirstOccurrenceOnly, isEmpty }

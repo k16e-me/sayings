@@ -46,7 +46,20 @@ const isEmpty = obj => {
 }
 
 
+const scrollToTopOffset = (target, offset) => {
+    // Credit here @ https://stackoverflow.com/questions/49820013/javascript-scrollintoview-smooth-scroll-and-offset
+    const
+        headerOffset = offset,
+        elPos = Math.floor(target.getBoundingClientRect().top),
+        offsetPos = elPos + window.scrollY - headerOffset
+
+    console.log(elPos, window.scrollY)
+
+    window.scrollTo({ top: offsetPos })
+}
+
+
 
 
 // Exports
-export { slugify, arrayFrom, slideOut, slideIn, enter, leave, splitFirstOccurrenceOnly, isEmpty }
+export { slugify, arrayFrom, slideOut, slideIn, enter, leave, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset }

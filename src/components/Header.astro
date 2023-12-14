@@ -5,7 +5,9 @@ import Wrapper from '../layouts/Wrapper.astro'
 
 const { title } = Astro.props
 ---
-<header class="z-10">
+<header
+    class="z-10"
+    data-main-header>
     <Wrapper class:list="flex items-center justify-center py-5 lg:py-7">
         <a href="/" class="inline-flex justify-center">
             <Logo classes="h-14 lg:h-16 fill-slate-950"/>

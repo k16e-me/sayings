@@ -7,7 +7,23 @@ const { linkFragment, title } = Astro.props
     href={ `#${slugify(linkFragment)}` }
     class="flex items-center p-3 hover:bg-slate-100 transition duration-300"
     data-link>
-    <span>
+    <span class="pointer-events-none">
         { title }
     </span>
 </a>
+
+<script>
+    import { arrayFrom, scrollToTopOffset } from '../js/snips'
+
+    const
+        links = arrayFrom('[data-link]'),
+        headerHeight = document.querySelector('[data-main-header]').getBoundingClientRect().height
+
+    links.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault()
+            const linkEl = document.querySelector(e.target.hash)
+            scrollToTopOffset(linkEl, headerHeight)
+        })
+    })
+</script>

@@ -49,11 +49,9 @@ const isEmpty = obj => {
 const scrollToTopOffset = (target, offset) => {
     // Credit here @ https://stackoverflow.com/questions/49820013/javascript-scrollintoview-smooth-scroll-and-offset
     const
-        headerOffset = offset,
-        elPos = Math.floor(target.getBoundingClientRect().top),
-        offsetPos = elPos + window.scrollY - headerOffset
-
-    console.log(elPos, window.scrollY)
+        topOffset = offset,
+        elPos = Math.round(target.getBoundingClientRect().top),
+        offsetPos = elPos + window.scrollY - topOffset
 
     window.scrollTo({ top: offsetPos })
 }

@@ -105,3 +105,15 @@ const pageTitle = page.content.title
     .r-piece p:empty { @apply my-5; }
     .r-piece hr { @apply max-w-[256px]; }
 </style>
+
+<script>
+    const mql = window.matchMedia('(max-width: 1023px)')
+    const mobileOrDesktop = () => {
+        const screen = mql.matches ? 'mobile' : 'desktop'
+        console.log(screen)
+        return screen
+    }
+    mobileOrDesktop()
+    mql.addEventListener('change', mobileOrDesktop)
+    window.addEventListener('resize', mobileOrDesktop, false)
+</script>

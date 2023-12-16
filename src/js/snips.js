@@ -60,4 +60,6 @@ const scrollToTopOffset = (target, offset) => {
 
 
 // Exports
-export { slugify, arrayFrom, slideOut, slideIn, enter, leave, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset }
+export {
+    slugify, arrayFrom, slideOut, slideIn, enter, leave, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset
+}

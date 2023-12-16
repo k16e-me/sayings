@@ -46,10 +46,24 @@ const isEmpty = obj => {
 }
 
 
+const isMobile = () => {
+    const mql = window.matchMedia('(max-width: 1023px)')
+
+    const checkMobile = () => {
+        const screen = mql.matches ? true : false
+        return screen
+    }
+
+    mql.addEventListener('change', checkMobile)
+
+    return checkMobile()
+}
+
+
 const scrollToTopOffset = (target, offset) => {
     // Credit here @ https://stackoverflow.com/questions/49820013/javascript-scrollintoview-smooth-scroll-and-offset
     const
-        topOffset = offset,
+        topOffset = isMobile() ? 56 : offset,
         elPos = Math.round(target.getBoundingClientRect().top),
         offsetPos = elPos + window.scrollY - (topOffset - 30)
 
@@ -61,5 +75,5 @@ const scrollToTopOffset = (target, offset) => {
 
 // Exports
 export {
-    slugify, arrayFrom, slideOut, slideIn, enter, leave, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset
+    slugify, arrayFrom, slideOut, slideIn, enter, leave, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile
 }

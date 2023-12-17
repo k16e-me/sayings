@@ -11,18 +11,3 @@ const { linkFragment, title } = Astro.props
         { title }
     </span>
 </a>
-
-<script>
-    import { arrayFrom, scrollToTopOffset } from '../js/snips'
-
-    const links = arrayFrom('[data-link]')
-    const headerHeight = document.querySelector('[data-main-header]').getBoundingClientRect().height
-
-    links.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault()
-            const linkEl = document.querySelector(e.target.hash)
-            scrollToTopOffset(linkEl, headerHeight)
-        })
-    })
-</script>

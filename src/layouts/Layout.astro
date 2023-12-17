@@ -41,6 +41,16 @@ const site = settings.story.content
 
 <style is:global>
     [astro-icon] { @apply flex-shrink-0 pointer-events-none; }
+
+    .is-focused {
+        @apply rounded-2xl;
+        animation: blink normal 1s 1s 1 ease-in-out;
+    }
+
+    @keyframes blink {
+        0% { background-color: rgba(241,245,249,0.5) }
+        100% { background-color: rgba(241,245,249,1) }
+    }
 </style>
 
 <script src="../js/global.js"></script>

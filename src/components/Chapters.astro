@@ -11,7 +11,7 @@ const { book = '' } = Astro.props
         <div class="flex flex-col flex-shrink-0 overflow-hidden w-full h-full">
             <div class="bg-slate-100 flex items-center justify-between pr-5 shadow h-16">
                 <h2 class="font-display text-xl p-5 h-full flex items-center text-slate-950">
-                    Chapters <span class="sr-only">in { book }</span>
+                    <slot name="title"/>
                 </h2>
                 <Fab id="close" small>
                     <Icon name="close" class="w-5"/>

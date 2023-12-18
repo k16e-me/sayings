@@ -57,7 +57,7 @@ const pageTitle = page.content.title
                             filename={ cover.illustration.filename }
                             subtitle={ cover.subtitle }
                         />
-                        <!-- <ToggleOverview class:list={ `absolute bottom-3 right-3` }/> -->
+                        <ToggleOverview class:list={ `absolute bottom-3 right-3` }/>
                     </div>
                     <div class="fixed left-3 bottom-12 md:bottom-9 lg:static flex flex-col gap-3 lg:gap-5">
                         <button class="lg:w-full" data-toggle-chapters>
@@ -79,6 +79,9 @@ const pageTitle = page.content.title
         </div>
     </Wrapper>
     <Chapters book={ pageTitle }>
+        <span slot="title">
+            Chapters <span class="sr-only">in { pageTitle }</span>
+        </span>
         {
             () => {
                 if (isEmpty(page.content.pieces)) return <Lipsum/>

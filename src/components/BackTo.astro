@@ -5,10 +5,9 @@ import { Icon } from 'astro-icon'
 const { href, text } = Astro.props
 ---
 <a
-    href={ href }
-    class="self-end">
+    href={ href }>
     <Fab asDiv>
         <Icon name="arrow-left" class="w-7"/>
-        <span class="font-display sr-only">{ text || 'Back to parent page' }</span>
+        <span class="sr-only">{ text || 'Back to parent page' }</span>
     </Fab>
 </a>

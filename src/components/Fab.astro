@@ -1,5 +1,5 @@
 ---
-const { id, small, asDiv, smallAndDiv, class: parentClass, ...props } = Astro.props
+const { id, toggle, small, asDiv, smallAndDiv, class: parentClass, ...props } = Astro.props
 ---
 {
     () => {
@@ -8,7 +8,8 @@ const { id, small, asDiv, smallAndDiv, class: parentClass, ...props } = Astro.pr
                 <button
                     { ...props }
                     class:list={[ parentClass, `h-11 w-11 bg-white flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`]}
-                    id={ id }>
+                    id={ id }
+                    data-toggle={ toggle || '' }>
                     <slot/>
                 </button>
             )
@@ -34,7 +35,8 @@ const { id, small, asDiv, smallAndDiv, class: parentClass, ...props } = Astro.pr
             return (
                 <button
                     class:list={[ parentClass, `h-14 w-14 bg-slate-100 flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`]}
-                    id={ id }>
+                    id={ id }
+                    data-toggle={ toggle || '' }>
                     <slot/>
                 </button>
             )

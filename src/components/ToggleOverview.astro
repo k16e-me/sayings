@@ -1,0 +1,18 @@
+---
+import Fab from './Fab.astro'
+import { Icon } from 'astro-icon'
+
+const { class: classes, ...props } = Astro.props
+---
+<div
+    { ...props }
+    class:list={[
+        classes
+    ]}>
+    <Fab
+        small
+        toggle="overview">
+        <Icon name='menu-dots' class='w-7' />
+        <span class='sr-only'>{ 'Show or hide collection overview' }</span>
+    </Fab>
+</div>

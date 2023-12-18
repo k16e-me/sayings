@@ -9,11 +9,9 @@ import TitlePiece from '../../components/TitlePiece.astro'
 import FabToCard from '../../components/FabToCard.astro'
 import Icon from 'astro-icon'
 import Chapters from '../../components/Chapters.astro'
-import ListLink from '../../components/ListLink.astro'
-import Lipsum from '../../components/Lipsum.astro'
 import Toast from '../../components/Toast.astro'
-import { splitFirstOccurrenceOnly, isEmpty } from '../../js/snips'
 import ToggleOverview from '../../components/ToggleOverview.astro'
+import BookChapters from '../../components/partials/Chapters.astro'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -82,27 +80,7 @@ const pageTitle = page.content.title
         <span slot="title">
             Chapters <span class="sr-only">in { pageTitle }</span>
         </span>
-        {
-            () => {
-                if (isEmpty(page.content.pieces)) return <Lipsum/>
-                else {
-                    return (
-                        <ul>
-                            {
-                                page.content.pieces.map(p => (
-                                    <li class="border-b border-dashed border-slate-300 last:border-0">
-                                        <ListLink
-                                            title={ p.title }
-                                            linkFragment={ splitFirstOccurrenceOnly(p.title, '.') }
-                                        />
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    )
-                }
-            }
-        }
+        <BookChapters pieces={ page.content.pieces }/>
     </Chapters>
     <Toast/>
 </Layout>

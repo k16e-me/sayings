@@ -9,7 +9,7 @@ const { pieces, class: classes, ...props } = Astro.props
     { ...props }
     class:list={[ classes ]}
     data-slideover="chapters"
-    data-title="Chapters">
+    data-slideover-title="Chapters">
     {
         () => {
             if (isEmpty(pieces)) return <Lipsum/>

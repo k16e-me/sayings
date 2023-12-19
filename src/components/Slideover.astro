@@ -32,16 +32,12 @@ import Fab from './Fab.astro'
 </style>
 
 <script>
-    import { arrayFrom } from '../js/snips'
+    import { arrayFrom, translateIn, translateOut, hidden, body } from '../js/snips'
 
     const slideoverToggles = arrayFrom('[data-toggle="slideover"]')
-    const backdrop = document.querySelector('[data-backdrop]')
     const slideover = document.getElementById('slideover')
-    const close = document.getElementById('close')
-    const translateIn = ['translate-x-0', 'opacity-100']
-    const translateOut = ['translate-x-full', 'opacity-0']
-    const body = document.body
-    const hidden = ['invisible']
+    const close = slideover.querySelector('#close')
+    const backdrop = document.querySelector('[data-backdrop]')
     const links = arrayFrom('[data-link]')
     const slideoverContent = arrayFrom('[data-slideover]', slideover)
     const slideoverTitle = slideover.querySelector('#slideoverTitle')
@@ -58,12 +54,12 @@ import Fab from './Fab.astro'
             slideoverContentToShow.style.display = 'block'
             slideoverTitle.textContent = title
 
-            body.style.overflow = 'hidden'
+            body().style.overflow = 'hidden'
             backdrop.classList.remove('opacity-0')
             backdrop.classList.add('opacity-50')
-            backdrop.classList.remove(...hidden)
-            slideover.classList.add(...translateIn)
-            slideover.classList.remove(...translateOut)
+            backdrop.classList.remove(...hidden())
+            slideover.classList.add(...translateIn())
+            slideover.classList.remove(...translateOut())
         })
     })
 
@@ -72,15 +68,13 @@ import Fab from './Fab.astro'
     links.map(link => link.addEventListener('click', () => removeSlideover()))
 
     function removeSlideover() {
-        body.style.overflow = 'auto'
+        body().style.overflow = 'auto'
         backdrop.classList.add('opacity-0')
         backdrop.classList.remove('opacity-50')
-        slideover.classList.remove(...translateIn)
-        slideover.classList.add(...translateOut)
+        slideover.classList.remove(...translateIn())
+        slideover.classList.add(...translateOut())
         hideSlideoverContent()
-        setTimeout(() => {
-            backdrop.classList.add(...hidden)
-        }, 300)
+        setTimeout(() => backdrop.classList.add(...hidden()), 300)
     }
 
     function hideSlideoverContent() {

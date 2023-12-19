@@ -1,4 +1,6 @@
 // Functions
+const body = () => document.body
+
 const slugify = str => {
     // Thanks to https://dev.to/bybydev/how-to-slugify-a-string-in-javascript-4o9n
     str = str.replace(/^\s+|\s+$/g, '')
@@ -26,8 +28,11 @@ const slideIn = (obj, leaveClasses, enterClasses) => {
 }
 
 
-const enter = () => (new Array('opacity-100', 'translate-y-0'))
-const leave = () => (new Array('opacity-0', 'translate-y-20'))
+const enter = () => new Array('opacity-100', 'translate-y-0')
+const leave = () => new Array('opacity-0', 'translate-y-20')
+const translateIn = () => new Array('translate-x-0', 'opacity-100')
+const translateOut = () => new Array('translate-x-full', 'opacity-0')
+const hidden = () => new Array('invisible')
 
 
 const splitFirstOccurrenceOnly = (str, delim) => {
@@ -73,5 +78,5 @@ const scrollToTopOffset = (target, offset) => {
 
 // Exports
 export {
-    slugify, arrayFrom, slideOut, slideIn, enter, leave, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile
+    body, slugify, arrayFrom, slideOut, slideIn, enter, leave, translateIn, translateOut, hidden, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile
 }

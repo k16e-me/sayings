@@ -40,8 +40,8 @@ const splitFirstOccurrenceOnly = (str, delim) => {
 
 
 const isEmpty = obj => {
-    // Credit here @ https://stackoverflow.com/questions/24403732/how-to-check-if-array-is-empty-or-does-not-exist#24403771
-    if (!Array.isArray(obj) || !obj.length) return true
+    if (obj === undefined || obj === null) return true
+    if (!Object.keys(obj).length) return true
 }
 
 

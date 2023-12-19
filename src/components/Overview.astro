@@ -1,6 +1,7 @@
 ---
 import Lipsum from './Lipsum.astro'
 import { isEmpty } from '../js/snips'
+import { renderRichText } from '@storyblok/astro'
 
 const { content } = Astro.props
 ---
@@ -10,12 +11,10 @@ const { content } = Astro.props
     data-slideover-title='Overview'>
 	{
         () => {
-            if (isEmpty(content)) return <Lipsum size={ 1 }/>
-            else {
-                return (
-                    <Fragment set:html={ content }/>
-                )
-            }
+            if (isEmpty(content?.content[0]?.content)) return <Lipsum size={ 1 }/>
+            return (
+                <Fragment set:html={ renderRichText(content) }/>
+            )
         }
     }
 </div>

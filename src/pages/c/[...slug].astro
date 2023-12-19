@@ -12,7 +12,6 @@ import Toast from '../../components/Toast.astro'
 import ToggleOverview from '../../components/ToggleOverview.astro'
 import Chapters from '../../components/Chapters.astro'
 import Slideover from '../../components/Slideover.astro'
-import Lipsum from '../../components/Lipsum.astro'
 import Overview from '../../components/Overview.astro'
 
 export async function getStaticPaths() {
@@ -83,7 +82,7 @@ const pageTitle = page.content.title
     </Wrapper>
     <Slideover>
         <Chapters pieces={ page.content.pieces }/>
-        <Overview/>
+        <Overview content={ page.content.overview }/>
     </Slideover>
     <Toast/>
 </Layout>

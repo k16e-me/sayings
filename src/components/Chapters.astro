@@ -3,26 +3,31 @@ import { splitFirstOccurrenceOnly, isEmpty } from '../js/snips'
 import Lipsum from './Lipsum.astro'
 import ListLink from './ListLink.astro'
 
-const { pieces } = Astro.props
+const { pieces, class: classes, ...props } = Astro.props
 ---
-{
-    () => {
-        if (isEmpty(pieces)) return <Lipsum/>
-        else {
-            return (
-                <ul>
-                    {
-                        pieces.map(p => (
-                            <li class="border-b border-dashed border-slate-300 last:border-0">
-                                <ListLink
-                                    title={ p.title }
-                                    linkFragment={ splitFirstOccurrenceOnly(p.title, '.') }
-                                />
-                            </li>
-                        ))
-                    }
-                </ul>
-            )
+<div
+    { ...props }
+    class:list={[ classes ]}
+    data-slideover="chapters">
+    {
+        () => {
+            if (isEmpty(pieces)) return <Lipsum/>
+            else {
+                return (
+                    <ul>
+                        {
+                            pieces.map(p => (
+                                <li class="border-b border-dashed border-slate-300 last:border-0">
+                                    <ListLink
+                                        title={ p.title }
+                                        linkFragment={ splitFirstOccurrenceOnly(p.title, '.') }
+                                    />
+                                </li>
+                            ))
+                        }
+                    </ul>
+                )
+            }
         }
     }
-}
+</div>

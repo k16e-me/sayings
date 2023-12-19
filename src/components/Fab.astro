@@ -1,5 +1,5 @@
 ---
-const { id, toggle, small, asDiv, smallAndDiv, class: parentClass, ...props } = Astro.props
+const { id, toggle, small, asDiv, smallAndDiv, slideoverContent, class: parentClass, ...props } = Astro.props
 ---
 {
     () => {
@@ -9,7 +9,8 @@ const { id, toggle, small, asDiv, smallAndDiv, class: parentClass, ...props } = 
                     { ...props }
                     class:list={[ parentClass, `h-11 w-11 bg-white flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`]}
                     id={ id }
-                    data-toggle={ toggle || '' }>
+                    data-toggle={ toggle || '' }
+                    data-slideover={ slideoverContent }>
                     <slot/>
                 </button>
             )
@@ -36,7 +37,8 @@ const { id, toggle, small, asDiv, smallAndDiv, class: parentClass, ...props } = 
                 <button
                     class:list={[ parentClass, `h-14 w-14 bg-slate-100 flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`]}
                     id={ id }
-                    data-toggle={ toggle || '' }>
+                    data-toggle={ toggle || '' }
+                    data-slideover={ slideoverContent }>
                     <slot/>
                 </button>
             )

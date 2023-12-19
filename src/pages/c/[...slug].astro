@@ -55,10 +55,10 @@ const pageTitle = page.content.title
                             filename={ cover.illustration.filename }
                             subtitle={ cover.subtitle }
                         />
-                        <!-- <ToggleOverview class:list={ `absolute bottom-3 right-3` }/> -->
+                        <ToggleOverview class:list={ `absolute bottom-3 right-3` }/>
                     </div>
                     <div class="fixed left-3 bottom-12 md:bottom-9 lg:static flex flex-col gap-3 lg:gap-5">
-                        <button class="lg:w-full" data-toggle-chapters>
+                        <button class="lg:w-full" data-toggle="slideover">
                             <FabToCard>
                                 <Icon name="list" class="w-6 pointer-events-none"/>
                                 <span class="sr-only lg:not-sr-only lg:font-display pointer-events-none">Chapters</span>

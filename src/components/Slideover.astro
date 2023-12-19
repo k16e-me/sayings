@@ -29,7 +29,7 @@ const { title } = Astro.props
     import { arrayFrom } from '../js/snips'
 
     const
-        button = document.querySelector('[data-toggle-chapters]'),
+        slideoverToggles = arrayFrom('[data-toggle="slideover"]'),
         backdrop = document.querySelector('[data-backdrop]'),
         chapters = document.querySelector('[data-chapters]'),
         close = document.getElementById('close'),
@@ -39,13 +39,15 @@ const { title } = Astro.props
         hidden = ['invisible'],
         links = arrayFrom('[data-link]', document)
 
-    button.addEventListener('click', () => {
-        body.style.overflow = 'hidden'
-        backdrop.classList.remove('opacity-0')
-        backdrop.classList.add('opacity-50')
-        backdrop.classList.remove(...hidden)
-        chapters.classList.add(...translateIn)
-        chapters.classList.remove(...translateOut)
+    slideoverToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            body.style.overflow = 'hidden'
+            backdrop.classList.remove('opacity-0')
+            backdrop.classList.add('opacity-50')
+            backdrop.classList.remove(...hidden)
+            chapters.classList.add(...translateIn)
+            chapters.classList.remove(...translateOut)
+        })
     })
 
     backdrop.addEventListener('click', () => removeSlideover())

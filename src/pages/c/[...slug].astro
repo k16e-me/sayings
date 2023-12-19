@@ -8,10 +8,10 @@ import BackTo from '../../components/BackTo.astro'
 import TitlePiece from '../../components/TitlePiece.astro'
 import FabToCard from '../../components/FabToCard.astro'
 import Icon from 'astro-icon'
-import Slideover from '../../components/Slideover.astro'
 import Toast from '../../components/Toast.astro'
 import ToggleOverview from '../../components/ToggleOverview.astro'
-import Chapters from '../../components/partials/Chapters.astro'
+import Chapters from '../../components/Chapters.astro'
+import Slideover from '../../components/Slideover.astro'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -76,10 +76,7 @@ const pageTitle = page.content.title
             </div>
         </div>
     </Wrapper>
-    <Slideover>
-        <span slot="title">
-            Chapters <span class="sr-only">in { pageTitle }</span>
-        </span>
+    <Slideover title="Chapters">
         <Chapters pieces={ page.content.pieces }/>
     </Slideover>
     <Toast/>

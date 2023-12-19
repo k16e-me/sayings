@@ -11,7 +11,7 @@ const { title } = Astro.props
         <div class="flex flex-col flex-shrink-0 overflow-hidden w-full h-full">
             <div class="bg-slate-100 flex items-center justify-between pr-5 shadow h-16">
                 <h2 class="font-display text-xl p-5 h-full flex items-center text-slate-950">
-                    { title }
+                    <span id="slideoverTitle"/>
                 </h2>
                 <Fab id="close" small>
                     <Icon name="close" class="w-5"/>
@@ -34,19 +34,20 @@ const { title } = Astro.props
 </style>
 
 <script>
-    import { arrayFrom } from '../js/snips'
+    import { slide } from 'astro/virtual-modules/transitions.js'
+import { arrayFrom } from '../js/snips'
 
-    const
-        slideoverToggles = arrayFrom('[data-toggle="slideover"]'),
-        backdrop = document.querySelector('[data-backdrop]'),
-        slideover = document.getElementById('slideover'),
-        close = document.getElementById('close'),
-        translateIn = ['translate-x-0', 'opacity-100'],
-        translateOut = ['translate-x-full', 'opacity-0'],
-        body = document.body,
-        hidden = ['invisible'],
-        links = arrayFrom('[data-link]'),
-        slideoverContent = arrayFrom('[data-slideover]', slideover)
+    const slideoverToggles = arrayFrom('[data-toggle="slideover"]')
+    const backdrop = document.querySelector('[data-backdrop]')
+    const slideover = document.getElementById('slideover')
+    const close = document.getElementById('close')
+    const translateIn = ['translate-x-0', 'opacity-100']
+    const translateOut = ['translate-x-full', 'opacity-0']
+    const body = document.body
+    const hidden = ['invisible']
+    const links = arrayFrom('[data-link]')
+    const slideoverContent = arrayFrom('[data-slideover]', slideover)
+    const slideoverTitle = slideover.querySelector('#slideoverTitle')
 
     hideSlideoverContent()
 
@@ -55,8 +56,10 @@ const { title } = Astro.props
             const clickedEl = e.target
             const attr = clickedEl.getAttribute('data-slideover')
             const slideoverContentToShow = slideoverContent.find(el => (el.dataset.slideover === attr))
+            const title = slideoverContentToShow.getAttribute('data-title')
 
             slideoverContentToShow.style.display = 'block'
+            slideoverTitle.textContent = title
 
             body.style.overflow = 'hidden'
             backdrop.classList.remove('opacity-0')

@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets'
-
 const { bg, title, filename, alt, subtitle } = Astro.props
 ---
 <div
@@ -11,11 +9,6 @@ const { bg, title, filename, alt, subtitle } = Astro.props
     </p>
     <div class="w-full flex-1 flex justify-center ">
         <div class="h-64 w-64 flex items-center justify-center pt-7">
-            <!-- <Image
-                src={ filename }
-                alt={ alt || `Illustration for the ${ title } collection` }
-                width="192"
-            /> -->
             <img
                 src={ filename }
                 alt={ alt || `Illustration for the ${ title } collection` }

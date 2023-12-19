@@ -7,7 +7,7 @@ import Prose from './Prose.astro'
 const { content } = Astro.props
 ---
 <Prose
-    class:list={ 'p-3 text-pretty' }
+    class:list={ 'p-3 text-pretty [&_p]:whitespace-pre-wrap' }
     data-slideover='overview'
     data-slideover-title='Overview'>
 	{

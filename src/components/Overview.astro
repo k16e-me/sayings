@@ -2,11 +2,12 @@
 import Lipsum from './Lipsum.astro'
 import { isEmpty } from '../js/snips'
 import { renderRichText } from '@storyblok/astro'
+import Prose from './Prose.astro'
 
 const { content } = Astro.props
 ---
-<div
-    class='p-3'
+<Prose
+    class:list={ 'p-3' }
     data-slideover='overview'
     data-slideover-title='Overview'>
 	{
@@ -17,4 +18,4 @@ const { content } = Astro.props
             )
         }
     }
-</div>
+</Prose>

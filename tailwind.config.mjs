@@ -10,5 +10,8 @@ export default {
                 display: 'Limelight, sans-serif'
             }
         }
-	}
+	},
+    plugins: [
+        require('@tailwindcss/typography')
+    ]
 }

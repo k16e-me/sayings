@@ -7,7 +7,7 @@ const { bg, definedBg = 'bg-slate-100', class: parentClass, ...props } = Astro.p
             return (
                 <div
                     { ...props }
-                    class:list={[ parentClass, `flex items-center justify-center text-center lg:space-x-3 w-14 h-14 lg:h-auto rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-lg transition duration-300 text-slate-950 opacity-80 hover:opacity-100 lg:opacity-100 pointer-events-none` ]}
+                    class:list={[ parentClass, `flex items-center justify-center text-center lg:space-x-3 size-14 lg:h-auto rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-lg transition duration-300 text-slate-950 opacity-80 hover:opacity-100 lg:opacity-100 pointer-events-none` ]}
                     style={`background-color: #${ bg }; `}>
                     <slot/>
                 </div>
@@ -16,7 +16,7 @@ const { bg, definedBg = 'bg-slate-100', class: parentClass, ...props } = Astro.p
             return (
                 <div
                     { ...props }
-                    class:list={[ parentClass, definedBg, `flex items-center justify-center text-center lg:space-x-3 w-14 h-14 lg:h-auto rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-lg transition duration-300 text-slate-950 opacity-80 hover:opacity-100 lg:opacity-100 pointer-events-none` ]}>
+                    class:list={[ parentClass, definedBg, `flex items-center justify-center text-center lg:space-x-3 size-14 lg:h-auto rounded-full lg:rounded-xl lg:w-full lg:p-5 shadow hover:shadow-lg transition duration-300 text-slate-950 opacity-80 hover:opacity-100 lg:opacity-100 pointer-events-none` ]}>
                     <slot/>
                 </div>
             )

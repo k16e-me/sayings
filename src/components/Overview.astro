@@ -1,18 +1,21 @@
+---
+import Lipsum from './Lipsum.astro'
+import { isEmpty } from '../js/snips'
+
+const { content } = Astro.props
+---
 <div
     class='p-3'
     data-slideover='overview'
     data-slideover-title='Overview'>
-	<p>
-		Amet venenatis urna cursus eget. Amet aliquam id diam maecenas ultricies
-		mi eget mauris. Accumsan lacus vel facilisis volutpat est velit egestas
-		dui id. Aenean euismod elementum nisi quis eleifend quam. Sed blandit
-		libero volutpat sed cras ornare arcu dui. Venenatis tellus in metus
-		vulputate eu scelerisque felis imperdiet proin. A diam sollicitudin
-		tempor id eu nisl. Neque sodales ut etiam sit amet nisl purus. Urna et
-		pharetra pharetra massa massa ultricies. Penatibus et magnis dis
-		parturient montes nascetur ridiculus. Nulla pellentesque dignissim enim
-		sit amet venenatis urna cursus. Tempus urna et pharetra pharetra massa
-		massa ultricies mi quis. Venenatis cras sed felis eget. Nunc vel risus
-		commodo viverra.
-	</p>
+	{
+        () => {
+            if (isEmpty(content)) return <Lipsum size={ 1 }/>
+            else {
+                return (
+                    <Fragment set:html={ content }/>
+                )
+            }
+        }
+    }
 </div>

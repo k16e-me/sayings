@@ -56,7 +56,7 @@ import Fab from './Fab.astro'
 
             body().style.overflow = 'hidden'
             backdrop.classList.remove('opacity-0')
-            backdrop.classList.add('opacity-50')
+            backdrop.classList.add('opacity-75')
             backdrop.classList.remove(...hidden())
             slideover.classList.add(...translateIn())
             slideover.classList.remove(...translateOut())
@@ -70,7 +70,7 @@ import Fab from './Fab.astro'
     function removeSlideover() {
         body().style.overflow = 'auto'
         backdrop.classList.add('opacity-0')
-        backdrop.classList.remove('opacity-50')
+        backdrop.classList.remove('opacity-75')
         slideover.classList.remove(...translateIn())
         slideover.classList.add(...translateOut())
         hideSlideoverContent()

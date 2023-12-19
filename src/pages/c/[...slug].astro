@@ -8,10 +8,10 @@ import BackTo from '../../components/BackTo.astro'
 import TitlePiece from '../../components/TitlePiece.astro'
 import FabToCard from '../../components/FabToCard.astro'
 import Icon from 'astro-icon'
-import Chapters from '../../components/Chapters.astro'
+import Slideover from '../../components/Slideover.astro'
 import Toast from '../../components/Toast.astro'
 import ToggleOverview from '../../components/ToggleOverview.astro'
-import BookChapters from '../../components/partials/Chapters.astro'
+import Chapters from '../../components/partials/Chapters.astro'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -55,7 +55,7 @@ const pageTitle = page.content.title
                             filename={ cover.illustration.filename }
                             subtitle={ cover.subtitle }
                         />
-                        <ToggleOverview class:list={ `absolute bottom-3 right-3` }/>
+                        <!-- <ToggleOverview class:list={ `absolute bottom-3 right-3` }/> -->
                     </div>
                     <div class="fixed left-3 bottom-12 md:bottom-9 lg:static flex flex-col gap-3 lg:gap-5">
                         <button class="lg:w-full" data-toggle-chapters>
@@ -76,12 +76,12 @@ const pageTitle = page.content.title
             </div>
         </div>
     </Wrapper>
-    <Chapters>
+    <Slideover>
         <span slot="title">
             Chapters <span class="sr-only">in { pageTitle }</span>
         </span>
-        <BookChapters pieces={ page.content.pieces }/>
-    </Chapters>
+        <Chapters pieces={ page.content.pieces }/>
+    </Slideover>
     <Toast/>
 </Layout>
 

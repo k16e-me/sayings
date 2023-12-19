@@ -75,7 +75,8 @@ const pageTitle = page.content.title
                     </div>
                 </div>
             </div>
-            <div class="lg:col-span-2 lg:pt-16 r-piece flex justify-center lg:justify-start">
+            <div
+                class="lg:col-span-2 lg:pt-16 r-piece flex justify-center lg:justify-start [&_p]:text-[1.055rem] [&_p]:whitespace-pre-wrap [&_p]:leading-[1.605rem] [&_p:empty]:my-5 [&_hr]:max-w-[256px]">
                 <StoryblokComponent blok={ page.content }/>
             </div>
         </div>
@@ -86,9 +87,3 @@ const pageTitle = page.content.title
     </Slideover>
     <Toast/>
 </Layout>
-
-<style is:global>
-    .r-piece p { @apply text-[1.055rem] leading-[1.605rem] whitespace-pre-wrap; }
-    .r-piece p:empty { @apply my-5; }
-    .r-piece hr { @apply max-w-[256px]; }
-</style>

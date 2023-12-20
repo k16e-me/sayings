@@ -5,8 +5,8 @@ import Fab from './Fab.astro'
 <aside
     class="fixed inset-y-0 right-0 z-50 flex items-center ml-auto !m-0 h-dvh opacity-0 translate-x-full transition duration-300 ease-in-out"
     id="slideover">
-    <div class="bg-white w-[344px] sm:w-[424px] rounded-xl lg:rounded-2xl h-full max-h-[calc(100vh-80px)] mr-3 sm:mr-5 lg:mr-9 overflow-hidden">
-        <div class="flex flex-col flex-shrink-0 overflow-hidden w-full h-full">
+    <div class="bg-white w-[344px] sm:w-[456px] rounded-3xl h-full max-h-[calc(100vh-80px)] mr-3 sm:mr-5 lg:mr-9 overflow-clip">
+        <div class="flex flex-col flex-shrink-0 h-full">
             <div class="bg-slate-100 flex items-center justify-between pr-5 shadow h-16">
                 <h2 class="font-display text-xl p-5 h-full flex items-center text-slate-950">
                     <span id="slideoverTitle" class="-mb-1"/>
@@ -45,7 +45,7 @@ import Fab from './Fab.astro'
             const slideoverContentToShow = slideoverContent.find(el => (el.dataset.slideover === attr))
             const title = slideoverContentToShow.getAttribute('data-slideover-title')
 
-            slideoverContentToShow.style.display = 'block'
+            showSlideoverContent(slideoverContentToShow)
             slideoverTitle.textContent = title
 
             dimOn(backdrop)
@@ -70,6 +70,9 @@ import Fab from './Fab.astro'
     }
 
     function hideSlideoverContent() {
-        slideoverContent.forEach(el => el.style.display = 'none')
+        slideoverContent.forEach(el => el.classList.add('sr-only'))
+    }
+    function showSlideoverContent(el) {
+        el.classList.remove('sr-only')
     }
 </script>

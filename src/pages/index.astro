@@ -31,10 +31,10 @@ const collectionAll = collection.stories.map(c => {
     <Wrapper>
         <ul
             { ...storyblokEditable(collectionAll) }
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 py-7">
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-7 justify-items-center">
             {
                 collectionAll.map(c => (
-                    <li>
+                    <li class="w-full max-w-[356px] md:max-w-none">
                         <a href={`/${c.slug}`}>
                             <article class="rounded-xl hover:shadow-2xl transition duration-300">
                                 <h2 class="sr-only">{ c.cover.title + ' ' + c.cover.subtitle }</h2>

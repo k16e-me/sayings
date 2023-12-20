@@ -75,7 +75,7 @@ const scrollToTopOffset = (target, offset) => {
     // Credit here @ https://stackoverflow.com/questions/49820013/javascript-scrollintoview-smooth-scroll-and-offset
     const topOffset = isMobile() ? 40 : offset
     const elPos = Math.round(target.getBoundingClientRect().top)
-    const offsetPos = (elPos + window.scrollY) - topOffset
+    const offsetPos = (elPos + window.scrollY) - (topOffset + 8)
 
     window.scrollTo({ top: offsetPos })
 }

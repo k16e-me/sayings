@@ -1,9 +1,10 @@
 ---
-const { bg, title, filename, alt, subtitle } = Astro.props
+const { bg, title, filename, alt, subtitle, class: classes, ...props } = Astro.props
 ---
 <div
+    { ...props }
     style={`background-color: #${ bg }`}
-    class="p-7 h-[496px] lg:h-[472px] rounded-xl flex flex-col">
+    class:list={[classes, `p-7 h-[496px] lg:h-[472px] rounded-xl flex flex-col`]}>
     <p class="lowercase font-display text-2xl text-slate-950 text-center">
         { title }
     </p>

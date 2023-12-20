@@ -41,6 +41,8 @@ const dimOff = obj => {
     obj.classList.add(`opacity-0`)
     obj.classList.remove(`opacity-60`)
 }
+const invisible = obj => obj.classList.add('sr-only')
+const visible = obj => obj.classList.remove('sr-only')
 
 
 const splitFirstOccurrenceOnly = (str, delim) => {
@@ -85,5 +87,5 @@ const scrollToTopOffset = (target, offset) => {
 
 // Exports
 export {
-    body, slugify, arrayFrom, slideOut, slideIn, enter, leave, translateIn, translateOut, hidden, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile, dimOn, dimOff
+    body, slugify, arrayFrom, slideOut, slideIn, enter, leave, translateIn, translateOut, hidden, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile, dimOn, dimOff, invisible, visible
 }

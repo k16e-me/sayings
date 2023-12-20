@@ -33,6 +33,14 @@ const leave = () => new Array('opacity-0', 'translate-y-20')
 const translateIn = () => new Array('translate-x-0', 'opacity-100')
 const translateOut = () => new Array('translate-x-full', 'opacity-0')
 const hidden = () => new Array('invisible')
+const dimOn = obj => {
+    obj.classList.remove(`opacity-0`)
+    obj.classList.add(`opacity-60`)
+}
+const dimOff = obj => {
+    obj.classList.add(`opacity-0`)
+    obj.classList.remove(`opacity-60`)
+}
 
 
 const splitFirstOccurrenceOnly = (str, delim) => {
@@ -78,5 +86,5 @@ const scrollToTopOffset = (target, offset) => {
 
 // Exports
 export {
-    body, slugify, arrayFrom, slideOut, slideIn, enter, leave, translateIn, translateOut, hidden, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile
+    body, slugify, arrayFrom, slideOut, slideIn, enter, leave, translateIn, translateOut, hidden, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile, dimOn, dimOff
 }

@@ -24,7 +24,9 @@ import Fab from './Fab.astro'
 </aside>
 
 <script>
-    import { arrayFrom, translateIn, translateOut, hidden, body } from '../js/snips'
+    import {
+        arrayFrom, translateIn, translateOut, hidden, body, dimOn, dimOff
+    } from '../js/snips'
 
     const slideoverToggles = arrayFrom('[data-toggle="slideover"]')
     const slideover = document.getElementById('slideover')
@@ -46,9 +48,8 @@ import Fab from './Fab.astro'
             slideoverContentToShow.style.display = 'block'
             slideoverTitle.textContent = title
 
+            dimOn(backdrop)
             body().style.overflow = 'hidden'
-            backdrop.classList.remove('opacity-0')
-            backdrop.classList.add('opacity-75')
             backdrop.classList.remove(...hidden())
             slideover.classList.add(...translateIn())
             slideover.classList.remove(...translateOut())
@@ -60,9 +61,8 @@ import Fab from './Fab.astro'
     links.map(link => link.addEventListener('click', () => removeSlideover()))
 
     function removeSlideover() {
+        dimOff(backdrop)
         body().style.overflow = 'auto'
-        backdrop.classList.add('opacity-0')
-        backdrop.classList.remove('opacity-75')
         slideover.classList.remove(...translateIn())
         slideover.classList.add(...translateOut())
         hideSlideoverContent()

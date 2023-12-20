@@ -60,7 +60,6 @@ const isEmpty = obj => {
 
 const isMobile = () => {
     const mql = window.matchMedia('(max-width: 1023px)')
-
     const checkMobile = () => {
         const screen = mql.matches ? true : false
         return screen

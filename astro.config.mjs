@@ -19,7 +19,8 @@ export default defineConfig({
             components: {
                 page: 'storyblok/Page',
                 collection: 'storyblok/Collection',
-                piece: 'storyblok/Piece'
+                piece: 'storyblok/Piece',
+                cover: 'storyblok/Cover'
             }
         })
     ]

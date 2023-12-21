@@ -1,0 +1,62 @@
+---
+import { useStoryblokApi, storyblokEditable } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import Layout from '../layouts/Layout.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import BookCover from '../components/BookCover.astro'
+import Collections from '../components/Collections.astro'
+
+export async function getStaticPaths() {
+    const storyblokApi = useStoryblokApi()
+    const { data } = await storyblokApi.get('cdn/links', {
+        version: import.meta.env.DEV ? 'draft' : 'published'
+    })
+    let links = data.links
+    links = Object.values(links)
+
+    return links.map((link) => {
+        return {
+            params: {
+                slug: link.slug === 'home' ? undefined : link.slug,
+            }
+        }
+    })
+}
+
+const { slug } = Astro.params
+const storyblokApi = useStoryblokApi()
+const { data: story } = await storyblokApi.get(`cdn/stories/${slug === undefined ? 'home' : slug}`, {
+    version: import.meta.env.DEV ? 'draft' : 'published'
+})
+const page = story.story
+const { data: collection } = await storyblokApi.get('cdn/stories/', {
+	version: import.meta.env.DEV ? 'draft' : 'published',
+    starts_with: `${page.content.list}/`,
+    sort_by: 'content.position:desc'
+})
+const collectionAll = collection.stories.map(c => {
+	return {
+		title: c.content.title,
+        cover: c.content.cover[0],
+		slug: c.full_slug,
+	}
+})
+---
+<Layout
+    pageTitle={ page.content.title }
+    pageDescription={ page.content.description }>
+    <Wrapper>
+        {
+            () => {
+                if (page.slug === 'home') {
+                    return (
+                        <Collections collections={ collectionAll }/>
+                    )
+                }
+                return (
+                    <StoryblokComponent blok={page.content}/>
+                )
+            }
+        }
+    </Wrapper>
+</Layout>

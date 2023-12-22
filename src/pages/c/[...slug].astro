@@ -13,6 +13,7 @@ import ToggleOverview from '../../components/ToggleOverview.astro'
 import Chapters from '../../components/Chapters.astro'
 import Slideover from '../../components/Slideover.astro'
 import Overview from '../../components/Overview.astro'
+import Silence from '../../components/Silence.astro'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -77,8 +78,9 @@ const pageTitle = page.content.title
                 </div>
             </div>
             <div
-                class="lg:col-span-2 lg:pt-16 r-piece flex justify-center lg:justify-start [&_p]:text-[1.055rem] [&_p]:whitespace-pre-wrap [&_p]:leading-[1.605rem] [&_p:empty]:my-5 [&_hr]:max-w-[256px]">
+                class="lg:col-span-2 lg:pt-16 r-piece flex flex-col justify-center lg:justify-start [&_p]:text-[1.055rem] [&_p]:whitespace-pre-wrap [&_p]:leading-[1.605rem] [&_p:empty]:my-5 [&_hr]:max-w-[256px]">
                 <StoryblokComponent blok={ page.content }/>
+                <Silence bg={ cover.pastel }/>
             </div>
         </div>
     </Wrapper>

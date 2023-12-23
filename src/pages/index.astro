@@ -1,0 +1,54 @@
+---
+import { useStoryblokApi, storyblokEditable } from '@storyblok/astro'
+import Layout from '../layouts/Layout.astro'
+import Wrapper from '../layouts/Wrapper.astro'
+import BookCover from '../components/BookCover.astro'
+
+const storyblokApi = useStoryblokApi()
+const { data } = await storyblokApi.get('cdn/stories/home', {
+	version: import.meta.env.DEV ? 'draft' : 'published',
+})
+const page = data.story
+
+const { data: collection } = await storyblokApi.get('cdn/stories/', {
+	version: import.meta.env.DEV ? 'draft' : 'published',
+	starts_with: `${page.content.list}/`,
+	sort_by: 'content.position:desc',
+})
+const collectionAll = collection.stories.map((c) => {
+	return {
+		title: c.content.title,
+		cover: c.content.cover[0],
+		slug: c.full_slug,
+	}
+})
+---
+<Layout
+	pageTitle={page.content.title}
+	pageDescription={page.content.description}>
+	<Wrapper>
+		<ul
+			{...storyblokEditable(collectionAll)}
+			class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-7 justify-items-center'>
+			{
+				collectionAll.map((c) => (
+					<li class='w-full max-w-[356px] md:max-w-none'>
+						<a href={`/${c.slug}`}>
+							<article class='rounded-xl hover:shadow-2xl transition duration-300'>
+								<h2 class='sr-only'>
+									{c.cover.title + ' ' + c.cover.subtitle}
+								</h2>
+								<BookCover
+									bg={c.cover.pastel}
+									title={c.cover.title}
+									filename={c.cover.illustration.filename}
+									subtitle={c.cover.subtitle}
+								/>
+							</article>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</Wrapper>
+</Layout>

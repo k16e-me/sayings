@@ -23,5 +23,9 @@ export default defineConfig({
                 cover: 'storyblok/Cover'
             }
         })
-    ]
+    ],
+    redirects: {
+        '/pages': { status: 301, destination: '/' },
+        '/c': { status: 301, destination: '/' }
+    }
 })

@@ -24,16 +24,16 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params
 const storyblokApi = useStoryblokApi()
-const { data: story } = await storyblokApi.get(`cdn/stories/pages/${slug}`, {
+const { data } = await storyblokApi.get(`cdn/stories/pages/${slug}`, {
     version: import.meta.env.DEV ? 'draft' : 'published'
 })
-const page = story.story
+const page = data.story
 ---
 <Layout
     pageTitle={ page.content.title }
     pageDescription={ page.content.description }
     pageThumbnail={ page.content.image?.filename }>
     <Wrapper>
-        <StoryblokComponent blok={page.content}/>
+        <StoryblokComponent blok={ page.content }/>
     </Wrapper>
 </Layout>

@@ -3,7 +3,6 @@ import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Layout from '../layouts/Layout.astro'
 import Wrapper from '../layouts/Wrapper.astro'
-import Collections from '../components/Collections.astro'
 
 export async function getStaticPaths() {
     const storyblokApi = useStoryblokApi()
@@ -12,12 +11,13 @@ export async function getStaticPaths() {
     })
     let links = data.links
     links = Object.values(links)
-    console.log(links)
+    let filteredLinks = links.filter(i => i.slug.includes('pages/'))
+    console.log(filteredLinks)
 
-    return links.map((link) => {
+    return filteredLinks.map((link) => {
         return {
             params: {
-                slug: link.slug === 'home' ? undefined : link.slug,
+                slug: link.slug.split('/')[1]
             }
         }
     })
@@ -25,39 +25,16 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params
 const storyblokApi = useStoryblokApi()
-const { data: story } = await storyblokApi.get(`cdn/stories/${slug === undefined ? 'home' : slug}`, {
+const { data: story } = await storyblokApi.get(`cdn/stories/pages/${slug}`, {
     version: import.meta.env.DEV ? 'draft' : 'published'
 })
 const page = story.story
-const { data: collection } = await storyblokApi.get('cdn/stories/', {
-	version: import.meta.env.DEV ? 'draft' : 'published',
-    starts_with: `${page.content.list}/`,
-    sort_by: 'content.position:desc'
-})
-const collectionAll = collection.stories.map(c => {
-	return {
-		title: c.content.title,
-        cover: c.content.cover[0],
-		slug: c.full_slug,
-	}
-})
 ---
 <Layout
     pageTitle={ page.content.title }
     pageDescription={ page.content.description }
     pageThumbnail={ page.content.image?.filename }>
     <Wrapper>
-        {
-            () => {
-                if (page.slug === 'home') {
-                    return (
-                        <Collections collections={ collectionAll }/>
-                    )
-                }
-                return (
-                    <StoryblokComponent blok={page.content}/>
-                )
-            }
-        }
+        <StoryblokComponent blok={page.content}/>
     </Wrapper>
 </Layout>

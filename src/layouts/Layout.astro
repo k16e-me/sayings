@@ -47,6 +47,10 @@ const site = settings.story.content
         animation: blink normal 1s 1s 1 ease-in-out;
     }
 
+    .r-piece {
+        @apply [&_p]:text-[1.055rem] [&_p]:whitespace-pre-wrap [&_p]:leading-[1.605rem] [&_p:empty]:my-5 [&_hr]:max-w-[256px];
+    }
+
     @keyframes blink {
         0% { background-color: rgba(241,245,249,0.5) }
         100% { background-color: rgba(241,245,249,1) }

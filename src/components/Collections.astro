@@ -9,7 +9,7 @@ const { collections } = Astro.props
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-7 justify-items-center">
     {
         collections.map(c => (
-            <li class="w-full max-w-[356px] md:max-w-none">
+            <li>
                 <a href={`/${c.slug}`}>
                     <article class="rounded-xl hover:shadow-2xl transition duration-300">
                         <h2 class="sr-only">{ c.cover.title + ' ' + c.cover.subtitle }</h2>

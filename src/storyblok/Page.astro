@@ -4,7 +4,6 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
 const { blok } = Astro.props
 ---
-
 <div {...storyblokEditable(blok)}>
     {
         blok.body?.map((blok: any) => {

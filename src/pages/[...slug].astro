@@ -12,12 +12,11 @@ export async function getStaticPaths() {
     let links = data.links
     links = Object.values(links)
     let filteredLinks = links.filter(i => i.slug.includes('pages/'))
-    console.log(filteredLinks)
 
-    return filteredLinks.map((link) => {
+    return filteredLinks.map(l => {
         return {
             params: {
-                slug: link.slug.split('/')[1]
+                slug: l.slug.split('/')[1]
             }
         }
     })

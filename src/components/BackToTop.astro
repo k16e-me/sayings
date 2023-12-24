@@ -23,8 +23,10 @@ import { Icon } from 'astro-icon'
     window.addEventListener('scroll', () => {
         if (window.scrollY > 640) {
             visible(backToTop)
-            backToTop.classList.add(...enter())
-            backToTop.classList.remove(...leave())
+            setTimeout(() => {
+                backToTop.classList.add(...enter())
+                backToTop.classList.remove(...leave())
+            }, 1)
         }
         else {
             slideOut(backToTop, enter(), leave())

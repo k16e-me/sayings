@@ -1,5 +1,7 @@
 ---
 import { SEO } from 'astro-seo'
+import { ViewTransitions } from 'astro:transitions'
+
 const { title, image, description = '' } = Astro.props
 ---
 <head>
@@ -18,4 +20,5 @@ const { title, image, description = '' } = Astro.props
             }
         }}
     />
+    <!-- <ViewTransitions /> -->
 </head>

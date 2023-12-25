@@ -7,22 +7,32 @@ const { bg, class: classes, ...props } = Astro.props
         classes,
         `w-full rounded-xl flex items-end justify-end p-5 mt-5 overflow-clip`
     ]}
-    style={ `background-color: #${bg};` }>
+    style={ `background-color: #${bg};` }
+    data-gsap="parent">
     <p
         class="font-display text-fuchsia-600 -mb-2"
-        data-gsap="slide-in-later">
+        data-gsap="child">
         Silence is golden
     </p>
 </div>
 
 <script>
     import { gsap } from 'gsap'
+    import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-    gsap.from('[data-gsap="slide-in-later"]', {
+    gsap.registerPlugin(ScrollTrigger)
+
+    const parent = document.querySelector('[data-gsap="parent"]')
+    const child = document.querySelector('[data-gsap="child"]')
+
+    gsap.from(child, {
+        scrollTrigger: {
+            trigger: parent,
+            toggleActions: 'restart none none reset'
+        },
         y: '100%',
-        delay: 1,
         ease: 'expoScale(0.5,7,none)',
         opacity: 0,
-        scale: 1.5
+        scale: 2
     })
 </script>

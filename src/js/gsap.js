@@ -20,6 +20,16 @@ if (scaleIn) {
     })
 }
 
-if (cards.length) {
-    console.log(cards)
-}
+// if (cards.length) {
+//     gsap.from(cards, {
+//         scrollTrigger: {
+//             trigger: cards,
+//             toggleActions: 'play none none none'
+//         },
+//         stagger: { each: 0.3 },
+//         y: 24,
+//         ease: 'expoScale(0.3,7,none)',
+//         opacity: 0,
+//         duration: .4
+//     })
+// }

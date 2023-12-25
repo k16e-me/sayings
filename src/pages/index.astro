@@ -3,6 +3,7 @@ import { useStoryblokApi, storyblokEditable } from '@storyblok/astro'
 import Layout from '../layouts/Layout.astro'
 import Wrapper from '../layouts/Wrapper.astro'
 import BookCover from '../components/BookCover.astro'
+import Collections from '../components/Collections.astro'
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/home', {
@@ -27,28 +28,6 @@ const collectionAll = collection.stories.map((c) => {
 	pageTitle={page.content.title}
 	pageDescription={page.content.description}>
 	<Wrapper>
-		<ul
-			{...storyblokEditable(collectionAll)}
-			class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-7 justify-items-center'>
-			{
-				collectionAll.map((c) => (
-					<li class='w-full max-w-[356px] md:max-w-none'>
-						<a href={`/${c.slug}`}>
-							<article class='rounded-xl hover:shadow-2xl transition duration-300'>
-								<h2 class='sr-only'>
-									{c.cover.title + ' ' + c.cover.subtitle}
-								</h2>
-								<BookCover
-									bg={c.cover.pastel}
-									title={c.cover.title}
-									filename={c.cover.illustration.filename}
-									subtitle={c.cover.subtitle}
-								/>
-							</article>
-						</a>
-					</li>
-				))
-			}
-		</ul>
+		<Collections collections={ collectionAll }>
 	</Wrapper>
 </Layout>

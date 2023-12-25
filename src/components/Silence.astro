@@ -10,28 +10,7 @@ const { bg, class: classes, ...props } = Astro.props
     style={ `background-color: #${bg};` }>
     <p
         class="font-display text-fuchsia-600 -mb-2"
-        data-gsap="child">
+        data-gsap="scale-in-up">
         Silence is golden
     </p>
 </div>
-
-<script>
-    import { gsap } from 'gsap'
-    import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-    gsap.registerPlugin(ScrollTrigger)
-
-    const child = document.querySelector('[data-gsap="child"]')
-
-    gsap.from(child, {
-        scrollTrigger: {
-            trigger: child,
-            toggleActions: 'restart pause resume pause'
-        },
-        y: '100%',
-        ease: 'expoScale(0.3,7,none)',
-        opacity: 0,
-        scale: 2,
-        duration: .7
-    })
-</script>

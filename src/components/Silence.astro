@@ -20,6 +20,9 @@ const { bg, class: classes, ...props } = Astro.props
 
     gsap.from('[data-gsap="slide-in-later"]', {
         y: '100%',
-        delay: 1
+        delay: 1,
+        ease: 'expoScale(0.5,7,none)',
+        opacity: 0,
+        scale: 1.5
     })
 </script>

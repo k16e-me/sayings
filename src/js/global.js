@@ -29,7 +29,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
         gsap.from(scaleInUp, {
             scrollTrigger: {
                 trigger: scaleInUp,
-                toggleActions: 'restart pause resume pause'
+                toggleActions: 'restart pause reverse pause'
             },
             y: '100%',
             ease: 'expoScale(0.3,7,none)',

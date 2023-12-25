@@ -5,10 +5,21 @@ const { bg, class: classes, ...props } = Astro.props
     { ...props }
     class:list={[
         classes,
-        `w-full rounded-xl flex items-end justify-end p-5 mt-5`
+        `w-full rounded-xl flex items-end justify-end p-5 mt-5 overflow-clip`
     ]}
     style={ `background-color: #${bg};` }>
-    <p class="font-display text-fuchsia-600 -mb-2">
+    <p
+        class="font-display text-fuchsia-600 -mb-2"
+        data-gsap="slide-in-later">
         Silence is golden
     </p>
 </div>
+
+<script>
+    import { gsap } from 'gsap'
+
+    gsap.from('[data-gsap="slide-in-later"]', {
+        y: '100%',
+        delay: 1
+    })
+</script>

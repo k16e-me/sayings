@@ -10,7 +10,8 @@ export default defineConfig({
     site: 'https://sayings.cc',
     prefetch: {
         prefetchAll: true,
-        defaultStrategy: 'viewport'
+        defaultStrategy: 'viewport',
+        ignoreSlowConnection: true
     },
     integrations: [
         tailwind(),

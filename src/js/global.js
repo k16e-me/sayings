@@ -1,5 +1,6 @@
-import { arrayFrom, scrollToTopOffset, enter, leave } from './snips'
-
+import {
+    arrayFrom, scrollToTopOffset, enter, leave
+} from './snips'
 
 Astrolog()
 Jumplink()

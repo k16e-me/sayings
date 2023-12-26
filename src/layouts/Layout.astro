@@ -56,3 +56,20 @@ const site = settings.story.content
         100% { background-color: rgba(241,245,249,1) }
     }
 </style>
+
+<script>
+    import { enter, leave } from '../js/snips'
+
+    const main = document.querySelector('[data-main]')
+    
+    document.addEventListener('astro:before-preparation', () => {
+        console.log('Before prep')
+        main.classList.add(...enter())
+        main.classList.remove(...leave())
+    })
+    document.addEventListener('astro:after-preparation', () => {
+        console.log('After prep')
+        main.classList.remove(...enter())
+        main.classList.add(...leave())
+    })
+</script>

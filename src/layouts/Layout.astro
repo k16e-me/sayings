@@ -58,18 +58,30 @@ const site = settings.story.content
 </style>
 
 <script>
-    import { enter, leave } from '../js/snips'
+    import { gsap } from 'gsap'
 
     const main = document.querySelector('[data-main]')
-    
+
     document.addEventListener('astro:before-preparation', () => {
-        console.log('Before prep')
-        main.classList.add(...enter())
-        main.classList.remove(...leave())
+        setTimeout(() => {
+            console.log('Before prep', main)
+            gsap.to(main, {
+                y: '100%',
+                ease: 'expoScale(0.3,7,none)',
+                opacity: 0,
+                scale: 2
+            })
+        }, 0)
     })
     document.addEventListener('astro:after-preparation', () => {
-        console.log('After prep')
-        main.classList.remove(...enter())
-        main.classList.add(...leave())
+        setTimeout(() => {
+            console.log('After prep', main)
+            gsap.from(main, {
+                y: '100%',
+                ease: 'expoScale(0.3,7,none)',
+                opacity: 0,
+                scale: 2
+            })
+        }, 0)
     })
 </script>

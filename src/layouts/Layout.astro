@@ -29,7 +29,7 @@ const site = settings.story.content
         style="overflow: auto;">
         <h1 class='sr-only'>{ pageTitle }</h1>
         <Header title={ site.title }/>
-		<main class="flex-1 relative opacity-100">
+		<main class="flex-1 relative" id="main">
             <slot/>
         </main>
         <Footer preferredName={ site.preferredName }/>
@@ -60,22 +60,24 @@ const site = settings.story.content
 <script>
     import { gsap } from 'gsap'
 
-    const main = document.getElementsByTagName('main')[0]
+    const main = document.querySelector('#main')
 
-    document.addEventListener('astro:before-preparation', () => {
-        console.log('Before prep', main)
-        gsap.to(main, {
-            y: 64,
-            ease: 'power1.out',
-            opacity: 0
-        })
-    })
-    document.addEventListener('astro:after-preparation', () => {
-        console.log('After prep', main)
-        gsap.from(main, {
-            y: 64,
-            ease: 'power1.out',
-            opacity: 0
-        })
-    })
+    // document.addEventListener('astro:before-preparation', () => {
+    //     console.log('Before prep', main)
+    //     gsap.to('#main', {
+    //         y: 64,
+    //         ease: 'power1.out',
+    //         opacity: 0,
+    //         scale: .9
+    //     })
+    // })
+    // document.addEventListener('astro:after-preparation', () => {
+    //     console.log('After prep', main)
+    //     gsap.from('#main', {
+    //         y: 64,
+    //         ease: 'power1.out',
+    //         opacity: 0,
+    //         scale: 1.25
+    //     })
+    // })
 </script>

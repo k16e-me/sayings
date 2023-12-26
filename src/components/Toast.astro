@@ -22,7 +22,10 @@
 
             navigator.clipboard.writeText(e.target.href)
 
+            if (toast.classList.contains('opacity-100')) return
+
             slideIn(toast, leave(), enter())
+
             setTimeout(() => {
                 slideOut(toast, enter(), leave())
             }, 3000)

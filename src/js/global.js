@@ -1,9 +1,12 @@
 import { arrayFrom, scrollToTopOffset, enter, leave } from './snips'
 
-(() => {
-    console.log('Thank God for Astro 😍')
 
-    const links = arrayFrom('[data-link]')
+Astrolog()
+Jumplink()
+
+
+function Jumplink() {
+    const links = arrayFrom('[data-link]', document)
     const headerHeight = document.querySelector('[data-main-header]').getBoundingClientRect().height
 
     links.forEach(link => {
@@ -17,4 +20,9 @@ import { arrayFrom, scrollToTopOffset, enter, leave } from './snips'
             parent.addEventListener('animationend', () => parent.classList.remove('is-focused'), false)
         })
     })
-})()
+}
+
+
+function Astrolog() {
+    console.log('Thank God for Astro 😍')
+}

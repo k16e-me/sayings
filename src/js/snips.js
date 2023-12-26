@@ -13,7 +13,7 @@ const slugify = str => {
 }
 
 
-const arrayFrom = (list, ref = document) => {
+const arrayFrom = (list, ref) => {
     return Array.from(ref.querySelectorAll(list))
 }
 

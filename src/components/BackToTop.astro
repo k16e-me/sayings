@@ -14,26 +14,33 @@ import { Icon } from 'astro-icon'
 <script>
     import { slideOut, enter, leave, invisible, visible } from '../js/snips'
 
-    const
-        backToTop = document.querySelector('[data-backtotop]'),
-        button = backToTop.querySelector('button')
+    BackToTop()
 
-    hideBtt()
+    function BackToTop() {
+        const btt = document.querySelector('[data-backtotop]')
+        const btn = btt.querySelector('button')
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 640) showBtt()
-        else hideBtt()
-    })
+        hideBtt()
 
-    function showBtt() {
-        visible(backToTop)
-        backToTop.classList.add(...enter())
-        backToTop.classList.remove(...leave())
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 640) showBtt()
+            else hideBtt()
+        })
+
+        function showBtt() {
+            visible(btt)
+            btt.classList.add(...enter())
+            btt.classList.remove(...leave())
+        }
+        function hideBtt() {
+            slideOut(btt, enter(), leave())
+            setTimeout(() => invisible(btt), 300)
+        }
+
+        btn.addEventListener('click', () => window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        }), false)
     }
-    function hideBtt() {
-        slideOut(backToTop, enter(), leave())
-        setTimeout(() => invisible(backToTop), 300)
-    }
-
-    button.addEventListener('click', () => window.scrollTo({ top: 0, left: 0, behavior: 'smooth'}), false)
 </script>

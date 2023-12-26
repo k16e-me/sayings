@@ -55,29 +55,9 @@ const site = settings.story.content
         0% { background-color: rgba(241,245,249,0.5) }
         100% { background-color: rgba(241,245,249,1) }
     }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.5s;
+    }
 </style>
-
-<script>
-    import { gsap } from 'gsap'
-
-    const main = document.querySelector('#main')
-
-    // document.addEventListener('astro:before-preparation', () => {
-    //     console.log('Before prep', main)
-    //     gsap.to('#main', {
-    //         y: 64,
-    //         ease: 'power1.out',
-    //         opacity: 0,
-    //         scale: .9
-    //     })
-    // })
-    // document.addEventListener('astro:after-preparation', () => {
-    //     console.log('After prep', main)
-    //     gsap.from('#main', {
-    //         y: 64,
-    //         ease: 'power1.out',
-    //         opacity: 0,
-    //         scale: 1.25
-    //     })
-    // })
-</script>

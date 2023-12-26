@@ -12,23 +12,26 @@
 <script>
     import { arrayFrom, slideIn, slideOut, enter, leave } from '../js/snips'
 
-    const
-        linkCopy = arrayFrom('[data-copy]'),
-        toast = document.querySelector('[data-toast]')
+    Toast()
 
-    linkCopy.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault()
+    function Toast() {
+        const linkCopy = arrayFrom('[data-copy]', document)
+        const toast = document.querySelector('[data-toast]')
 
-            navigator.clipboard.writeText(e.target.href)
+        linkCopy.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault()
 
-            if (toast.classList.contains('opacity-100')) return
+                navigator.clipboard.writeText(e.target.href)
 
-            slideIn(toast, leave(), enter())
+                if (toast.classList.contains('opacity-100')) return
 
-            setTimeout(() => {
-                slideOut(toast, enter(), leave())
-            }, 3000)
+                slideIn(toast, leave(), enter())
+
+                setTimeout(() => {
+                    slideOut(toast, enter(), leave())
+                }, 3000)
+            })
         })
-    })
+    }
 </script>

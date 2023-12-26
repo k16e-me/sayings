@@ -28,51 +28,53 @@ import Fab from './Fab.astro'
         arrayFrom, translateIn, translateOut, hidden, body, dimOn, dimOff
     } from '../js/snips'
 
-    const slideoverToggles = arrayFrom('[data-toggle="slideover"]')
-    const slideover = document.getElementById('slideover')
-    const close = slideover.querySelector('#close')
-    const backdrop = document.querySelector('[data-backdrop]')
-    const links = arrayFrom('[data-link]')
-    const slideoverContent = arrayFrom('[data-slideover]', slideover)
-    const slideoverTitle = slideover.querySelector('#slideoverTitle')
+    Slideover()
 
-    hideSlideoverContent()
+    function Slideover() {
+        if (document.getElementById('slideover')) {
+            const slideoverToggles = arrayFrom('[data-toggle="slideover"]', document)
+            const slideover = document.getElementById('slideover')
+            const close = slideover.querySelector('#close')
+            const backdrop = document.querySelector('[data-backdrop]')
+            const links = arrayFrom('[data-link]', document)
+            const slideoverContent = arrayFrom('[data-slideover]', slideover)
+            const slideoverTitle = slideover.querySelector('#slideoverTitle')
 
-    slideoverToggles.forEach(toggle => {
-        toggle.addEventListener('click', (e) => {
-            const clickedEl = e.target
-            const attr = clickedEl.getAttribute('data-slideover')
-            const slideoverContentToShow = slideoverContent.find(el => (el.dataset.slideover === attr))
-            const title = slideoverContentToShow.getAttribute('data-slideover-title')
+            hideSlideoverContent(slideoverContent)
 
-            showSlideoverContent(slideoverContentToShow)
-            slideoverTitle.textContent = title
+            slideoverToggles.forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    const clickedEl = e.target
+                    const attr = clickedEl.getAttribute('data-slideover')
+                    const slideoverContentToShow = slideoverContent.find(el => (el.dataset.slideover === attr))
+                    const title = slideoverContentToShow.getAttribute('data-slideover-title')
 
-            dimOn(backdrop)
-            body().style.overflow = 'hidden'
-            backdrop.classList.remove(...hidden())
-            slideover.classList.add(...translateIn())
-            slideover.classList.remove(...translateOut())
-        })
-    })
+                    showSlideoverContent(slideoverContentToShow)
+                    slideoverTitle.textContent = title
 
-    backdrop.addEventListener('click', () => removeSlideover())
-    close.addEventListener('click', () => removeSlideover())
-    links.map(link => link.addEventListener('click', () => removeSlideover()))
+                    dimOn(backdrop)
+                    body().style.overflow = 'hidden'
+                    backdrop.classList.remove(...hidden())
+                    slideover.classList.add(...translateIn())
+                    slideover.classList.remove(...translateOut())
+                })
+            })
 
-    function removeSlideover() {
-        dimOff(backdrop)
-        body().style.overflow = 'auto'
-        slideover.classList.remove(...translateIn())
-        slideover.classList.add(...translateOut())
-        hideSlideoverContent()
-        setTimeout(() => backdrop.classList.add(...hidden()), 300)
-    }
+            backdrop.addEventListener('click', () => removeSlideover())
+            close.addEventListener('click', () => removeSlideover())
+            links.map(link => link.addEventListener('click', () => removeSlideover()))
 
-    function hideSlideoverContent() {
-        slideoverContent.forEach(el => el.classList.add('sr-only'))
-    }
-    function showSlideoverContent(el) {
-        el.classList.remove('sr-only')
+            function removeSlideover() {
+                dimOff(backdrop)
+                body().style.overflow = 'auto'
+                slideover.classList.remove(...translateIn())
+                slideover.classList.add(...translateOut())
+                hideSlideoverContent(slideoverContent)
+                setTimeout(() => backdrop.classList.add(...hidden()), 300)
+            }
+
+            function hideSlideoverContent(elAll) { elAll.forEach(elOne => elOne.classList.add('sr-only')) }
+            function showSlideoverContent(el) { el.classList.remove('sr-only') }
+        }
     }
 </script>

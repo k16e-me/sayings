@@ -29,7 +29,7 @@ const slideIn = (obj, leaveClasses, enterClasses) => {
 
 
 const enter = () => new Array('opacity-100', 'translate-y-0')
-const leave = () => new Array('opacity-0', 'translate-y-20')
+const leave = () => new Array('opacity-0', 'translate-y-24')
 const translateIn = () => new Array('translate-x-0', 'opacity-100')
 const translateOut = () => new Array('translate-x-full', 'opacity-0')
 const hidden = () => new Array('invisible')

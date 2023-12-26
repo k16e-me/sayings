@@ -29,7 +29,7 @@ const site = settings.story.content
         style="overflow: auto;">
         <h1 class='sr-only'>{ pageTitle }</h1>
         <Header title={ site.title }/>
-		<main class="flex-1 relative">
+		<main class="flex-1 relative transition duration-300" data-main>
             <slot/>
         </main>
         <Footer preferredName={ site.preferredName }/>
@@ -56,5 +56,3 @@ const site = settings.story.content
         100% { background-color: rgba(241,245,249,1) }
     }
 </style>
-
-<script src="../js/global.js"></script>

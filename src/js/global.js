@@ -1,4 +1,4 @@
-import { arrayFrom, scrollToTopOffset } from './snips'
+import { arrayFrom, scrollToTopOffset, enter, leave } from './snips'
 
 (() => {
     console.log('Thank God for Astro 😍')
@@ -17,4 +17,14 @@ import { arrayFrom, scrollToTopOffset } from './snips'
             parent.addEventListener('animationend', () => parent.classList.remove('is-focused'), false)
         })
     })
+
+    const main = document.querySelector('[data-main]')
+    // document.addEventListener('astro:before-preparation', () => {
+    //     main.classList.add(...enter())
+    //     main.classList.remove(...leave())
+    // })
+    // document.addEventListener('astro:after-preparation', () => {
+    //     main.classList.remove(...enter())
+    //     main.classList.add(...leave())
+    // })
 })()

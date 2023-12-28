@@ -3,8 +3,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const scaleIn = document.querySelector('[data-gsap="scale-in"]')
-const cards = gsap.utils.toArray('[data-gsap="move-in"]')
+const
+    scaleIn = document.querySelector('[data-gsap="scale-in"]'),
+    cards = gsap.utils.toArray('[data-gsap="move-in"]')
 
 if (scaleIn) {
     gsap.from(scaleIn, {

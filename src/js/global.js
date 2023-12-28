@@ -1,9 +1,18 @@
 import {
-    $$, scrollToTopOffset, enter, leave
+    $, $$, scrollToTopOffset, enter, leave
 } from './snips'
 
 Astrolog()
 Jumplink()
+Search()
+
+
+function Search() {
+    const
+        pieces = $$('[data-piece]')
+
+    console.log(pieces)
+}
 
 
 function Jumplink() {

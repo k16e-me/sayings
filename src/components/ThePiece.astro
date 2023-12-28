@@ -5,7 +5,9 @@ import Fab from './Fab.astro'
 
 const { title, content } = Astro.props
 ---
-<article data-piece>
+<article
+    class="mb-24 sm:mb-28 lg:mb-32 last:mb-0"
+    data-piece>
     <h3
         id={ slugify(splitFirstOccurrenceOnly(title, '.')) }
         class="font-display text-2xl text-slate-950 mb-5 inline-flex items-center">

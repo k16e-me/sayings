@@ -6,7 +6,7 @@ import { isEmpty } from '../js/snips'
 
 const { blok } = Astro.props
 ---
-<div {...storyblokEditable(blok)} class="space-y-24 sm:space-y-28 lg:space-y-32">
+<div {...storyblokEditable(blok)}>
     {() => {
         if (isEmpty(blok.pieces)) return <Lipsum/>
         else {

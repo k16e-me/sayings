@@ -1,6 +1,10 @@
 import {
-    $, $$, scrollToTopOffset, enter, leave
+    $, $$, scrollToTopOffset, enter, leave, visible, invisible
 } from './snips'
+import { gsap } from 'gsap'
+import { Flip } from 'gsap/all'
+
+gsap.registerPlugin(Flip)
 
 Astrolog()
 Jumplink()
@@ -8,10 +12,32 @@ Search()
 
 
 function Search() {
-    const
-        pieces = $$('[data-piece]')
+    let
+        typingTimer
 
-    console.log(pieces)
+    const
+        pieces = $$('[data-piece]'),
+        input = $('#search'),
+        typeInterval = 500
+
+    input.addEventListener('keyup', () => {
+        clearTimeout(typingTimer)
+        typingTimer = setTimeout(liveSearch, typeInterval)
+    })
+
+    function liveSearch() {
+        const
+            query = input.value.toLowerCase(),
+            state = Flip.getState(pieces)
+
+        pieces.forEach(piece => {
+            if (piece.textContent.toLowerCase().includes(query)) {
+                piece.classList.remove('hidden')
+            } else {
+                piece.classList.add('hidden')
+            }
+        })
+    }
 }
 
 

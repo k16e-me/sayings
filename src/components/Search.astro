@@ -1,8 +1,18 @@
 ---
 import Icon from 'astro-icon'
-import Fab from './Fab.astro'
 ---
-<Fab id="search" class:list="cursor-pointer">
-    <Icon name="search" class="w-6"/>
-    <span class="sr-only">Search</span>
-</Fab>
+<div>
+    <label for="search" class="sr-only">Find a saying</label>
+    <div class="relative flex items-center justify-between">
+        <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Find a saying"
+            class="flex w-full min-w-80 rounded-xl border-0 py-3 pl-4 pr-16 text-slate-900 shadow-sm ring-[1.25px] ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-fuchsia-600 transition duration-300"
+        />
+        <div class="absolute inset-y-0 right-0 flex py-3 pr-4">
+            <Icon name="search" class="w-6 text-slate-400"/>
+        </div>
+    </div>
+</div>

@@ -6,11 +6,11 @@ import Fab from './Fab.astro'
 const { title, content } = Astro.props
 ---
 <article
-    class="mb-24 sm:mb-28 lg:mb-32 last:mb-0"
+    class="mb-12 sm:mb-16 lg:mb-20 last:mb-0"
     data-piece>
     <h3
         id={ slugify(splitFirstOccurrenceOnly(title, '.')) }
-        class="font-display text-2xl text-slate-950 mb-5 inline-flex items-center">
+        class="font-display text-xl text-slate-950 mb-5 inline-flex items-center">
         <span class="inline-flex">{ title }</span>
         <a
             href={ `#${slugify(splitFirstOccurrenceOnly(title, '.'))}` }

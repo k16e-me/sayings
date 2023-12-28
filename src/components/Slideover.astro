@@ -25,21 +25,21 @@ import Fab from './Fab.astro'
 
 <script>
     import {
-        arrayFrom, translateIn, translateOut, hidden, body, dimOn, dimOff
+        $, $$, translateIn, translateOut, hidden, body, dimOn, dimOff
     } from '../js/snips'
 
     Slideover()
 
     function Slideover() {
-        if (document.getElementById('slideover')) {
+        if ($('#slideover')) {
             const
-                slideoverToggles = arrayFrom('[data-toggle="slideover"]'),
-                slideover = document.getElementById('slideover'),
-                close = slideover.querySelector('#close'),
-                backdrop = document.querySelector('[data-backdrop]'),
-                links = arrayFrom('[data-link]'),
-                slideoverContent = arrayFrom('[data-slideover]', slideover),
-                slideoverTitle = slideover.querySelector('#slideoverTitle')
+                slideoverToggles = $$('[data-toggle="slideover"]'),
+                slideover = $('#slideover'),
+                close = $('#close', slideover),
+                backdrop = $('[data-backdrop]'),
+                links = $$('[data-link]'),
+                slideoverContent = $$('[data-slideover]', slideover),
+                slideoverTitle = $('#slideoverTitle', slideover)
 
             hideSlideoverContent(slideoverContent)
 

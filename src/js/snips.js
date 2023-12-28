@@ -14,7 +14,8 @@ const slugify = str => {
 
 
 // Selectors
-const arrayFrom = (list, ref) => { return Array.from((ref ? ref : document).querySelectorAll(list)) }
+const $$ = (list, parent) => Array.from((parent ? parent : document).querySelectorAll(list))
+const $ = (selector, parent) => (parent ? parent : document).querySelector(selector)
 
 
 const slideOut = (obj, enterClasses, leaveClasses) => {
@@ -86,5 +87,5 @@ const scrollToTopOffset = (target, offset) => {
 
 // Exports
 export {
-    body, slugify, arrayFrom, slideOut, slideIn, enter, leave, translateIn, translateOut, hidden, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile, dimOn, dimOff, invisible, visible
+    body, slugify, $, $$, slideOut, slideIn, enter, leave, translateIn, translateOut, hidden, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile, dimOn, dimOff, invisible, visible
 }

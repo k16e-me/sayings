@@ -10,14 +10,14 @@
 </div>
 
 <script>
-    import { arrayFrom, slideIn, slideOut, enter, leave } from '../js/snips'
+    import { $, $$, slideIn, slideOut, enter, leave } from '../js/snips'
 
     Toast()
 
     function Toast() {
         const
-            linkCopy = arrayFrom('[data-copy]'),
-            toast = document.querySelector('[data-toast]')
+            linkCopy = $$('[data-copy]'),
+            toast = $('[data-toast]')
 
         linkCopy.forEach(link => {
             link.addEventListener('click', e => {

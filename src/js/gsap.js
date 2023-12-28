@@ -1,10 +1,11 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { $ } from './snips'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const
-    scaleIn = document.querySelector('[data-gsap="scale-in"]'),
+    scaleIn = $('[data-gsap="scale-in"]'),
     cards = gsap.utils.toArray('[data-gsap="move-in"]')
 
 if (scaleIn) {

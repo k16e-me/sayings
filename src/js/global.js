@@ -1,5 +1,5 @@
 import {
-    arrayFrom, scrollToTopOffset, enter, leave
+    $$, scrollToTopOffset, enter, leave
 } from './snips'
 
 Astrolog()
@@ -8,7 +8,7 @@ Jumplink()
 
 function Jumplink() {
     const
-        links = arrayFrom('[data-link]'),
+        links = $$('[data-link]'),
         headerHeight = document.querySelector('[data-main-header]').getBoundingClientRect().height
 
     links.forEach(link => {

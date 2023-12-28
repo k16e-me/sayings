@@ -14,7 +14,7 @@ const slugify = str => {
 
 
 // Selectors
-const $$ = (list, parent) => Array.from((parent ? parent : document).querySelectorAll(list))
+const $$ = (selector, parent) => Array.from((parent ? parent : document).querySelectorAll(selector))
 const $ = (selector, parent) => (parent ? parent : document).querySelector(selector)
 
 

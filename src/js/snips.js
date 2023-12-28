@@ -13,9 +13,8 @@ const slugify = str => {
 }
 
 
-const arrayFrom = (list, ref) => {
-    return Array.from(ref.querySelectorAll(list))
-}
+// Selectors
+const arrayFrom = (list, ref) => { return Array.from((ref ? ref : document).querySelectorAll(list)) }
 
 
 const slideOut = (obj, enterClasses, leaveClasses) => {

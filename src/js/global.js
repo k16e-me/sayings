@@ -8,13 +8,13 @@ Jumplink()
 
 function Jumplink() {
     const
-        links = arrayFrom('[data-link]', document),
+        links = arrayFrom('[data-link]'),
         headerHeight = document.querySelector('[data-main-header]').getBoundingClientRect().height
 
     links.forEach(link => {
         link.addEventListener('click', e => {
             e.preventDefault()
-            
+
             const
                 linkEl = document.querySelector(e.target.hash),
                 parent = linkEl.parentNode

@@ -15,8 +15,9 @@
     Toast()
 
     function Toast() {
-        const linkCopy = arrayFrom('[data-copy]', document)
-        const toast = document.querySelector('[data-toast]')
+        const
+            linkCopy = arrayFrom('[data-copy]'),
+            toast = document.querySelector('[data-toast]')
 
         linkCopy.forEach(link => {
             link.addEventListener('click', e => {

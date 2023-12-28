@@ -32,22 +32,24 @@ import Fab from './Fab.astro'
 
     function Slideover() {
         if (document.getElementById('slideover')) {
-            const slideoverToggles = arrayFrom('[data-toggle="slideover"]', document)
-            const slideover = document.getElementById('slideover')
-            const close = slideover.querySelector('#close')
-            const backdrop = document.querySelector('[data-backdrop]')
-            const links = arrayFrom('[data-link]', document)
-            const slideoverContent = arrayFrom('[data-slideover]', slideover)
-            const slideoverTitle = slideover.querySelector('#slideoverTitle')
+            const
+                slideoverToggles = arrayFrom('[data-toggle="slideover"]'),
+                slideover = document.getElementById('slideover'),
+                close = slideover.querySelector('#close'),
+                backdrop = document.querySelector('[data-backdrop]'),
+                links = arrayFrom('[data-link]'),
+                slideoverContent = arrayFrom('[data-slideover]', slideover),
+                slideoverTitle = slideover.querySelector('#slideoverTitle')
 
             hideSlideoverContent(slideoverContent)
 
             slideoverToggles.forEach(toggle => {
                 toggle.addEventListener('click', (e) => {
-                    const clickedEl = e.target
-                    const attr = clickedEl.getAttribute('data-slideover')
-                    const slideoverContentToShow = slideoverContent.find(el => (el.dataset.slideover === attr))
-                    const title = slideoverContentToShow.getAttribute('data-slideover-title')
+                    const
+                        clickedEl = e.target,
+                        attr = clickedEl.getAttribute('data-slideover'),
+                        slideoverContentToShow = slideoverContent.find(el => (el.dataset.slideover === attr)),
+                        title = slideoverContentToShow.getAttribute('data-slideover-title')
 
                     showSlideoverContent(slideoverContentToShow)
                     slideoverTitle.textContent = title

@@ -1,6 +1,4 @@
 // Functions
-const body = () => document.body
-
 const slugify = str => {
     // Thanks to https://dev.to/bybydev/how-to-slugify-a-string-in-javascript-4o9n
     str = str.replace(/^\s+|\s+$/g, '')
@@ -14,6 +12,7 @@ const slugify = str => {
 
 
 // Selectors
+const body = () => document.body
 const $$ = (selector, parent) => Array.from((parent ? parent : document).querySelectorAll(selector))
 const $ = (selector, parent) => (parent ? parent : document).querySelector(selector)
 

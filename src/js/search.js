@@ -33,7 +33,6 @@ export default function Search() {
 
     input.addEventListener('keyup', () => {
         clearTimeout(typingTimer)
-        window.scrollTo({ top: 0, left: 0 })
         typingTimer = setTimeout(liveSearch, typeInterval)
     })
 
@@ -45,6 +44,7 @@ export default function Search() {
         pieces.forEach(piece => {
             if (piece.textContent.toLowerCase().includes(query)) {
                 piece.classList.remove('hidden')
+                piece.scrollIntoView()
             } else {
                 piece.classList.add('hidden')
             }

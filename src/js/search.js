@@ -38,7 +38,7 @@ export default function Search() {
 
     function liveSearch() {
         const
-            query = input.value.toLowerCase(),
+            query = input.value.toLowerCase().trim(),
             state = Flip.getState(pieces)
 
         pieces.forEach(piece => {

@@ -1,5 +1,9 @@
 ---
-const { bg, title, filename, alt, subtitle, class: classes, ...props } = Astro.props
+import { Image } from 'astro:assets'
+
+const {
+    bg, title, filename, alt, subtitle, class: classes, ...props
+} = Astro.props
 ---
 <div
     { ...props }
@@ -10,10 +14,12 @@ const { bg, title, filename, alt, subtitle, class: classes, ...props } = Astro.p
     </p>
     <div class="w-full flex-1 flex justify-center ">
         <div class="h-64 w-64 flex items-center justify-center pt-7">
-            <img
+            <Image
                 src={ filename }
                 alt={ alt || `Illustration for the ${ title } collection` }
-                width="192px" height="100%"
+                width="192"
+                height="192"
+                class="object-contain"
             />
         </div>
     </div>

@@ -13,7 +13,7 @@ export default function Search() {
     const
         pieces = $$('[data-piece]'),
         input = $('#search'),
-        typeInterval = 500,
+        typeInterval = 300,
         icon = $('[data-search-icon]')
 
     document.addEventListener('keydown', e => {

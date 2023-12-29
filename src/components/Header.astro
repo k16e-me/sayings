@@ -1,20 +1,16 @@
 ---
 import Logo from '../components/Logo.astro'
 import Wrapper from '../layouts/Wrapper.astro'
-import Search from './Search.astro'
 
-const { title, search } = Astro.props
+const { title } = Astro.props
 ---
 <header
     class="z-10"
     data-main-header>
-    <Wrapper class:list="flex flex-col space-y-5 lg:space-y-7 items-center justify-center py-5">
+    <Wrapper class:list="flex flex-col space-y-5 lg:space-y-7 items-center justify-center py-5 lg:pb-7">
         <a href="/" class="inline-flex justify-center">
             <Logo classes="h-14 fill-slate-950"/>
             <span class="sr-only">{ title }</span>
         </a>
     </Wrapper>
 </header>
-<Wrapper class:list={ `w-full lg:w-auto sticky top-5 lg:top-11 z-40 mb-5 lg:mb-7` }>
-    { () => search && <Search/> }
-</Wrapper>

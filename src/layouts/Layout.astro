@@ -8,7 +8,7 @@ import BackToTop from '../components/BackToTop.astro'
 import Backdrop from '../components/Backdrop.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 
-const { pageTitle, pageDescription, pageThumbnail, showSearch } = Astro.props
+const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 const storyblokApi = useStoryblokApi()
 const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
     version: import.meta.env.DEV ? 'draft' : 'published'
@@ -28,7 +28,7 @@ const site = settings.story.content
         data-body
         style="overflow: auto;">
         <h1 class='sr-only'>{ pageTitle }</h1>
-        <Header title={ site.title } search={ showSearch }/>
+        <Header title={ site.title }/>
 		<main class="flex-1 relative" id="main">
             <slot/>
         </main>

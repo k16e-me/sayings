@@ -37,10 +37,6 @@ import { Icon } from 'astro-icon'
             setTimeout(() => invisible(btt), 300)
         }
 
-        btn.addEventListener('click', () => window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-        }), false)
+        btn.addEventListener('click', () => window.scrollTo({ top: 0, left: 0 }))
     }
 </script>

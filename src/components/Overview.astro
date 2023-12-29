@@ -10,12 +10,10 @@ const { content } = Astro.props
     class:list={ 'text-pretty [&_p]:whitespace-pre-wrap text-slate-600 first-letter:float-left first-letter:text-7xl first-letter:pr-2 lg:first-letter:pr-3 first-letter:text-slate-950 first-letter:font-display' }
     data-slideover='overview'
     data-slideover-title='Overview'>
-	{
-        () => {
-            if (isEmpty(content?.content[0]?.content)) return <Lipsum size={ 1 }/>
-            return (
-                <Fragment set:html={ renderRichText(content) }/>
-            )
-        }
-    }
+	{() => {
+        if (isEmpty(content?.content[0]?.content)) return <Lipsum size={ 1 }/>
+        return (
+            <Fragment set:html={ renderRichText(content) }/>
+        )
+    }}
 </Prose>

@@ -33,6 +33,7 @@ export default function Search() {
 
     input.addEventListener('keyup', () => {
         clearTimeout(typingTimer)
+        window.scrollTo({ top: 0, left: 0 })
         typingTimer = setTimeout(liveSearch, typeInterval)
     })
 

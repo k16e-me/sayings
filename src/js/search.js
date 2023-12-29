@@ -44,7 +44,6 @@ export default function Search() {
         pieces.forEach(piece => {
             if (piece.textContent.toLowerCase().includes(query)) {
                 piece.classList.remove('hidden')
-                piece.scrollIntoView()
             } else {
                 piece.classList.add('hidden')
             }

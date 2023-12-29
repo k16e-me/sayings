@@ -1,11 +1,9 @@
 import {
     $, $$, scrollToTopOffset, enter, leave, visible, invisible
 } from './snips'
-import Search from './search'
 
 Astrolog()
 Jumplink()
-$('#search') && Search()
 
 
 function Jumplink() {

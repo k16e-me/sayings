@@ -5,7 +5,7 @@ import Search from './search'
 
 Astrolog()
 Jumplink()
-Search()
+$('#search') && Search()
 
 
 function Jumplink() {

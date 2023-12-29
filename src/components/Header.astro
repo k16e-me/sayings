@@ -13,6 +13,8 @@ const { title, search } = Astro.props
             <Logo classes="h-14 fill-slate-950"/>
             <span class="sr-only">{ title }</span>
         </a>
-        { () => search && <Search/> }
     </Wrapper>
 </header>
+<Wrapper class:list={ `w-full lg:w-auto sticky top-5 lg:top-11 z-40 mb-5 lg:mb-7` }>
+    { () => search && <Search/> }
+</Wrapper>

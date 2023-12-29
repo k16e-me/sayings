@@ -13,7 +13,23 @@ export default function Search() {
     const
         pieces = $$('[data-piece]'),
         input = $('#search'),
-        typeInterval = 500
+        typeInterval = 500,
+        icon = $('[data-search-icon]')
+
+    document.addEventListener('keydown', e => {
+        if ((e.metaKey && e.key === 'k')) {
+            input.focus()
+        }
+        if (input === document.activeElement) {
+            if (e.key === 'Escape') {
+                input.blur()
+            }
+        }
+    })
+
+    icon.addEventListener('click', () => {
+        input.focus()
+    })
 
     input.addEventListener('keyup', () => {
         clearTimeout(typingTimer)

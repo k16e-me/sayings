@@ -32,7 +32,7 @@ export default defineConfig({
             includeAssets: ['favicon.svg'],
             registerType: 'autoUpdate',
             manifest: {
-                name: 'Sayings of Kabolobari',
+                name: 'Sayings',
                 short_name: 'Sayings',
                 theme_color: '#ffffff',
                 icons: [

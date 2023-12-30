@@ -1,7 +1,5 @@
 ---
 import { SEO } from 'astro-seo'
-import { pwaInfo } from 'virtual:pwa-info'
-import { ViewTransitions } from 'astro:transitions'
 
 const { title, image, description = '' } = Astro.props
 ---
@@ -23,8 +21,5 @@ const { title, image, description = '' } = Astro.props
             }
         }}
     />
-    { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
-    <script src="/src/pwa.ts"></script>
     <script src="../js/gsap.js"></script>
-    <!-- <ViewTransitions/> -->
 </head>

@@ -61,6 +61,9 @@ export default defineConfig({
             devOptions: {
                 enabled: true,
                 navigateFallbackAllowlist: [/^\/$/],
+            },
+            experimental: {
+                directoryAndTrailingSlashHandler: true,
             }
         })
     ],

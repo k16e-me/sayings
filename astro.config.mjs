@@ -30,6 +30,7 @@ export default defineConfig({
             base: '/',
             scope: '/',
             includeAssets: ['favicon.svg'],
+            registerType: 'autoUpdate',
             manifest: {
                 name: 'Sayings of Kabolobari',
                 short_name: 'Sayings',

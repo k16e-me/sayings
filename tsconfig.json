@@ -2,6 +2,9 @@
     "extends": "astro/tsconfigs/base",
     "compilerOptions": {
         "noImplicitAny": false,
-        "checkJs": false
+        "checkJs": false,
+        "types": [
+            "vite-plugin-pwa/client"
+        ]
     }
 }

@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import { loadEnv } from 'vite'
+import AstroPWA from '@vite-pwa/astro'
 
 const env = loadEnv('', process.cwd(), 'STORYBLOK')
 
@@ -22,6 +23,43 @@ export default defineConfig({
                 collection: 'storyblok/Collection',
                 piece: 'storyblok/Piece',
                 cover: 'storyblok/Cover'
+            }
+        }),
+        AstroPWA({
+            mode: 'development',
+            base: '/',
+            scope: '/',
+            includeAssets: ['favicon.svg'],
+            manifest: {
+                name: 'Sayings of Kabolobari',
+                short_name: 'Sayings',
+                theme_color: '#ffffff',
+                icons: [
+                    {
+                        src: 'pwa-192x192.png',
+                        sizes: '192x192',
+                        type: 'image/png',
+                    },
+                    {
+                        src: 'pwa-512x512.png',
+                        sizes: '512x512',
+                        type: 'image/png',
+                    },
+                    {
+                        src: 'pwa-512x512.png',
+                        sizes: '512x512',
+                        type: 'image/png',
+                        purpose: 'any maskable',
+                    }
+                ]
+            },
+            workbox: {
+                navigateFallback: '/',
+                globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}'],
+            },
+            devOptions: {
+                enabled: true,
+                navigateFallbackAllowlist: [/^\/$/],
             }
         })
     ],

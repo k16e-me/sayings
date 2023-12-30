@@ -24,6 +24,7 @@ const { title, image, description = '' } = Astro.props
         }}
     />
     { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+    <script src="/src/pwa.ts"></script>
     <script src="../js/gsap.js"></script>
     <!-- <ViewTransitions/> -->
 </head>

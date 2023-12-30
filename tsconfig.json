@@ -1,4 +1,10 @@
 {
+    "include": [
+        "env.d.ts",
+        "global.d.ts",
+        "src/**/*",
+        "src/**/*.astro"
+    ],
     "extends": "astro/tsconfigs/base",
     "compilerOptions": {
         "noImplicitAny": false,

@@ -23,3 +23,20 @@ const { title, image, description = '' } = Astro.props
     />
     <script src="../js/gsap.js"></script>
 </head>
+
+<script is:inline>
+    setTheme()
+    document.addEventListener('astro:after-swap', setTheme)
+
+    function setTheme() {
+        let
+            theme = localStorage.getItem('theme'),
+            html = document.documentElement
+
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        localStorage.setItem('theme', theme)
+
+        if (html.classList.contains(theme)) return
+        html.classList.add(theme)
+    }
+</script>

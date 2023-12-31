@@ -27,7 +27,7 @@ const { id, toggle, small, asDiv, smallAndDiv, slideoverContent, class: parentCl
             return (
                 <div
                     { ...props }
-                    class:list={[ parentClass, `size-11 flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100 dark:bg-neutral-800 dark:text-fuchsia-300`]}
+                    class:list={[ parentClass, `size-11 flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100 dark:bg-neutral-800 dark:text-fuchsia-300 dark:hover:shadow-2xl dark:hover:bg-neutral-700 dark:hover:text-fuchsia-400`]}
                     id={ id }>
                     <slot/>
                 </div>

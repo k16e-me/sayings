@@ -34,11 +34,11 @@ const translateOut = () => new Array('translate-x-full', 'opacity-0')
 const hidden = () => new Array('invisible')
 const dimOn = obj => {
     obj.classList.remove(`opacity-0`)
-    obj.classList.add(`opacity-50`)
+    obj.classList.add(`opacity-70`)
 }
 const dimOff = obj => {
     obj.classList.add(`opacity-0`)
-    obj.classList.remove(`opacity-50`)
+    obj.classList.remove(`opacity-70`)
 }
 const invisible = obj => obj.classList.add('sr-only')
 const visible = obj => obj.classList.remove('sr-only')

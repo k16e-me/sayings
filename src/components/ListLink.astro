@@ -5,7 +5,7 @@ const { linkFragment, title } = Astro.props
 ---
 <a
     href={ `#${slugify(linkFragment)}` }
-    class="flex items-center p-3 hover:bg-slate-100 transition duration-300"
+    class="flex items-center p-3 hover:bg-slate-100 dark:hover:bg-neutral-800 transition duration-300"
     data-link>
     <span class="pointer-events-none">
         { title }

@@ -18,7 +18,7 @@ const { id, toggle, small, asDiv, smallAndDiv, slideoverContent, class: parentCl
             return (
                 <div
                     { ...props }
-                    class:list={[ parentClass, `size-14 bg-slate-100 flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`]}
+                    class:list={[ parentClass, `size-14 bg-slate-100 dark:bg-neutral-800 dark:text-white flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`]}
                     id={ id }>
                     <slot/>
                 </div>
@@ -35,7 +35,7 @@ const { id, toggle, small, asDiv, smallAndDiv, slideoverContent, class: parentCl
         } else {
             return (
                 <button
-                    class:list={[ parentClass, `size-14 bg-slate-100 flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`]}
+                    class:list={[ parentClass, `size-14 bg-slate-100 dark:bg-neutral-800 dark:text-white flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`]}
                     id={ id }
                     data-toggle={ toggle || '' }
                     data-slideover={ slideoverContent }>

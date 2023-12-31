@@ -28,7 +28,7 @@ export default defineConfig({
     redirects: {
         '/pages': { status: 301, destination: '/' },
         '/pages/': { status: 301, destination: '/' },
-        '/c': { status: 301, destination: '/' }
+        '/c': { status: 301, destination: '/' },
         '/c/': { status: 301, destination: '/' }
     }
 })

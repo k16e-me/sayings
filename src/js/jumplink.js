@@ -17,7 +17,7 @@ export default function Jumplink() {
 
             scrollToTopOffset(linkEl, headerHeight)
 
-            parent.classList.add('is-focused')
+            setTimeout(parent.classList.add('is-focused'), 1)
             parent.addEventListener('animationend', () => parent.classList.remove('is-focused'), false)
         })
     })

@@ -42,8 +42,8 @@ const site = settings.story.content
     [astro-icon] { @apply flex-shrink-0 pointer-events-none; }
 
     .is-focused {
-        @apply rounded-lg;
-        animation: blink normal 1s 1s 1 ease-in-out;
+        @apply rounded-lg bg-neutral-200 dark:bg-neutral-800;
+        animation: 300ms ease-in-out 1s 2 both blink;
     }
 
     .r-piece {
@@ -52,8 +52,8 @@ const site = settings.story.content
     .r-image-dim { @apply dark:contrast-[1.2] dark:brightness-[.8]; }
 
     @keyframes blink {
-        0% { @apply bg-neutral-200 dark:bg-neutral-800; }
-        100% { @apply bg-neutral-50 dark:bg-neutral-900; }
+        0% { @apply bg-opacity-0; }
+        100% { @apply bg-opacity-100; }
     }
 
     ::view-transition-old(root),

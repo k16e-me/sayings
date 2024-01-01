@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger)
 const scaleIn = $('[data-gsap="scale-in"]')
 
 const runScaleIn = () => {
+    if (!scaleIn) return
     gsap.from(scaleIn, {
         scrollTrigger: {
             trigger: scaleIn,

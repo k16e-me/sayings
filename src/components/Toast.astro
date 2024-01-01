@@ -12,7 +12,9 @@
 <script>
     import { $, $$, slideIn, slideOut, enter, leave } from '../js/snips'
 
-    Toast()
+    document.addEventListener('astro:page-load', () => {
+        Toast()
+    })
 
     function Toast() {
         const

@@ -51,9 +51,9 @@ import Icon from 'astro-icon'
             }
         })
 
-        icon.addEventListener('click', () => input.focus())
+        icon && icon.addEventListener('click', () => input.focus())
 
-        input.addEventListener('keyup', () => {
+        input && input.addEventListener('keyup', () => {
             clearTimeout(typingTimer)
             typingTimer = setTimeout(liveSearch, typeInterval)
         })

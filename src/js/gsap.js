@@ -8,7 +8,7 @@ const
     scaleIn = $('[data-gsap="scale-in"]')
 
 document.addEventListener('astro:page-load', () => {
-    scaleIn && runScaleIn()
+    runScaleIn()
 })
 
 

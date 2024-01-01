@@ -24,6 +24,7 @@
 
         linkCopy.forEach(link => {
             link.addEventListener('click', e => {
+                console.log(e.target.href)
                 e.preventDefault()
 
                 navigator.clipboard.writeText(e.target.href)

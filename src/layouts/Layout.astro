@@ -76,7 +76,5 @@ const site = settings.story.content
         runScaleIn()
     })
 
-    document.addEventListener('astro:after-swap', () => {
-        window.scrollTo({ left: 0, top: 0 })
-    })
+    document.addEventListener('astro:after-swap', () => window.scrollTo({ left: 0, top: 0 }))
 </script>

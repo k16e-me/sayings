@@ -10,6 +10,9 @@ const
 document.addEventListener('astro:page-load', () => {
     runScaleIn()
 })
+document.addEventListener('astro:after-swap', () => {
+    runScaleIn()
+})
 
 
 function runScaleIn() {

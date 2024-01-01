@@ -23,15 +23,13 @@ import Icon from 'astro-icon'
 </div>
 
 <script>
-    import {
-        $, $$
-    } from '../js/snips'
+    import { $, $$ } from '../js/snips'
     import { gsap } from 'gsap'
     import { Flip } from 'gsap/all'
 
     gsap.registerPlugin(Flip)
 
-    Search()
+    document.addEventListener('astro:page-load', () => Search())
 
     function Search() {
         let typingTimer: number

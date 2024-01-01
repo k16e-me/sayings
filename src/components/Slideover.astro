@@ -28,7 +28,9 @@ import Fab from './Fab.astro'
         $, $$, translateIn, translateOut, hidden, body, dimOn, dimOff
     } from '../js/snips'
 
-    Slideover()
+    document.addEventListener('astro:page-load', () => {
+        Slideover()
+    })
 
     function Slideover() {
         if ($('#slideover')) {

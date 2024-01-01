@@ -66,6 +66,11 @@ const site = settings.story.content
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
 
-    Astrolog()
-    Jumplink()
+    document.addEventListener('astro:page-load', () => {
+        Jumplink()
+    })
+
+    document.addEventListener('astro:page-load', () => {
+        Astrolog()
+    }, { once: true })
 </script>

@@ -65,14 +65,20 @@ const site = settings.story.content
 <script>
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
+    import { runScaleIn } from '../js/gsap'
 
-    document.addEventListener('astro:after-swap', () => window.scrollTo({ left: 0, top: 0 }))
-
-    document.addEventListener('astro:page-load', () => {
-        Jumplink()
-    })
 
     document.addEventListener('astro:page-load', () => {
         Astrolog()
     }, { once: true })
+
+    document.addEventListener('astro:page-load', () => {
+        Jumplink()
+        runScaleIn()
+    })
+
+    document.addEventListener('astro:after-swap', () => {
+        window.scrollTo({ left: 0, top: 0 })
+        runScaleIn()
+    })
 </script>

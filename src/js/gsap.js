@@ -4,18 +4,9 @@ import { $ } from './snips'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const
-    scaleIn = $('[data-gsap="scale-in"]')
+const scaleIn = $('[data-gsap="scale-in"]')
 
-document.addEventListener('astro:page-load', () => {
-    runScaleIn()
-})
-document.addEventListener('astro:after-swap', () => {
-    runScaleIn()
-})
-
-
-function runScaleIn() {
+const runScaleIn = () => {
     gsap.from(scaleIn, {
         scrollTrigger: {
             trigger: scaleIn,
@@ -28,3 +19,5 @@ function runScaleIn() {
         duration: .4
     })
 }
+
+export { runScaleIn }

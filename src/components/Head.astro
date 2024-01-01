@@ -33,7 +33,7 @@ const { title, image, description = '' } = Astro.props
             theme = localStorage.getItem('theme'),
             html = document.documentElement
 
-        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : ''
         localStorage.setItem('theme', theme)
 
         if (html.classList.contains(theme)) return

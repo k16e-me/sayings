@@ -7,6 +7,7 @@ import Footer from '../components/Footer.astro'
 import BackToTop from '../components/BackToTop.astro'
 import Backdrop from '../components/Backdrop.astro'
 import { useStoryblokApi } from '@storyblok/astro'
+import Wrapper from './Wrapper.astro'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 const storyblokApi = useStoryblokApi()
@@ -29,7 +30,11 @@ const site = settings.story.content
         <h1 class='sr-only'>{ pageTitle }</h1>
         <Header title={ site.title }/>
 		<main class="flex-1 relative" id="main">
-            <slot/>
+            <Wrapper
+                data-wrapper
+                class:list="opacity-100 translate-y-0 scale-100">
+                <slot/>
+            </Wrapper>
         </main>
         <Footer preferredName={ site.preferredName }/>
 
@@ -68,13 +73,14 @@ const site = settings.story.content
     import { runScaleIn } from '../js/gsap'
     import Loading from '../js/loading'
 
-    Loading()
+
 
     document.addEventListener('astro:page-load', () => {
         Astrolog()
     }, { once: true })
 
     document.addEventListener('astro:page-load', () => {
+        Loading()
         Jumplink()
         runScaleIn()
     })

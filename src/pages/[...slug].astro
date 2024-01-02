@@ -2,7 +2,6 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Layout from '../layouts/Layout.astro'
-import Wrapper from '../layouts/Wrapper.astro'
 
 export async function getStaticPaths() {
     const storyblokApi = useStoryblokApi()
@@ -33,7 +32,5 @@ const page = data.story
     pageTitle={ page.content.title }
     pageDescription={ page.content.description }
     pageThumbnail={ page.content.image?.filename }>
-    <Wrapper>
-        <StoryblokComponent blok={ page.content }/>
-    </Wrapper>
+    <StoryblokComponent blok={ page.content }/>
 </Layout>

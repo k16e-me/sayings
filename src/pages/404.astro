@@ -14,25 +14,23 @@ const error = settings.story.content.error[0]
 <Layout
     pageTitle={ error.title }
     pageDescription={ error.description }>
-    <Wrapper>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-14 sm:gap-y-16 lg:gap-9 py-5">
-            <div class="col-span-1">
-                <div class="lg:sticky lg:top-10 space-y-5 flex flex-col items-end lg:items-stretch">
-                    <BackTo href={ `/` } text={ 'Collections' }/>
-                    <Silence
-                        bg={ 'f1f5f9' }
-                        class:list={ `min-w-[304px] max-w-[356px] h-[496px] lg:h-[472px]` }
-                    />
-                </div>
-            </div>
-            <div class="lg:col-span-2 flex flex-col lg:pt-16">
-                <h2 class="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-slate-950">
-                    { error.headline }
-                </h2>
-                <div class="r-piece mt-9 sm:mt-12 lg:mt-16">
-                    <Fragment set:html={ renderRichText(error.content) }/>
-                </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-14 sm:gap-y-16 lg:gap-9 py-5">
+        <div class="col-span-1">
+            <div class="lg:sticky lg:top-10 space-y-5 flex flex-col items-end lg:items-stretch">
+                <BackTo href={ `/` } text={ 'Collections' }/>
+                <Silence
+                    bg={ 'f1f5f9' }
+                    class:list={ `min-w-[304px] max-w-[356px] h-[496px] lg:h-[472px]` }
+                />
             </div>
         </div>
-    </Wrapper>
+        <div class="lg:col-span-2 flex flex-col lg:pt-16">
+            <h2 class="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-slate-950">
+                { error.headline }
+            </h2>
+            <div class="r-piece mt-9 sm:mt-12 lg:mt-16">
+                <Fragment set:html={ renderRichText(error.content) }/>
+            </div>
+        </div>
+    </div>
 </Layout>

@@ -49,13 +49,13 @@ const { ...props } = Astro.props
         if (!loader) return
         loader.classList.remove('fade-up')
         loader.classList.add('fade-down')
-        console.log('Before prep', loader)
+        console.log('Before prep')
     }
 
     function afterPrep() {
         if (!loader) return
         loader.classList.add('fade-up')
         loader.classList.remove('fade-down')
-        console.log('After prep', loader)
+        console.log('After prep')
     }
 </script>

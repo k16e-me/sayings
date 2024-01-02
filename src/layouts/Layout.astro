@@ -66,6 +66,9 @@ const site = settings.story.content
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
     import { runScaleIn } from '../js/gsap'
+    import Loading from '../js/loading'
+
+    Loading()
 
     document.addEventListener('astro:page-load', () => {
         Astrolog()

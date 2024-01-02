@@ -30,9 +30,7 @@ const site = settings.story.content
         <h1 class='sr-only'>{ pageTitle }</h1>
         <Header title={ site.title }/>
 		<main class="flex-1 relative" id="main">
-            <Wrapper
-                data-wrapper
-                class:list="opacity-100 translate-y-0 scale-100">
+            <Wrapper data-wrapper>
                 <slot/>
             </Wrapper>
         </main>
@@ -71,8 +69,6 @@ const site = settings.story.content
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
     import { runScaleIn } from '../js/gsap'
-    import Loading from '../js/loading'
-
 
 
     document.addEventListener('astro:page-load', () => {
@@ -80,7 +76,6 @@ const site = settings.story.content
     }, { once: true })
 
     document.addEventListener('astro:page-load', () => {
-        Loading()
         Jumplink()
         runScaleIn()
     })

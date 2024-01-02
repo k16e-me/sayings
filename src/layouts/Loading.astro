@@ -1,0 +1,61 @@
+---
+const { ...props } = Astro.props
+---
+<div
+    { ...props }
+    class="r-animated fade-up"
+    data-loader>
+    <slot/>
+</div>
+
+<style is:global>
+    .r-animated {
+        animation-duration: 500ms;
+        animation-fill-mode: both;
+    }
+
+    .fade-up { animation-name: fade-up; }
+    .fade-down { animation-name: fade-down; }
+
+    @keyframes fade-up {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 24px, 0);
+        }
+        100% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes fade-down {
+    0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0); }
+    100% {
+        opacity: 0;
+        transform: translate3d(0, 24px, 0); }
+    }
+</style>
+
+<script is:inline>
+    document.addEventListener('astro:before-preparation', beforePrep)
+    document.addEventListener('astro:after-preparation', afterPrep)
+
+    const
+        loader = document.querySelector('[data-loader]')
+
+    function beforePrep() {
+        if (!loader) return
+        loader.classList.remove('fade-up')
+        loader.classList.add('fade-down')
+        console.log('Before prep', loader)
+    }
+
+    function afterPrep() {
+        if (!loader) return
+        loader.classList.add('fade-up')
+        loader.classList.remove('fade-down')
+        console.log('After prep', loader)
+    }
+</script>

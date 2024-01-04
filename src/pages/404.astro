@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Wrapper from '../layouts/Wrapper.astro'
 import Silence from '../components/Silence.astro'
 import BackTo from '../components/BackTo.astro'
 import { useStoryblokApi, renderRichText } from '@storyblok/astro'
@@ -20,12 +19,12 @@ const error = settings.story.content.error[0]
                 <BackTo href={ `/` } text={ 'Collections' }/>
                 <Silence
                     bg={ 'f1f5f9' }
-                    class:list={ `min-w-[304px] max-w-[356px] h-[496px] lg:h-[472px]` }
+                    class:list={ `min-w-[304px] max-w-[356px] h-[496px] lg:h-[472px] r-image-dim` }
                 />
             </div>
         </div>
         <div class="lg:col-span-2 flex flex-col lg:pt-16">
-            <h2 class="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-slate-950">
+            <h2 class="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-slate-950 dark:text-white">
                 { error.headline }
             </h2>
             <div class="r-piece mt-9 sm:mt-12 lg:mt-16">

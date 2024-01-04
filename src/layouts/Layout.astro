@@ -30,7 +30,9 @@ const site = settings.story.content
         <h1 class='sr-only'>{ pageTitle }</h1>
         <Header title={ site.title }/>
 		<main class="flex-1 relative" id="main">
-            <Wrapper data-wrapper>
+            <Wrapper
+                data-wrapper
+                class:list={ `py-7` }>
                 <slot/>
             </Wrapper>
         </main>

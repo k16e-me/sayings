@@ -1,7 +1,6 @@
 ---
 import { useStoryblokApi } from '@storyblok/astro'
 import Layout from '../layouts/Layout.astro'
-import Wrapper from '../layouts/Wrapper.astro'
 import Collections from '../components/Collections.astro'
 
 const storyblokApi = useStoryblokApi()
@@ -24,7 +23,7 @@ const collectionAll = collection.stories.map((c) => {
 })
 ---
 <Layout
-	pageTitle={page.content.title}
-	pageDescription={page.content.description}>
+	pageTitle={ page.content.title }
+	pageDescription={ page.content.description }>
 	<Collections collections={ collectionAll }>
 </Layout>

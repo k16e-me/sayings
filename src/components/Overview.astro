@@ -7,9 +7,9 @@ import Prose from './Prose.astro'
 const { content } = Astro.props
 ---
 <Prose
-    class:list={ 'text-pretty [&_p]:whitespace-pre-wrap text-slate-600 dark:text-white/60 first-letter:float-left first-letter:text-7xl first-letter:pr-2 lg:first-letter:pr-3 first-letter:text-slate-950 first-letter:font-display dark:first-letter:text-white' }
-    data-slideover='overview'
-    data-slideover-title='Overview'>
+    class:list={ `text-pretty [&_p]:whitespace-pre-wrap text-slate-600 dark:text-white/60 first-letter:float-left first-letter:text-7xl first-letter:pr-2 lg:first-letter:pr-3 first-letter:text-slate-950 first-letter:font-display dark:first-letter:text-white` }
+    data-slideover="overview"
+    data-slideover-title="Overview">
 	{() => {
         if (isEmpty(content?.content[0]?.content)) return <Lipsum size={ 1 }/>
         return (

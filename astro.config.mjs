@@ -30,5 +30,8 @@ export default defineConfig({
         '/pages/': { status: 301, destination: '/' },
         '/c': { status: 301, destination: '/' },
         '/c/': { status: 301, destination: '/' }
+    },
+    image: {
+        domains: ['a.storyblok.com']
     }
 })

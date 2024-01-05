@@ -14,6 +14,7 @@ import Slideover from '../../components/Slideover.astro'
 import Overview from '../../components/Overview.astro'
 import Silence from '../../components/Silence.astro'
 import Search from '../../components/Search.astro'
+import { Image } from 'astro:assets'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -50,12 +51,14 @@ const pageTitle = page.content.title
             <div class="lg:sticky lg:top-10 space-y-5 flex flex-col items-end lg:items-stretch">
                 <BackTo text={ 'Collections' }/>
                 <div class="relative">
-                    <BookCover
-                        bg={ cover.pastel }
-                        title={ cover.title }
-                        filename={ cover.illustration.filename }
-                        subtitle={ cover.subtitle }
-                        class:list={ '' }
+                    <Image
+                        src={ page.content.image.filename }
+                        alt={ page.content.image.alt || `Illustration for the ${ cover.title } collection` }
+                        width="356"
+                        height="496"
+                        class="object-contain rounded-xl"
+                        format="webp"
+                        quality="max"
                     />
                     <ToggleOverview class:list={ `absolute bottom-3 right-3` }/>
                 </div>

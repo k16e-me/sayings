@@ -1,7 +1,6 @@
 ---
 import { storyblokEditable } from '@storyblok/astro'
 import BookCover from './BookCover.astro'
-import { Image } from 'astro:assets'
 
 const { collections } = Astro.props
 ---
@@ -17,13 +16,8 @@ const { collections } = Astro.props
                     <article
                         class="rounded-xl hover:shadow-2xl transition duration-300 overflow-clip">
                         <h2 class="sr-only">{ c.cover.title + ' ' + c.cover.subtitle }</h2>
-                        <Image
-                            src={ c.content.image.filename }
-                            alt={ c.content.image.alt || `Illustration for the ${ c.cover.title } collection` }
-                            width="1068"
-                            height="1488"
-                            class="object-contain r-image-dim"
-                            quality="100"
+                        <BookCover
+                            filename={ c.content.image.filename }
                         />
                     </article>
                 </a>

@@ -18,6 +18,7 @@ const { collections } = Astro.props
                         <h2 class="sr-only">{ c.cover.title + ' ' + c.cover.subtitle }</h2>
                         <BookCover
                             filename={ c.content.image.filename }
+                            title={ c.cover.title }
                         />
                     </article>
                 </a>

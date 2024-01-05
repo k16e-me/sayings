@@ -50,12 +50,12 @@ const pageTitle = page.content.title
         <div class="col-span-1">
             <div class="lg:sticky lg:top-10 space-y-5 flex flex-col items-end lg:items-stretch">
                 <BackTo text={ 'Collections' }/>
-                <div class="relative">
+                <div class="relative min-w-[304px] max-w-[356px]">
                     <Image
                         src={ page.content.image.filename }
                         alt={ page.content.image.alt || `Illustration for the ${ cover.title } collection` }
-                        width="356"
-                        height="496"
+                        width="1068"
+                        height="1488"
                         class="object-contain rounded-xl r-image-dim"
                         quality="100"
                     />

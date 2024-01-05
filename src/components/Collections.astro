@@ -11,7 +11,7 @@ const { collections } = Astro.props
     {
         collections.map(c => (
             <li
-                class="w-full max-w-[356px] md:max-w-none"
+                class="w-full min-w-[304px] max-w-[356px] md:max-w-none"
                 data-gsap="move-in">
                 <a href={`/${c.slug}`}>
                     <article
@@ -20,8 +20,8 @@ const { collections } = Astro.props
                         <Image
                             src={ c.content.image.filename }
                             alt={ c.content.image.alt || `Illustration for the ${ c.cover.title } collection` }
-                            width="356"
-                            height="496"
+                            width="1068"
+                            height="1488"
                             class="object-contain r-image-dim"
                             quality="100"
                         />

@@ -16,9 +16,8 @@ const { data: collection } = await storyblokApi.get('cdn/stories/', {
 })
 const collectionAll = collection.stories.map((c) => {
 	return {
-		title: c.content.title,
-		slug: c.full_slug,
-        content: c.content
+        content: c.content,
+		slug: c.full_slug
 	}
 })
 ---

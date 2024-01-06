@@ -6,7 +6,6 @@ import { loadEnv } from 'vite'
 const env = loadEnv('', process.cwd(), 'STORYBLOK')
 
 export default defineConfig({
-    trailingSlash: 'never',
     site: 'https://sayings.cc',
     prefetch: {
         prefetchAll: true,

@@ -15,10 +15,10 @@ const { collections } = Astro.props
                 <a href={`/${c.slug}`}>
                     <article
                         class="rounded-xl hover:shadow-2xl transition duration-300 overflow-clip">
-                        <h2 class="sr-only">{ c.cover.title + ' ' + c.cover.subtitle }</h2>
+                        <h2 class="sr-only">{ c.content.title + ' ' + c.content.short_title }</h2>
                         <BookCover
                             filename={ c.content.image.filename }
-                            title={ c.cover.title }
+                            title={ c.content.title }
                         />
                     </article>
                 </a>

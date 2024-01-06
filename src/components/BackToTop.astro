@@ -14,9 +14,7 @@ import { Icon } from 'astro-icon'
 <script>
     import { slideOut, enter, leave, invisible, visible } from '../js/snips'
 
-    document.addEventListener('astro:page-load', () => {
-        BackToTop()
-    })
+    BackToTop()
 
     function BackToTop() {
         const btt = document.querySelector('[data-backtotop]')

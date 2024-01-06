@@ -29,10 +29,10 @@ import Icon from 'astro-icon'
 
     gsap.registerPlugin(Flip)
 
-    document.addEventListener('astro:page-load', () => Search())
+    Search()
 
     function Search() {
-        let typingTimer: number
+        let typingTimer
 
         const
             pieces = $$('[data-piece]'),

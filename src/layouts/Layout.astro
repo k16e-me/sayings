@@ -59,11 +59,6 @@ const site = settings.story.content
         0% { @apply bg-opacity-0; }
         100% { @apply bg-opacity-100; }
     }
-
-    ::view-transition-old(root),
-    ::view-transition-new(root) {
-        animation-duration: 0.25s;
-    }
 </style>
 
 <script>
@@ -71,15 +66,7 @@ const site = settings.story.content
     import Astrolog from '../js/astrolog'
     import { runScaleIn } from '../js/gsap'
 
-
-    document.addEventListener('astro:page-load', () => {
-        Astrolog()
-    }, { once: true })
-
-    document.addEventListener('astro:page-load', () => {
-        Jumplink()
-        runScaleIn()
-    })
-
-    document.addEventListener('astro:after-swap', () => window.scrollTo({ left: 0, top: 0 }))
+    Astrolog()
+    Jumplink()
+    runScaleIn()
 </script>

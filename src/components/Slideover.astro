@@ -30,11 +30,7 @@ import Fab from './Fab.astro'
         $, $$, translateIn, translateOut, hidden, body, dimOn, dimOff
     } from '../js/snips'
 
-    document.addEventListener('astro:page-load', () => {
-        Slideover()
-    })
-
-    function Slideover() {
+    (function Slideover() {
         if ($('#slideover')) {
             const
                 slideoverToggles = $$('[data-toggle="slideover"]'),
@@ -82,5 +78,5 @@ import Fab from './Fab.astro'
             function hideSlideoverContent(elAll) { elAll.forEach(elOne => elOne.classList.add('sr-only')) }
             function showSlideoverContent(el) { el.classList.remove('sr-only') }
         }
-    }
+    }())
 </script>

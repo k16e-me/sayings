@@ -13,11 +13,7 @@
 <script>
     import { $, $$, slideIn, slideOut, enter, leave } from '../js/snips'
 
-    document.addEventListener('astro:page-load', () => {
-        Toast()
-    })
-
-    function Toast() {
+    (function Toast() {
         const
             linkCopy = $$('[data-copy]'),
             toast = $('[data-toast]')
@@ -37,5 +33,5 @@
                 }, 3000)
             })
         })
-    }
+    }())
 </script>

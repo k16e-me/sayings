@@ -12,8 +12,6 @@ const { content } = Astro.props
     data-slideover-title="Overview">
 	{() => {
         if (isEmpty(content?.content[0]?.content)) return <Lipsum size={ 1 }/>
-        return (
-            <Fragment set:html={ renderRichText(content) }/>
-        )
+        return <Fragment set:html={ renderRichText(content) }/>
     }}
 </Prose>

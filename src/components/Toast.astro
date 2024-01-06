@@ -13,7 +13,9 @@
 <script>
     import { $, $$, slideIn, slideOut, enter, leave } from '../js/snips'
 
-    (function Toast() {
+    Toast()
+
+    function Toast() {
         const
             linkCopy = $$('[data-copy]'),
             toast = $('[data-toast]')
@@ -33,5 +35,5 @@
                 }, 3000)
             })
         })
-    }())
+    }
 </script>

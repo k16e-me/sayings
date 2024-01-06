@@ -59,10 +59,18 @@ const site = settings.story.content
         0% { @apply bg-opacity-0; }
         100% { @apply bg-opacity-100; }
     }
+    @keyframes shrink-y {
+        from { @apply opacity-100; }
+        to { @apply opacity-0 translate-y-24; }
+    }
+    @keyframes grow-y {
+        from { @apply opacity-0 translate-y-24; }
+        to { @apply opacity-100 translate-y-0; }
+    }
 
     ::view-transition-old(root),
     ::view-transition-new(root) {
-        animation-duration: 0.3s;
+        animation-duration: 0.25s;
     }
 </style>
 

@@ -86,7 +86,10 @@ const site = settings.story.content
 
     const swup = new Swup({
         animateHistoryBrowsing: true,
-        plugins: [new SwupProgressPlugin()]
+        plugins: [new SwupProgressPlugin({
+            delay: 200,
+            finishAnimation: false
+        })]
     })
 
     document.addEventListener('DOMContentLoaded', () => {

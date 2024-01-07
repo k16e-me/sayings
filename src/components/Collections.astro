@@ -6,7 +6,8 @@ const { collections } = Astro.props
 ---
 <ul
     { ...storyblokEditable(collections) }
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center">
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center"
+    data-swup-preload-all>
     {
         collections.map(c => (
             <li

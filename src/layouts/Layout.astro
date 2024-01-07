@@ -79,6 +79,7 @@ const site = settings.story.content
     import Swup from 'swup'
     import SwupProgressPlugin from '@swup/progress-plugin'
     import SwupA11yPlugin from '@swup/a11y-plugin'
+    import SwupPreloadPlugin from '@swup/preload-plugin'
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
     import { runScaleIn } from '../js/gsap'
@@ -97,6 +98,9 @@ const site = settings.story.content
             new SwupA11yPlugin({
                 respectReducedMotion: true,
                 autofocus: true
+            }),
+            new SwupPreloadPlugin({
+                preloadVisibleLinks: true
             })
         ]
     })

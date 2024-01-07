@@ -55,6 +55,7 @@ const site = settings.story.content
     .swup-progress-bar {
         @apply h-0.5 bg-fuchsia-600 dark:bg-fuchsia-300;
     }
+    main:focus { outline: none; }
 
     [astro-icon] { @apply flex-shrink-0 pointer-events-none; }
 
@@ -97,7 +98,10 @@ const site = settings.story.content
             new SwupScrollPlugin({
                 doScrollingRightAway: true
             }),
-            new SwupA11yPlugin()
+            new SwupA11yPlugin({
+                respectReducedMotion: true,
+                autofocus: true
+            })
         ]
     })
 

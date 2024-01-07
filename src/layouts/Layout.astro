@@ -80,6 +80,7 @@ const site = settings.story.content
     import SwupProgressPlugin from '@swup/progress-plugin'
     import SwupA11yPlugin from '@swup/a11y-plugin'
     import SwupPreloadPlugin from '@swup/preload-plugin'
+    import SwupScrollPlugin from '@swup/scroll-plugin'
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
     import { runScaleIn } from '../js/gsap'
@@ -101,6 +102,9 @@ const site = settings.story.content
             }),
             new SwupPreloadPlugin({
                 preloadVisibleLinks: true
+            }),
+            new SwupScrollPlugin({
+                doScrollingRightAway: true
             })
         ]
     })

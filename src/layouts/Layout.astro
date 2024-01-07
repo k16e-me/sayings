@@ -78,7 +78,6 @@ const site = settings.story.content
 <script>
     import Swup from 'swup'
     import SwupProgressPlugin from '@swup/progress-plugin'
-    import SwupScrollPlugin from '@swup/scroll-plugin'
     import SwupA11yPlugin from '@swup/a11y-plugin'
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
@@ -94,9 +93,6 @@ const site = settings.story.content
             new SwupProgressPlugin({
                 delay: 200,
                 finishAnimation: false
-            }),
-            new SwupScrollPlugin({
-                doScrollingRightAway: true
             }),
             new SwupA11yPlugin({
                 respectReducedMotion: true,

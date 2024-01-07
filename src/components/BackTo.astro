@@ -2,11 +2,12 @@
 import Fab from './Fab.astro'
 import { Icon } from 'astro-icon'
 
-const { href, text } = Astro.props
+const { text } = Astro.props
 ---
 <a
-    href={ href }
-    class="ml-auto">
+    href="javascript:history.back()"
+    class="ml-auto"
+    data-no-swup>
     <Fab asDiv>
         <Icon name="arrow-left" class="w-7"/>
         <span class="sr-only">{ text || 'Back to parent page' }</span>

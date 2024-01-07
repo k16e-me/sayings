@@ -2,10 +2,10 @@
 import Fab from './Fab.astro'
 import { Icon } from 'astro-icon'
 
-const { text } = Astro.props
+const { href, text } = Astro.props
 ---
 <a
-    href="javascript:history.back()"
+    href={ href }
     class="ml-auto">
     <Fab asDiv>
         <Icon name="arrow-left" class="w-7"/>

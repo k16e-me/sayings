@@ -3,6 +3,7 @@ import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import { loadEnv } from 'vite'
 import alpinejs from '@astrojs/alpinejs'
+
 const env = loadEnv('', process.cwd(), 'STORYBLOK')
 
 // https://astro.build/config

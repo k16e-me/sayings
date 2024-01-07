@@ -29,7 +29,7 @@ const site = settings.story.content
         style="overflow: auto;">
         <h1 class='sr-only'>{ pageTitle }</h1>
         <Header title={ site.title }/>
-		<main class="flex-1 relative transition-fade" id="swup">
+		<main class="flex-1 transition-fade" id="swup">
             <Wrapper
                 data-wrapper
                 class:list={ `py-7` }>
@@ -45,12 +45,11 @@ const site = settings.story.content
 <style is:global>
     /* Define a transition duration during page visits */
     html.is-changing .transition-fade {
-        transition: opacity 0.25s;
-        opacity: 1;
+        @apply opacity-100 duration-500 ease-in-out;
     }
     /* Define the styles for the unloaded pages */
-        html.is-animating .transition-fade {
-        opacity: 0;
+    html.is-animating .transition-fade {
+        @apply opacity-0 scale-[.99] translate-y-12 duration-500 ease-out;
     }
 
     [astro-icon] { @apply flex-shrink-0 pointer-events-none; }
@@ -76,10 +75,26 @@ const site = settings.story.content
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
     import { runScaleIn } from '../js/gsap'
+    import BackToTop from '../js/btt'
+    import Slideover from '../js/slideover'
 
     const swup = new Swup()
 
-    Astrolog()
-    Jumplink()
-    runScaleIn()
+    document.addEventListener('DOMContentLoaded', () => {
+        Once()
+        Scripts()
+    })
+
+    swup.hooks.on('page:view', Scripts)
+
+    function Scripts() {
+        Jumplink()
+        runScaleIn()
+        BackToTop()
+        Slideover()
+    }
+
+    function Once() {
+        Astrolog()
+    }
 </script>

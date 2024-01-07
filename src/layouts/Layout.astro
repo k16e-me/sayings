@@ -51,6 +51,9 @@ const site = settings.story.content
     html.is-animating .transition-fade {
         @apply opacity-0 scale-[.99] translate-y-8 duration-300 ease-in;
     }
+    .swup-progress-bar {
+        @apply h-1 bg-fuchsia-600 dark:bg-fuchsia-300;
+    }
 
     [astro-icon] { @apply flex-shrink-0 pointer-events-none; }
 
@@ -72,6 +75,7 @@ const site = settings.story.content
 
 <script>
     import Swup from 'swup'
+    import SwupProgressPlugin from '@swup/progress-plugin'
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
     import { runScaleIn } from '../js/gsap'
@@ -81,7 +85,8 @@ const site = settings.story.content
     import Search from '../js/search'
 
     const swup = new Swup({
-        // animateHistoryBrowsing: true
+        animateHistoryBrowsing: true,
+        plugins: [new SwupProgressPlugin()]
     })
 
     document.addEventListener('DOMContentLoaded', () => {

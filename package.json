@@ -15,6 +15,7 @@
         "@fontsource-variable/dm-sans": "^5.0.3",
         "@fontsource/limelight": "^5.0.17",
         "@storyblok/astro": "^4.0.0",
+        "@swup/progress-plugin": "^3.1.2",
         "@types/alpinejs": "^3.13.6",
         "alpinejs": "^3.13.3",
         "astro": "^4.1.1",

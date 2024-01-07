@@ -9,31 +9,3 @@
         </span>
     </aside>
 </div>
-
-<script>
-    import { $, $$, slideIn, slideOut, enter, leave } from '../js/snips'
-
-    Toast()
-
-    function Toast() {
-        const
-            linkCopy = $$('[data-copy]'),
-            toast = $('[data-toast]')
-
-        linkCopy.forEach(link => {
-            link.addEventListener('click', e => {
-                e.preventDefault()
-
-                navigator.clipboard.writeText(e.target.href)
-
-                if (toast.classList.contains('opacity-100')) return
-
-                slideIn(toast, leave(), enter())
-
-                setTimeout(() => {
-                    slideOut(toast, enter(), leave())
-                }, 3000)
-            })
-        })
-    }
-</script>

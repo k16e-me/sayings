@@ -7,8 +7,9 @@ const { linkFragment, bg } = Astro.props
 ---
 <a
     href={ `#${slugify(linkFragment)}` }
+    class="group"
     data-link
-    class="group">
+    data-no-swup>
     <FabToCard bg={ bg } class:list={ 'pointer-events-none' }>
         <Icon name="paperclip" class="w-6"/>
         <h2 class="sr-only lg:not-sr-only lg:font-display pointer-events-none">Title Piece</h2>

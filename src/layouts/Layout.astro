@@ -71,7 +71,7 @@ const site = settings.story.content
 </style>
 
 <script>
-    // import Swup from 'swup'
+    import Swup from 'swup'
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
     import { runScaleIn } from '../js/gsap'
@@ -80,14 +80,14 @@ const site = settings.story.content
     import Toast from '../js/toast'
     import Search from '../js/search'
 
-    // const swup = new Swup()
+    const swup = new Swup()
 
-    // document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
         Once()
         Scripts()
-    // })
+    })
 
-    // swup.hooks.on('page:view', Scripts)
+    swup.hooks.on('page:view', Scripts)
 
     function Scripts() {
         Jumplink()

@@ -45,11 +45,11 @@ const site = settings.story.content
 <style is:global>
     /* Define a transition duration during page visits */
     html.is-changing .transition-fade {
-        @apply opacity-100 duration-500 ease-in-out;
+        @apply opacity-100 duration-[350ms] ease-in-out;
     }
     /* Define the styles for the unloaded pages */
     html.is-animating .transition-fade {
-        @apply opacity-0 scale-[.99] translate-y-12 duration-500 ease-out;
+        @apply opacity-0 scale-[.99] translate-y-8 duration-[350ms] ease-out;
     }
 
     [astro-icon] { @apply flex-shrink-0 pointer-events-none; }

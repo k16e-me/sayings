@@ -8,6 +8,7 @@ import BackToTop from '../components/BackToTop.astro'
 import Backdrop from '../components/Backdrop.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 import Wrapper from './Wrapper.astro'
+import PageTitle from '../components/PageTitle.astro'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 const storyblokApi = useStoryblokApi()
@@ -27,9 +28,9 @@ const site = settings.story.content
         class="text-slate-700 dark:text-white/75 bg-white dark:bg-neutral-900 flex min-h-dvh flex-col"
         data-body
         style="overflow: auto;">
-        <h1 class='sr-only'>{ pageTitle }</h1>
         <Header title={ site.title }/>
 		<main class="flex-1 transition-fade" id="swup">
+            <PageTitle title={ pageTitle }/>
             <Wrapper
                 data-wrapper
                 class:list={ `py-7` }>
@@ -52,7 +53,7 @@ const site = settings.story.content
         @apply opacity-0 scale-[.99] translate-y-8 duration-300 ease-in;
     }
     .swup-progress-bar {
-        @apply h-1 bg-fuchsia-600 dark:bg-fuchsia-300;
+        @apply h-0.5 bg-fuchsia-600 dark:bg-fuchsia-300;
     }
 
     [astro-icon] { @apply flex-shrink-0 pointer-events-none; }
@@ -76,6 +77,8 @@ const site = settings.story.content
 <script>
     import Swup from 'swup'
     import SwupProgressPlugin from '@swup/progress-plugin'
+    import SwupScrollPlugin from '@swup/scroll-plugin'
+    import SwupA11yPlugin from '@swup/a11y-plugin'
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
     import { runScaleIn } from '../js/gsap'
@@ -86,10 +89,16 @@ const site = settings.story.content
 
     const swup = new Swup({
         animateHistoryBrowsing: true,
-        plugins: [new SwupProgressPlugin({
-            delay: 200,
-            finishAnimation: false
-        })]
+        plugins: [
+            new SwupProgressPlugin({
+                delay: 200,
+                finishAnimation: false
+            }),
+            new SwupScrollPlugin({
+                doScrollingRightAway: true
+            }),
+            new SwupA11yPlugin()
+        ]
     })
 
     document.addEventListener('DOMContentLoaded', () => {

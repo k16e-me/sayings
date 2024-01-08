@@ -50,7 +50,7 @@ const site = settings.story.content
 <style is:global>
     /* Define a transition duration during page visits */
     html.is-changing .swup-in {
-        @apply opacity-100 duration-[.4s] ease-in-out;
+        @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)];
     }
     /* Define the styles for the unloaded pages */
     html.is-animating .swup-in {

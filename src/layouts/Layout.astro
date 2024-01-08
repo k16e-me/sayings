@@ -30,7 +30,7 @@ const site = settings.story.content
         style="overflow: auto;">
         <Header title={ site.title }/>
 		<main
-            class="flex-1 transition-visit"
+            class="flex-1 swup-in"
             id="swup"
             data-gsap-entry>
             <PageTitle title={ pageTitle }/>
@@ -48,11 +48,11 @@ const site = settings.story.content
 
 <style is:global>
     /* Define a transition duration during page visits */
-    html.is-changing .transition-visit {
+    html.is-changing .swup-in {
         @apply opacity-100 duration-[.4s] ease-in-out;
     }
     /* Define the styles for the unloaded pages */
-    html.is-animating .transition-visit {
+    html.is-animating .swup-in {
         @apply opacity-0 scale-[.99] translate-y-8 duration-[.4s] ease-in;
     }
     .swup-progress-bar {
@@ -93,6 +93,7 @@ const site = settings.story.content
     import Search from '../js/search'
 
     const swup = new Swup({
+        animationSelector: '[class*="swup-"]',
         animateHistoryBrowsing: true,
         plugins: [
             new SwupProgressPlugin({

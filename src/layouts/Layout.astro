@@ -49,11 +49,11 @@ const site = settings.story.content
 <style is:global>
     /* Define a transition duration during page visits */
     html.is-changing .transition-visit {
-        @apply opacity-100 duration-500 ease-in-out;
+        @apply opacity-100 duration-[.4s] ease-in-out;
     }
     /* Define the styles for the unloaded pages */
     html.is-animating .transition-visit {
-        @apply opacity-0 scale-[.99] translate-y-8 duration-500 ease-in;
+        @apply opacity-0 scale-[.99] translate-y-8 duration-[.4s] ease-in;
     }
     .swup-progress-bar {
         @apply h-0.5 bg-fuchsia-600 dark:bg-fuchsia-300;
@@ -91,8 +91,6 @@ const site = settings.story.content
     import Slideover from '../js/slideover'
     import Toast from '../js/toast'
     import Search from '../js/search'
-    import { $ } from '../js/snips'
-    import gsap from 'gsap'
 
     const swup = new Swup({
         animateHistoryBrowsing: true,
@@ -114,14 +112,20 @@ const site = settings.story.content
         ]
     })
 
-    document.addEventListener('DOMContentLoaded', () => {
-        Once()
-        Scripts()
-    })
+    // Run once when page loads
+    if (document.readyState === 'complete') {
+        init()
+        once()
+    } else {
+        document.addEventListener('DOMContentLoaded', () => {
+            init()
+            once()
+        })
+    }
+    // Run after every additional navigation by swup
+    swup.hooks.on('page:view', () => init())
 
-    swup.hooks.on('page:view', Scripts)
-
-    function Scripts() {
+    function init() {
         Jumplink()
         Silence()
         BackToTop()
@@ -130,7 +134,7 @@ const site = settings.story.content
         Search()
     }
 
-    function Once() {
+    function once() {
         Astrolog()
     }
 </script>

@@ -5,7 +5,7 @@ import { $ } from './snips'
 gsap.registerPlugin(ScrollTrigger)
 
 const Silence = () => {
-    if (!'[data-gsap="silence"]') return
+    if (!$('[data-gsap="silence"]')) return
     gsap.from('[data-gsap="silence"]', {
         scrollTrigger: {
             trigger: '[data-gsap="silence"]',

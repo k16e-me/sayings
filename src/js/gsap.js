@@ -30,10 +30,14 @@ const FlyIn = () => {
 
 const Header = () => {
     gsap.from('[data-main-header]', {
+        scrollTrigger: {
+            trigger: '[data-main-header]'
+        },
         y: -24,
         opacity: 0,
         duration: .5,
-        // delay: .5
+        stagger: 0.1,
+        delay: .5
     })
 }
 

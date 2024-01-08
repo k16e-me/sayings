@@ -26,7 +26,7 @@ const site = settings.story.content
     />
 	<body
         class="text-slate-700 dark:text-white/75 bg-white dark:bg-neutral-900 flex min-h-dvh flex-col"
-        data-body
+        data-body-exit
         style="overflow: auto;">
         <Header title={ site.title }/>
 		<main
@@ -34,7 +34,7 @@ const site = settings.story.content
             id="swup"
             tabindex="-1">
             <PageTitle title={ pageTitle }/>
-            <Wrapper data-wrapper>
+            <Wrapper data-wrapper class:list="py-5">
                 <slot/>
             </Wrapper>
         </main>
@@ -71,6 +71,9 @@ const site = settings.story.content
     }
     [astro-icon] { @apply flex-shrink-0 pointer-events-none; }
     .r-image-dim { @apply dark:contrast-[1.2] dark:brightness-[.8]; }
+    [data-body-exit] {
+        @apply opacity-0 scale-105 transition duration-500;
+    }
 
     @keyframes blink {
         0% { @apply bg-opacity-0; }
@@ -91,6 +94,7 @@ const site = settings.story.content
     import Slideover from '../js/slideover'
     import Toast from '../js/toast'
     import Search from '../js/search'
+    import { body } from '../js/snips'
 
     const swup = new Swup({
         animationSelector: '[class*="swup-"]',
@@ -113,17 +117,11 @@ const site = settings.story.content
         ]
     })
 
-    // Run once when page loads
-    if (document.readyState === 'complete') {
+    document.addEventListener('DOMContentLoaded', () => {
         init()
         once()
-    } else {
-        document.addEventListener('DOMContentLoaded', () => {
-            init()
-            once()
-        })
-    }
-    // Run after every additional navigation by swup
+        body().removeAttribute('data-body-exit')
+    })
     swup.hooks.on('page:view', () => init())
 
     function init() {
@@ -136,7 +134,7 @@ const site = settings.story.content
     }
 
     function once() {
-        // FlyIn()
+        FlyIn()
         Header()
         Astrolog()
     }

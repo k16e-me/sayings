@@ -44,7 +44,7 @@ const content = page.content
     pageTitle={ content.title }
     pageDescription={ content.description }
     pageThumbnail={ content.image?.filename }>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-9 lg:gap-9">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-9 lg:gap-9" data-gsap="move-in">
         <div class="col-span-1">
             <div class="lg:sticky lg:top-10 space-y-5 flex flex-col items-end lg:items-stretch">
                 <BackTo text={ 'Collections' }/>

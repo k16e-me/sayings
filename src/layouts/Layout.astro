@@ -60,8 +60,9 @@ const site = settings.story.content
         @apply h-0.5 bg-fuchsia-600 dark:bg-fuchsia-300;
     }
     main:focus { outline: none; }
-
-    [astro-icon] { @apply flex-shrink-0 pointer-events-none; }
+    :target {
+        scroll-margin-top: 6.5rem;
+    }
 
     .is-focused {
         @apply rounded-lg bg-neutral-200 dark:bg-neutral-800;
@@ -71,6 +72,7 @@ const site = settings.story.content
     .r-piece {
         @apply [&_p]:text-[1.0225rem] [&_p]:whitespace-pre-wrap [&_p]:leading-[1.595rem] [&_p:empty]:my-7 [&_hr]:max-w-[256px] dark:font-light;
     }
+    [astro-icon] { @apply flex-shrink-0 pointer-events-none; }
     .r-image-dim { @apply dark:contrast-[1.2] dark:brightness-[.8]; }
 
     @keyframes blink {
@@ -108,7 +110,8 @@ const site = settings.story.content
                 preloadVisibleLinks: true
             }),
             new SwupScrollPlugin({
-                doScrollingRightAway: true
+                doScrollingRightAway: true,
+                offset: () => document.querySelector('[data-main-header]').getBoundingClientRect().height + 96
             })
         ]
     })

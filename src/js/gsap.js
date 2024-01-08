@@ -4,11 +4,11 @@ import { $ } from './snips'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const scaleIn = () => {
-    if (!'[data-gsap="scale-in"]') return
-    gsap.from('[data-gsap="scale-in"]', {
+const Silence = () => {
+    if (!'[data-gsap="silence"]') return
+    gsap.from('[data-gsap="silence"]', {
         scrollTrigger: {
-            trigger: '[data-gsap="scale-in"]',
+            trigger: '[data-gsap="silence"]',
             toggleActions: 'restart pause reverse pause'
         },
         y: '100%',
@@ -19,4 +19,4 @@ const scaleIn = () => {
     })
 }
 
-export { scaleIn }
+export { Silence }

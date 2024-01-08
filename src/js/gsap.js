@@ -19,4 +19,22 @@ const Silence = () => {
     })
 }
 
-export { Silence }
+const FlyIn = () => {
+    gsap.from('[data-gsap="fly-in"]', {
+        y: -8,
+        scale: 1.15,
+        opacity: 0,
+        duration: .5
+    })
+}
+
+const Header = () => {
+    gsap.from('[data-main-header]', {
+        y: '-100%',
+        opacity: 0,
+        duration: .5,
+        delay: .5
+    })
+}
+
+export { Silence, FlyIn, Header }

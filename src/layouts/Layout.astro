@@ -32,8 +32,7 @@ const site = settings.story.content
 		<main
             class="flex-1 swup-in"
             id="swup"
-            tabindex="-1"
-            data-gsap-entry>
+            tabindex="-1">
             <PageTitle title={ pageTitle }/>
             <Wrapper
                 data-wrapper
@@ -89,7 +88,7 @@ const site = settings.story.content
     import SwupScrollPlugin from '@swup/scroll-plugin'
     import Jumplink from '../js/jumplink'
     import Astrolog from '../js/astrolog'
-    import { Silence } from '../js/gsap'
+    import { Silence, FlyIn, Header } from '../js/gsap'
     import BackToTop from '../js/btt'
     import Slideover from '../js/slideover'
     import Toast from '../js/toast'
@@ -139,6 +138,8 @@ const site = settings.story.content
     }
 
     function once() {
+        // FlyIn()
+        Header()
         Astrolog()
     }
 </script>

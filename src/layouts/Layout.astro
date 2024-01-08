@@ -29,7 +29,10 @@ const site = settings.story.content
         data-body
         style="overflow: auto;">
         <Header title={ site.title }/>
-		<main class="flex-1 transition-visit" id="swup">
+		<main
+            class="flex-1 transition-visit"
+            id="swup"
+            data-gsap-entry>
             <PageTitle title={ pageTitle }/>
             <Wrapper
                 data-wrapper
@@ -88,6 +91,8 @@ const site = settings.story.content
     import Slideover from '../js/slideover'
     import Toast from '../js/toast'
     import Search from '../js/search'
+    import { $ } from '../js/snips'
+    import gsap from 'gsap'
 
     const swup = new Swup({
         animateHistoryBrowsing: true,

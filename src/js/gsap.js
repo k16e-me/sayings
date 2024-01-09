@@ -6,21 +6,26 @@ gsap.registerPlugin(ScrollTrigger)
 
 const
     tl = gsap.timeline({
-        delay: 0.5,
-        duration: 0.5,
-        autoAlpha: 0,
-        transition: 'none'
+        defaults: {
+            delay: 0.15,
+            duration: 0.5,
+            autoAlpha: 0,
+            opacity: 0
+        },
+        onComplete: () => $('[data-wrapper="main"]').removeAttribute('style')
     }),
     dropIn = {
         y: -24,
         ease: 'back.out',
-        clearProps: 'all',
-        opacity: 0
+        clearProps: 'all'
     },
     flyIn = {
         y: -12,
-        scale: 1.15,
-        opacity: 0
+        scale: 1.125
+    },
+    riseIn = {
+        y: 12,
+        scale: 0.99
     }
 
 const Silence = () => {
@@ -38,22 +43,10 @@ const Silence = () => {
     })
 }
 
-const MoveIn = () => {
-    if (!$('[data-gsap="move-in"]')) return
-    gsap.from('[data-gsap="move-in"]', {
-        y: 8,
-        scale: 0.99,
-        opacity: 0,
-        duration: .5
-    })
-    setTimeout(() => { // or add a separate always running gsap on this fixed guy
-        $('[data-gsap="move-in"]').removeAttribute('style')
-    }, 3000)
-}
-
 const runAnimations = () => {
-    $('[data-gsap="logo"]') && tl.from('[data-gsap="logo"]', dropIn, 0)
-    $('[data-gsap="fly-in"]') && tl.from('[data-gsap="fly-in"]', flyIn, 0)
+    $('[data-gsap="logo"]') && tl.from('[data-gsap="logo"]', dropIn)
+    $('[data-gsap="fly-in"]') && tl.from('[data-gsap="fly-in"]', flyIn)
+    $('[data-gsap="rise-in"]') && tl.from('[data-gsap="rise-in"]', riseIn)
 }
 
-export { Silence, MoveIn, runAnimations }
+export { Silence, runAnimations }

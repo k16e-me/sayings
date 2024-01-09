@@ -14,6 +14,7 @@ import Slideover from '../../components/Slideover.astro'
 import Overview from '../../components/Overview.astro'
 import Silence from '../../components/Silence.astro'
 import Search from '../../components/Search.astro'
+import { isMobile } from '../../js/snips'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -44,7 +45,10 @@ const content = page.content
     pageTitle={ content.title }
     pageDescription={ content.description }
     pageThumbnail={ content.image?.filename }>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-9 lg:gap-9" data-gsap="move-in">
+    <div
+        class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-9 lg:gap-9"
+        data-gsap="rise-in"
+        data-wrapper="main">
         <div class="col-span-1">
             <div class="lg:sticky lg:top-10 space-y-5 flex flex-col items-end lg:items-stretch">
                 <BackTo text={ 'Collections' }/>
@@ -55,7 +59,9 @@ const content = page.content
                     />
                     <ToggleOverview class:list={ `absolute bottom-3 right-3` }/>
                 </div>
-                <div class="fixed left-3 bottom-12 md:bottom-9 lg:static flex flex-col gap-3 lg:gap-5 z-30">
+                <div
+                    class="fixed left-3 bottom-12 md:bottom-9 lg:static flex flex-col gap-3 lg:gap-5 z-30"
+                    data-gsap="rise-in">
                     <button
                         class="lg:w-full group"
                         data-toggle="slideover"

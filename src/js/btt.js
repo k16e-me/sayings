@@ -16,8 +16,10 @@ export default function BackToTop() {
 
     function showBtt() {
         visible(btt)
-        btt.classList.add(...enter())
-        btt.classList.remove(...leave())
+        setTimeout(() => {
+            btt.classList.add(...enter())
+            btt.classList.remove(...leave())
+        }, 100)
     }
     function hideBtt() {
         slideOut(btt, enter(), leave())

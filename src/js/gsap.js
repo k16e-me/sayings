@@ -7,14 +7,15 @@ gsap.registerPlugin(ScrollTrigger)
 const
     tl = gsap.timeline({
         delay: 0.5,
-        duration: 0.5
+        duration: 0.5,
+        autoAlpha: 0,
+        transition: 'none'
     }),
     dropIn = {
         y: -24,
-        autoAlpha: 0,
         ease: 'back.out',
         clearProps: 'all',
-        transition: 'none'
+        opacity: 0
     },
     flyIn = {
         y: -12,

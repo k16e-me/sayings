@@ -50,11 +50,9 @@ const MoveIn = () => {
     }, 3000)
 }
 
-const CreateAnimations = () => {
-    if (!$('[data-gsap]')) return
-
-    tl.from('[data-gsap="logo"]', dropIn, 0)
-    tl.from('[data-gsap="fly-in"]', flyIn, 0)
+const runAnimations = () => {
+    $('[data-gsap="logo"]') && tl.from('[data-gsap="logo"]', dropIn, 0)
+    $('[data-gsap="fly-in"]') && tl.from('[data-gsap="fly-in"]', flyIn, 0)
 }
 
-export { Silence, MoveIn, CreateAnimations }
+export { Silence, MoveIn, runAnimations }

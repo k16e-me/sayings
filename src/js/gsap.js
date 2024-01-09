@@ -13,6 +13,8 @@ const
             opacity: 0
         }
     }),
+
+
     // Signatures
     dropIn = {
         y: -24,
@@ -27,6 +29,8 @@ const
         y: 12,
         scale: 0.99
     },
+
+
     // Islands
     Silence = () => {
         if (!$('[data-gsap="silence"]')) return
@@ -52,4 +56,5 @@ const
     }
 
 
+// Exports
 export { Silence, runAnimations }

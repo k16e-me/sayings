@@ -7,12 +7,12 @@ const { collections } = Astro.props
 <ul
     { ...storyblokEditable(collections) }
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center"
-    data-swup-preload-all>
+    data-swup-preload-all
+    data-gsap="list-fly-in">
     {
         collections.map(c => (
             <li
-                class="w-full min-w-[304px] max-w-[356px] md:max-w-none"
-                data-gsap="fly-in">
+                class="w-full min-w-[304px] max-w-[356px] md:max-w-none">
                 <a href={`/${c.slug}`}>
                     <article
                         class="rounded-xl hover:shadow-2xl transition duration-300 overflow-clip">

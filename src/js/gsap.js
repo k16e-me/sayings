@@ -22,8 +22,8 @@ const
         clearProps: 'all'
     },
     flyIn = {
-        y: -12,
-        scale: 1.125
+        y: -8,
+        scale: 1.05
     },
     riseIn = {
         y: 12,
@@ -48,10 +48,19 @@ const
     },
     runAnimations = () => {
         $('[data-gsap="logo"]') && tl.from('[data-gsap="logo"]', dropIn)
-        $('[data-gsap="fly-in"]') && tl.from('[data-gsap="fly-in"]', flyIn)
         $('[data-gsap="rise-in"]') && tl.from('[data-gsap="rise-in"]', {
             ...riseIn,
             onComplete: () => $('[data-wrapper="main"]').removeAttribute('style')
+        })
+        $('[data-gsap="list-fly-in"]') && gsap.utils.toArray('[data-gsap="list-fly-in"]').forEach(el => {
+            tl.from(el, {
+                ...flyIn,
+                stagger: {
+                    from: 0,
+                    each: 0.2,
+                    grid: 'auto'
+                }
+            })
         })
     }
 

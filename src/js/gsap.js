@@ -4,6 +4,16 @@ import { $ } from './snips'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const tl = gsap.timeline({ delay: 0.5 })
+const dropIn = {
+    y: -20,
+    duration: 0.4,
+    autoAlpha: 0,
+    ease: 'back.out',
+    clearProps: 'all',
+    transition: 'none'
+}
+
 const Silence = () => {
     if (!$('[data-gsap="silence"]')) return
     gsap.from('[data-gsap="silence"]', {
@@ -42,18 +52,9 @@ const MoveIn = () => {
     }, 3000)
 }
 
-const Header = () => {
-    if (!$('[data-main-header]')) return
-    gsap.from('[data-main-header]', {
-        scrollTrigger: {
-            trigger: '[data-main-header]'
-        },
-        y: -24,
-        opacity: 0,
-        duration: .5,
-        stagger: 0.1,
-        delay: .5
-    })
+const CreateAnimations = () => {
+    if (!$('[data-gsap]')) return
+    tl.from('[data-gsap="logo"]', dropIn, 0)
 }
 
-export { Silence, FlyIn, MoveIn, Header }
+export { Silence, FlyIn, MoveIn, CreateAnimations }

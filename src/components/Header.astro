@@ -2,11 +2,12 @@
 import Logo from '../components/Logo.astro'
 import Wrapper from '../layouts/Wrapper.astro'
 
-const { title } = Astro.props
+const { title, class: classes, ...attrs } = Astro.props
 ---
 <header
-    class="z-10"
-    data-main-header>
+    class:list={[ classes, 'z-50' ]}
+    data-main-header
+    { ...attrs }>
     <Wrapper class:list="flex flex-col space-y-5 lg:space-y-7 items-center justify-center py-5 lg:py-7">
         <a href="/" class="inline-flex justify-center">
             <Logo class:list="h-14 fill-slate-950 dark:fill-white" data-gsap="logo"/>

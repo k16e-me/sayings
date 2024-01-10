@@ -14,7 +14,6 @@ import Slideover from '../../components/Slideover.astro'
 import Overview from '../../components/Overview.astro'
 import Silence from '../../components/Silence.astro'
 import Search from '../../components/Search.astro'
-import { isMobile } from '../../js/snips'
 
 export async function getStaticPaths() {
 	const sbApi = useStoryblokApi()
@@ -78,7 +77,9 @@ const content = page.content
                 </div>
             </div>
         </div>
-        <div class="lg:col-span-2 r-piece flex flex-col mt-px">
+        <div
+            class="lg:col-span-2 r-piece flex flex-col mt-px"
+            data-wrapper="content">
             <Search/>
             <StoryblokComponent blok={ content }/>
             <Silence bg={ content.pastel } class:list={ `h-[152px]` }/>

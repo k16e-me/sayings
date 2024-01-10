@@ -1,4 +1,4 @@
-import { $, $$ } from '../js/snips'
+import { $, $$, scrollToTopOffset } from '../js/snips'
 import { gsap } from 'gsap'
 import { Flip } from 'gsap/all'
 
@@ -10,26 +10,28 @@ export default function Search() {
     const
         pieces = $$('[data-piece]'),
         input = $('#search'),
-        typeInterval = 300,
-        icon = $('[data-search-icon]')
+        typeInterval = 150,
+        icon = $('[data-search-icon]'),
+        container = $('[data-wrapper="content"]')
 
     document.addEventListener('keydown', e => {
-        if ((e.metaKey && e.key === 'k')) {
-            input.focus()
-        }
+        if ((e.metaKey && e.key === 'k')) focus()
         if (input === document.activeElement) {
-            if (e.key === 'Escape') {
-                input.blur()
-            }
+            if (e.key === 'Escape') input.blur()
         }
     })
 
-    icon && icon.addEventListener('click', () => input.focus())
+    icon && icon.addEventListener('click', () => focus())
 
     input && input.addEventListener('keyup', () => {
         clearTimeout(typingTimer)
         typingTimer = setTimeout(liveSearch, typeInterval)
     })
+
+    function focus() {
+        input.focus()
+        scrollToTopOffset(container, 12)
+    }
 
     function liveSearch() {
         const

@@ -8,6 +8,7 @@ export default function Jumplink() {
         headerHeight = document.querySelector('[data-main-header]').getBoundingClientRect().height
 
     links.forEach(link => {
+        link.target = '_blank'
         link.addEventListener('click', e => {
             e.preventDefault()
 

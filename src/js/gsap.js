@@ -56,7 +56,7 @@ const
             tl.from(el, {
                 ...flyIn,
                 stagger: {
-                    from: 0,
+                    from: 'start',
                     each: 0.2,
                     grid: 'auto'
                 }

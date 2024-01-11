@@ -1,11 +1,11 @@
 import {
-    $$, scrollToTopOffset
+    $, $$, scrollToTopOffset
 } from '../js/snips'
 
 export default function Jumplink() {
     const
         links = $$('[data-link]'),
-        headerHeight = document.querySelector('[data-main-header]').getBoundingClientRect().height
+        headerHeight = $('[data-main-header]').getBoundingClientRect().height
 
     links.forEach(link => {
         link.target = '_blank'
@@ -13,7 +13,7 @@ export default function Jumplink() {
             e.preventDefault()
 
             const
-                linkEl = document.querySelector(e.target.hash),
+                linkEl = $(e.target.hash),
                 parent = linkEl.parentNode
 
             scrollToTopOffset(linkEl, headerHeight)

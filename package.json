@@ -16,6 +16,7 @@
         "@fontsource/limelight": "^5.0.17",
         "@storyblok/astro": "^4.0.0",
         "@swup/a11y-plugin": "^4.5.0",
+        "@swup/head-plugin": "^2.1.2",
         "@swup/preload-plugin": "^3.2.7",
         "@swup/progress-plugin": "^3.1.2",
         "@swup/scroll-plugin": "^3.3.1",

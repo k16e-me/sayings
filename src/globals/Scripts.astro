@@ -4,6 +4,7 @@
 	import SwupA11yPlugin from '@swup/a11y-plugin'
 	import SwupPreloadPlugin from '@swup/preload-plugin'
 	import SwupScrollPlugin from '@swup/scroll-plugin'
+    import SwupHeadPlugin from '@swup/head-plugin'
 	import Jumplink from '../js/jumplink'
 	import Astrolog from '../js/astrolog'
 	import { Silence, runAnimations } from '../js/gsap'
@@ -34,6 +35,9 @@
 						.querySelector('[data-main-header]')
 						.getBoundingClientRect().height + 96,
 			}),
+            new SwupHeadPlugin({
+                persistAssets: true
+            })
 		],
         native: true
 	})

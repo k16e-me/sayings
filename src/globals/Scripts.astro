@@ -17,6 +17,7 @@
 	const swup = new Swup({
 		animationSelector: '[class*="swup-"]',
 		animateHistoryBrowsing: true,
+        native: true,
 		plugins: [
 			new SwupProgressPlugin({
 				finishAnimation: false,
@@ -36,10 +37,10 @@
 						.getBoundingClientRect().height + 96,
 			}),
             new SwupHeadPlugin({
-                persistAssets: true
+                persistAssets: true,
+                awaitAssets: true
             })
-		],
-        native: true
+		]
 	})
 
 	document.addEventListener('DOMContentLoaded', () => {

@@ -7,13 +7,10 @@ import Cover from '../components/Cover.astro'
 export async function getStaticPaths() {
     const
         storyblokApi = useStoryblokApi(),
-        { data } = await storyblokApi.get('cdn/links', {
+        { data: { links } } = await storyblokApi.get('cdn/links', {
             version: import.meta.env.DEV ? 'draft' : 'published'
-        })
-
-    let links = data.links
-    links = Object.values(links)
-    let filteredLinks = links.filter((i: any) => i.slug.includes('pages/'))
+        }),
+        filteredLinks = Object.values(links).filter((link: any) => link.slug.includes('pages/'))
 
     return filteredLinks.map((l: any) => {
         return {

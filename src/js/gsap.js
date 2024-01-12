@@ -17,12 +17,12 @@ const
 
     // Signatures
     dropIn = {
-        y: -24,
+        y: -12,
         ease: 'back.out',
         clearProps: 'all'
     },
     flyIn = {
-        y: -8,
+        y: -12,
         scale: 1.05
     },
     riseIn = {

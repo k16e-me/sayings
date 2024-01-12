@@ -2,17 +2,20 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Layout from '../layouts/Layout.astro'
+import BookCover from '../components/BookCover.astro'
 
 export async function getStaticPaths() {
-    const storyblokApi = useStoryblokApi()
-    const { data } = await storyblokApi.get('cdn/links', {
-        version: import.meta.env.DEV ? 'draft' : 'published'
-    })
+    const
+        storyblokApi = useStoryblokApi(),
+        { data } = await storyblokApi.get('cdn/links', {
+            version: import.meta.env.DEV ? 'draft' : 'published'
+        })
+
     let links = data.links
     links = Object.values(links)
-    let filteredLinks = links.filter(i => i.slug.includes('pages/'))
+    let filteredLinks = links.filter((i: any) => i.slug.includes('pages/'))
 
-    return filteredLinks.map(l => {
+    return filteredLinks.map((l: any) => {
         return {
             params: {
                 slug: l.slug.split('/')[1]
@@ -21,16 +24,29 @@ export async function getStaticPaths() {
     })
 }
 
-const { slug } = Astro.params
-const storyblokApi = useStoryblokApi()
-const { data } = await storyblokApi.get(`cdn/stories/pages/${slug}`, {
-    version: import.meta.env.DEV ? 'draft' : 'published'
-})
-const page = data.story
+const
+    { slug } = Astro.params,
+    storyblokApi = useStoryblokApi(),
+    { data: pageData } = await storyblokApi.get(`cdn/stories/pages/${slug}`, {
+        version: import.meta.env.DEV ? 'draft' : 'published'
+    }),
+    page = pageData.story,
+    meta = page.content.meta[0]
 ---
 <Layout
-    pageTitle={ page.content.title }
-    pageDescription={ page.content.description }
-    pageThumbnail={ page.content.image?.filename }>
-    <StoryblokComponent blok={ page.content }/>
+    pageTitle={ meta.title }
+    pageDescription={ meta.description }
+    pageThumbnail={ meta.image.filename }>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-9 lg:gap-9">
+        <div class="col-span-1">
+            <BookCover
+                filename={ meta.image.filename }
+            />
+        </div>
+        <div class="lg:col-span-2 flex flex-col mt-px">
+            <StoryblokComponent
+                blok={ page.content }
+            />
+        </div>
+    </div>
 </Layout>

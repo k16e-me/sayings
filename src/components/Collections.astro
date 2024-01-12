@@ -1,6 +1,6 @@
 ---
 import { storyblokEditable } from '@storyblok/astro'
-import BookCover from './BookCover.astro'
+import Cover from './Cover.astro'
 
 const { collections } = Astro.props
 ---
@@ -10,14 +10,14 @@ const { collections } = Astro.props
     data-swup-preload-all
     data-gsap="list-fly-in">
     {
-        collections.map(c => (
+        collections.map((c: any) => (
             <li
                 class="w-full min-w-[304px] max-w-[356px] md:max-w-none">
                 <a href={`/${c.slug}`}>
                     <article
                         class="rounded-xl hover:shadow-2xl transition duration-300 overflow-clip">
                         <h2 class="sr-only">{ c.content.title + ' ' + c.content.short_title }</h2>
-                        <BookCover
+                        <Cover
                             filename={ c.content.image.filename }
                             title={ c.content.title }
                         />

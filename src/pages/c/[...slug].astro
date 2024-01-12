@@ -2,7 +2,7 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Layout from '../../layouts/Layout.astro'
-import BookCover from '../../components/BookCover.astro'
+import Cover from '../../components/Cover.astro'
 import BackTo from '../../components/BackTo.astro'
 import TitlePiece from '../../components/TitlePiece.astro'
 import FabToCard from '../../components/FabToCard.astro'
@@ -52,7 +52,7 @@ const content = page.content
             <div class="lg:sticky lg:top-10 space-y-5 flex flex-col items-end lg:items-stretch">
                 <BackTo text={ 'Collections' }/>
                 <div class="relative min-w-[304px] max-w-[356px] rounded-xl overflow-clip">
-                    <BookCover
+                    <Cover
                         filename={ content.image.filename }
                         title={ content.title }
                     />

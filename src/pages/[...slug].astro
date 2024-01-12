@@ -2,7 +2,7 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Layout from '../layouts/Layout.astro'
-import BookCover from '../components/BookCover.astro'
+import Cover from '../components/Cover.astro'
 
 export async function getStaticPaths() {
     const
@@ -39,7 +39,7 @@ const
     pageThumbnail={ meta.image.filename }>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-9 lg:gap-9">
         <div class="col-span-1">
-            <BookCover
+            <Cover
                 filename={ meta.image.filename }
             />
         </div>

@@ -1,5 +1,6 @@
 ---
 import { SEO } from 'astro-seo'
+import { pwaInfo } from 'virtual:pwa-info'
 
 const { title, image, description = '' } = Astro.props
 ---
@@ -22,8 +23,9 @@ const { title, image, description = '' } = Astro.props
         }}
         canonical={ Astro.url.href }
     />
+    { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
+    <script src="/src/pwa.ts"></script>
 </head>
-
 <script is:inline>
     setTheme()
 

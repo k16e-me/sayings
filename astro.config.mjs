@@ -3,6 +3,8 @@ import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import { loadEnv } from 'vite'
 import alpinejs from '@astrojs/alpinejs'
+import AstroPWA from '@vite-pwa/astro'
+import { manifest } from './manifest'
 
 const env = loadEnv('', process.cwd(), 'STORYBLOK')
 
@@ -24,7 +26,29 @@ export default defineConfig({
                 piece: 'storyblok/Piece'
             }
         }),
-        alpinejs()
+        alpinejs(),
+        AstroPWA({
+            mode: 'development',
+            base: '/',
+            scope: '/',
+            includeAssets: ['favicon.svg'],
+            registerType: 'autoUpdate',
+            manifest,
+            workbox: {
+                globDirectory: 'dist',
+                globPatterns: [
+                    '**/*.{js,css,html,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}',
+                ],
+                navigateFallback: '/404'
+            },
+            devOptions: {
+                enabled: true,
+                navigateFallbackAllowlist: [/^\//],
+            },
+            experimental: {
+                directoryAndTrailingSlashHandler: true,
+            }
+        })
     ],
     redirects: {
         '/pages': {

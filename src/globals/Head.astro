@@ -1,6 +1,7 @@
 ---
 import { SEO } from 'astro-seo'
 import { pwaInfo } from 'virtual:pwa-info'
+import Favicons from './Favicons.astro'
 
 const { title, image, description = '' } = Astro.props
 ---
@@ -11,6 +12,7 @@ const { title, image, description = '' } = Astro.props
     <meta name="generator" content={ Astro.generator }/>
     <meta name="view-transition" content="same-origin" />
     <link type="text/plain" rel="author" href={ `${Astro.url.href}humans.txt` } />
+    <Favicons/>
 	<SEO
         title={ title }
         titleDefault="These are the Sayings of Kabolobari"

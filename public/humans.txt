@@ -1,3 +1,3 @@
 Sayings by Kabolobari was built by Kabolobari Benakole, a human, sayist, and web developer.
 
-Sayings 
+Sayings is developed in the web technology Astro

@@ -9,8 +9,6 @@ import Backdrop from '../components/Backdrop.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 import Wrapper from './Wrapper.astro'
 import PageTitle from '../components/PageTitle.astro'
-import Scripts from '../globals/Scripts.astro'
-import Styles from '../globals/Styles.astro'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 const storyblokApi = useStoryblokApi()
@@ -20,7 +18,7 @@ const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
 const site = settings.story.content
 ---
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 	<Head
         title={ `${ pageTitle } | ${ site.title }` }
         description={ pageDescription || site.description }
@@ -46,5 +44,99 @@ const site = settings.story.content
 	</body>
 </html>
 
-<Styles/>
-<Scripts/>
+<style is:global>
+	html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
+	html.is-animating .swup-in { @apply opacity-0 scale-[.9999] translate-y-3 ease-in; }
+	.swup-progress-bar { @apply h-0.5 bg-fuchsia-600 dark:bg-fuchsia-300; }
+	main:focus { outline: none; }
+	:target { scroll-margin-top: 6.5rem; }
+
+	.is-focused {
+		@apply rounded-lg bg-neutral-200 dark:bg-neutral-800;
+		animation: 300ms ease-in-out 1s 2 both blink;
+	}
+
+	.r-piece {
+		@apply [&_p]:text-[1.0225rem] [&_p]:whitespace-pre-wrap [&_p]:leading-[1.595rem] [&_p:empty]:my-7 [&_hr]:max-w-[256px] dark:font-light;
+	}
+	[astro-icon] {
+		@apply flex-shrink-0 pointer-events-none;
+	}
+	.r-image-dim {
+		@apply dark:contrast-[1.2] dark:brightness-[.8];
+	}
+	[data-body-exit] { @apply opacity-0 scale-105 transition duration-500; }
+
+	@keyframes blink {
+		0% {
+			@apply bg-opacity-0;
+		}
+		100% {
+			@apply bg-opacity-100;
+		}
+	}
+</style>
+
+<script>
+	import { body, $ } from '../js/snips'
+	import Swup from 'swup'
+	import SwupProgressPlugin from '@swup/progress-plugin'
+	import SwupA11yPlugin from '@swup/a11y-plugin'
+	import SwupPreloadPlugin from '@swup/preload-plugin'
+	import SwupScrollPlugin from '@swup/scroll-plugin'
+	import SwupHeadPlugin from '@swup/head-plugin'
+	import Jumplink from '../js/jumplink'
+	import Astrolog from '../js/astrolog'
+	import { Silence, runAnimations } from '../js/gsap'
+	import BackToTop from '../js/btt'
+	import Slideover from '../js/slideover'
+	import Toast from '../js/toast'
+	import Search from '../js/search'
+
+	const swup = new Swup({
+		animationSelector: '[class*="swup-"]',
+		animateHistoryBrowsing: true,
+		native: true,
+		plugins: [
+			new SwupProgressPlugin({
+				finishAnimation: false,
+			}),
+			new SwupA11yPlugin({
+				respectReducedMotion: true,
+				autofocus: true,
+			}),
+			new SwupPreloadPlugin({
+				preloadVisibleLinks: true,
+			}),
+			new SwupScrollPlugin({
+				offset: () =>
+					$('[data-main-header]').getBoundingClientRect().height + 72,
+			}),
+			new SwupHeadPlugin({
+				persistAssets: true,
+				awaitAssets: true,
+			}),
+		],
+	})
+
+	document.addEventListener('DOMContentLoaded', () => {
+		init()
+		once()
+		body().removeAttribute('data-body-exit')
+	})
+	swup.hooks.on('page:view', () => init())
+
+	function init() {
+		Jumplink()
+		Silence()
+		BackToTop()
+		Slideover()
+		Toast()
+		Search()
+	}
+
+	function once() {
+		runAnimations()
+		Astrolog()
+	}
+</script>

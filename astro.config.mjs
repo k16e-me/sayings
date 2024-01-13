@@ -35,8 +35,9 @@ export default defineConfig({
             registerType: 'autoUpdate',
             manifest,
             workbox: {
-                navigateFallback: '/',
-                globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}'],
+                globDirectory: 'dist',
+                globPatterns: ['**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}'],
+                navigateFallback: null,
             },
             devOptions: {
                 enabled: true,

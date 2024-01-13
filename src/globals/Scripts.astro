@@ -5,7 +5,7 @@
 	import SwupA11yPlugin from '@swup/a11y-plugin'
 	import SwupPreloadPlugin from '@swup/preload-plugin'
 	import SwupScrollPlugin from '@swup/scroll-plugin'
-    import SwupHeadPlugin from '@swup/head-plugin'
+	import SwupHeadPlugin from '@swup/head-plugin'
 	import Jumplink from '../js/jumplink'
 	import Astrolog from '../js/astrolog'
 	import { Silence, runAnimations } from '../js/gsap'
@@ -17,7 +17,7 @@
 	const swup = new Swup({
 		animationSelector: '[class*="swup-"]',
 		animateHistoryBrowsing: true,
-        native: true,
+		native: true,
 		plugins: [
 			new SwupProgressPlugin({
 				finishAnimation: false,
@@ -30,13 +30,14 @@
 				preloadVisibleLinks: true,
 			}),
 			new SwupScrollPlugin({
-				offset: () => $('[data-main-header]').getBoundingClientRect().height + 72,
+				offset: () =>
+					$('[data-main-header]').getBoundingClientRect().height + 72,
 			}),
-            new SwupHeadPlugin({
-                persistAssets: true,
-                awaitAssets: true
-            })
-		]
+			new SwupHeadPlugin({
+				persistAssets: true,
+				awaitAssets: true,
+			}),
+		],
 	})
 
 	document.addEventListener('DOMContentLoaded', () => {

@@ -18,7 +18,7 @@ const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
 const site = settings.story.content
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 	<Head
         title={ `${ pageTitle } | ${ site.title }` }
         description={ pageDescription || site.description }
@@ -57,7 +57,7 @@ const site = settings.story.content
 	}
 
 	.r-piece {
-		@apply [&_p]:text-[1.0225rem] [&_p]:whitespace-pre-wrap [&_p]:leading-[1.595rem] [&_p:empty]:my-7 [&_hr]:max-w-[256px] dark:font-light;
+		@apply [&_p]:text-[1.0225rem] [&_p]:whitespace-pre-wrap [&_p]:leading-[1.595rem] [&_p:empty]:my-7 [&_hr]:max-w-[256px];
 	}
 	[astro-icon] {
 		@apply flex-shrink-0 pointer-events-none;

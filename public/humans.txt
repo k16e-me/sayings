@@ -12,3 +12,6 @@ Swupjs
 Netlify
 
 /* THANKS */
+PWA Starter: Shaun Chander
+Github: @shaunchander
+Source: [https://github.com/shaunchander/astro-pwa-starter]

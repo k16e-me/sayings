@@ -15,10 +15,3 @@ IDE: VS Code
 Web: HTML, CSS, & JS
 
 /* THANKS */
-PWA Starter: Shaun Chander
-Github: @shaunchander
-Source: [https://github.com/shaunchander/astro-pwa-starter]
-
-Vite PWA Astro: Anthony Fu & Team
-Link: [https://vite-pwa-org.netlify.app/frameworks/astro.html]
-Example: [https://github.com/vite-pwa/astro/tree/main/examples/pwa-simple]

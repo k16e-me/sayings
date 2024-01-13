@@ -1,6 +1,7 @@
 {
     "name": "Sayings of Kabolobari",
     "short_name": "Sayings",
+    "description": "Sayings of Kabolobari is a compilation of Kabolobari Benakole's entire writings, accessible to everyone on the internet for free.",
     "icons": [
         {
             "src": "/favicons/android-chrome-192x192.png",

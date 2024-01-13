@@ -10,6 +10,7 @@ const { title, image, description = '' } = Astro.props
 	<link rel='icon' type='image/svg+xml' href='/favicon.svg'/>
     <meta name="generator" content={ Astro.generator }/>
     <meta name="view-transition" content="same-origin" />
+    <link type="text/plain" rel="author" href={ `${Astro.url.href}humans.txt` } />
 	<SEO
         title={ title }
         titleDefault="These are the Sayings of Kabolobari"

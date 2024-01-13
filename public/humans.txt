@@ -1,3 +1,14 @@
 Sayings by Kabolobari was built by Kabolobari Benakole, a human, sayist, and web developer.
 
-Sayings is developed in the web technology Astro
+Sayings as a web application is developed in the web technology Astro as the static site generator [https://astro.build/]. The web application itself follows the principles of what might be called the "AHA" stack as outlined on this website [https://ahastack.dev/].
+
+/* TECHNOLOGIES */
+Astro
+TailwindCSS
+Storyblok
+gsap
+Alpinejs
+Swupjs
+Netlify
+
+/* THANKS */

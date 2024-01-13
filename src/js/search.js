@@ -1,6 +1,7 @@
 import { $, $$, scrollToTopOffset } from '../js/snips'
 import { gsap } from 'gsap'
 import { Flip } from 'gsap/all'
+import Alpine from 'alpinejs'
 
 gsap.registerPlugin(Flip)
 
@@ -12,7 +13,8 @@ export default function Search() {
         input = $('#search'),
         typeInterval = 150,
         icon = $('[data-search-icon]'),
-        container = $('[data-wrapper="content"]')
+        container = $('[data-wrapper="content"]'),
+        close = $('[data-search-close]')
 
     document.addEventListener('keydown', e => {
         if ((e.metaKey && e.key === 'k')) focus()
@@ -28,6 +30,11 @@ export default function Search() {
         typingTimer = setTimeout(liveSearch, typeInterval)
     })
 
+    close.addEventListener('click', () => {
+        clearSearch(input)
+        Alpine.store('states').searchOn = false
+    })
+
     function focus() {
         input.focus()
         scrollToTopOffset(container, 12)
@@ -37,6 +44,10 @@ export default function Search() {
         const
             query = input.value.toLowerCase().trim(),
             state = Flip.getState(pieces)
+
+        if (query.length) Alpine.store('states').searchOn = true
+        else Alpine.store('states').searchOn = false
+        console.log(Alpine.store('states').searchOn)
 
         pieces.forEach(piece => {
             if (piece.textContent.toLowerCase().includes(query)) {
@@ -58,5 +69,9 @@ export default function Search() {
             onEnter: elements => gsap.fromTo(elements, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.3 }),
             onLeave: elements => gsap.to(elements, { opacity: 0, scale: 0, duration: 0.3 })
         })
+    }
+
+    function clearSearch(input) {
+        input.value = ''
     }
 }

@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import { loadEnv } from 'vite'
-import alpinejs from '@astrojs/alpinejs'
 
 const
     env = loadEnv('', process.cwd(), 'STORYBLOK'),
@@ -25,8 +24,7 @@ export default defineConfig({
                 collection: 'storyblok/Collection',
                 piece: 'storyblok/Piece'
             }
-        }),
-        alpinejs(),
+        })
     ],
     redirects: {
         '/pages': redirectHome,

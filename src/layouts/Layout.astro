@@ -88,6 +88,7 @@ const site = settings.story.content
 	import Slideover from '../js/slideover'
 	import Toast from '../js/toast'
 	import Search from '../js/search'
+    import runAlpine from '../alpine'
 
 	const swup = new Swup({
 		animationSelector: '[class*="swup-"]',
@@ -128,6 +129,7 @@ const site = settings.story.content
 		Slideover()
 		Toast()
 		Search()
+        runAlpine()
 	}
 
 	function once() {

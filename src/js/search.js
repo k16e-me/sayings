@@ -60,9 +60,3 @@ export default function Search() {
         })
     }
 }
-
-/** Credits/refs
-    * https://css-tricks.com/in-page-filtered-search-with-vanilla-javascript/
-    * https://codepen.io/GreenSock/pen/NWRxarv?editors=0010
-    * https://gsap.com/docs/v3/Plugins/Flip/
-*/

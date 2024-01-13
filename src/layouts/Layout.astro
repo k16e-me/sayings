@@ -68,12 +68,8 @@ const site = settings.story.content
 	[data-body-exit] { @apply opacity-0 scale-105 transition duration-500; }
 
 	@keyframes blink {
-		0% {
-			@apply bg-opacity-0;
-		}
-		100% {
-			@apply bg-opacity-100;
-		}
+		0% { @apply bg-opacity-0; }
+		100% { @apply bg-opacity-100; }
 	}
 </style>
 
@@ -96,17 +92,16 @@ const site = settings.story.content
 	const swup = new Swup({
 		animationSelector: '[class*="swup-"]',
 		animateHistoryBrowsing: true,
-		native: true,
 		plugins: [
 			new SwupProgressPlugin({
-				finishAnimation: false,
+				finishAnimation: false
 			}),
 			new SwupA11yPlugin({
 				respectReducedMotion: true,
 				autofocus: true,
 			}),
 			new SwupPreloadPlugin({
-				preloadVisibleLinks: true,
+				preloadVisibleLinks: true
 			}),
 			new SwupScrollPlugin({
 				offset: () =>
@@ -115,8 +110,8 @@ const site = settings.story.content
 			new SwupHeadPlugin({
 				persistAssets: true,
 				awaitAssets: true,
-			}),
-		],
+			})
+		]
 	})
 
 	document.addEventListener('DOMContentLoaded', () => {

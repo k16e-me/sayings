@@ -3,10 +3,10 @@ import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import { loadEnv } from 'vite'
 import alpinejs from '@astrojs/alpinejs'
-import AstroPWA from '@vite-pwa/astro'
-import { manifest } from './manifest'
 
-const env = loadEnv('', process.cwd(), 'STORYBLOK')
+const
+    env = loadEnv('', process.cwd(), 'STORYBLOK'),
+    redirectHome = { status: 301, destination: '/' }
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,43 +27,12 @@ export default defineConfig({
             }
         }),
         alpinejs(),
-        AstroPWA({
-            mode: 'development',
-            base: '/',
-            scope: '/',
-            includeAssets: ['favicon.svg'],
-            registerType: 'autoUpdate',
-            manifest,
-            workbox: {
-                navigateFallback: '/',
-                globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}']
-            },
-            devOptions: {
-                enabled: true,
-                navigateFallbackAllowlist: [/^\//],
-            },
-            experimental: {
-                directoryAndTrailingSlashHandler: true,
-            }
-        })
     ],
     redirects: {
-        '/pages': {
-            status: 301,
-            destination: '/'
-        },
-        '/pages/': {
-            status: 301,
-            destination: '/'
-        },
-        '/c': {
-            status: 301,
-            destination: '/'
-        },
-        '/c/': {
-            status: 301,
-            destination: '/'
-        }
+        '/pages': redirectHome,
+        '/pages/': redirectHome,
+        '/c': redirectHome,
+        '/c/': redirectHome
     },
     image: {
         domains: ['a.storyblok.com']

@@ -36,8 +36,7 @@ export default defineConfig({
             manifest,
             workbox: {
                 navigateFallback: '/',
-                globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}'],
-                cleanupOutdatedCaches: true,
+                globPatterns: ['**/*.{css,js,html,svg,png,ico,txt}']
             },
             devOptions: {
                 enabled: true,

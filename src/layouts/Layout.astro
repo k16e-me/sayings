@@ -127,7 +127,7 @@ const site = settings.story.content
 		Silence()
 		BackToTop()
 		Slideover()
-		Toast()
+		$('[data-toast]') && Toast()
 		$('[data-search]') && Search()
 	}
 

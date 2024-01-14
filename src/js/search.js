@@ -20,6 +20,9 @@ export default function Search() {
         if ((e.metaKey && e.key === 'k')) focus()
         if (input === document.activeElement && e.key === 'Escape') input.blur()
     })
+    document.addEventListener('click', e => {
+        if (e.target.matches('[data-slideover="chapters"]')) clearSearch(input, pieces)
+    })
 
     icon && icon.addEventListener('click', () => focus())
 

@@ -31,10 +31,7 @@ export default function Search() {
         typingTimer = setTimeout(liveSearch, typeInterval)
     })
 
-    close.addEventListener('click', () => {
-        clearSearch(input, pieces)
-        Alpine.store('states').searchOn = false
-    })
+    close.addEventListener('click', () => clearSearch(input, pieces))
 
     function focus() {
         input.focus()
@@ -70,6 +67,7 @@ export default function Search() {
     function clearSearch(input, arr) {
         input.value = ''
         arr.map(a => hidePiece(a))
+        Alpine.store('states').searchOn = false
     }
 
     function showPiece(piece) { piece.classList.add('hidden') }

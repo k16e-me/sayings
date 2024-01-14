@@ -29,7 +29,7 @@ export default function Search() {
         clearTimeout(typingTimer)
         typingTimer = setTimeout(liveSearch, typeInterval)
     })
-    // console.log(Alpine.store('states').searchOn)
+    console.log(Alpine.store('states').searchOn)
     input.addEventListener('input', () => console.log(Alpine.store('states').searchOn))
 
     close.addEventListener('click', () => {

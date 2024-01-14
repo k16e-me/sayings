@@ -87,8 +87,8 @@ const site = settings.story.content
 	import BackToTop from '../js/btt'
 	import Slideover from '../js/slideover'
 	import Toast from '../js/toast'
-	// import Search from '../js/search'
-    // import runAlpine from '../alpine'
+	import Search from '../js/search'
+    import runAlpine from '../alpine'
 
 	const swup = new Swup({
 		animationSelector: '[class*="swup-"]',
@@ -116,8 +116,8 @@ const site = settings.story.content
 	})
 
 	document.addEventListener('DOMContentLoaded', () => {
-		init()
 		once()
+		init()
 		body().removeAttribute('data-body-exit')
 	})
 	swup.hooks.on('page:view', () => init())
@@ -128,12 +128,12 @@ const site = settings.story.content
 		BackToTop()
 		Slideover()
 		Toast()
-		// Search()
+		Search()
 	}
 
 	function once() {
+        runAlpine()
 		runAnimations()
-        // runAlpine()
 		Astrolog()
 	}
 </script>

@@ -31,7 +31,7 @@ export default function Search() {
     })
 
     close.addEventListener('click', () => {
-        clearSearch(input)
+        clearSearch(input, pieces)
         Alpine.store('states').searchOn = false
     })
 
@@ -49,11 +49,8 @@ export default function Search() {
         else Alpine.store('states').searchOn = false
 
         pieces.forEach(piece => {
-            if (piece.textContent.toLowerCase().includes(query)) {
-                piece.classList.remove('hidden')
-            } else {
-                piece.classList.add('hidden')
-            }
+            if (piece.textContent.toLowerCase().includes(query)) hidePiece(piece)
+            else showPiece(piece)
         })
 
         Flip.from(state, {
@@ -70,7 +67,11 @@ export default function Search() {
         })
     }
 
-    function clearSearch(input) {
+    function clearSearch(input, arr) {
         input.value = ''
+        arr.map(a => hidePiece(a))
     }
+
+    function showPiece(piece) { piece.classList.add('hidden') }
+    function hidePiece(piece) { piece.classList.remove('hidden') }
 }

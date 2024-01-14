@@ -75,6 +75,7 @@ const site = settings.story.content
 
 <script>
 	import { body, $ } from '../js/snips'
+    import runAlpine from '../alpine'
 	import Swup from 'swup'
 	import SwupProgressPlugin from '@swup/progress-plugin'
 	import SwupA11yPlugin from '@swup/a11y-plugin'
@@ -88,7 +89,6 @@ const site = settings.story.content
 	import Slideover from '../js/slideover'
 	import Toast from '../js/toast'
 	import Search from '../js/search'
-    import runAlpine from '../alpine'
 
 	const swup = new Swup({
 		animationSelector: '[class*="swup-"]',

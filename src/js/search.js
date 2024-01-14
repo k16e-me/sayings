@@ -18,9 +18,7 @@ export default function Search() {
 
     document.addEventListener('keydown', e => {
         if ((e.metaKey && e.key === 'k')) focus()
-        if (input === document.activeElement) {
-            if (e.key === 'Escape') input.blur()
-        }
+        if (input === document.activeElement && e.key === 'Escape') input.blur()
     })
 
     icon && icon.addEventListener('click', () => focus())
@@ -37,7 +35,6 @@ export default function Search() {
 
     function focus() {
         input.focus()
-        scrollToTopOffset(container, 12)
     }
 
     function liveSearch() {

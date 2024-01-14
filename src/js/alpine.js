@@ -6,4 +6,5 @@ export default function runAlpine() {
     })
 
     Alpine.start()
+    console.log('Alpine take off 🚀')
 }

@@ -29,6 +29,8 @@ export default function Search() {
         clearTimeout(typingTimer)
         typingTimer = setTimeout(liveSearch, typeInterval)
     })
+    // console.log(Alpine.store('states').searchOn)
+    input.addEventListener('input', () => console.log(Alpine.store('states').searchOn))
 
     close.addEventListener('click', () => {
         clearSearch(input)
@@ -47,7 +49,6 @@ export default function Search() {
 
         if (query.length) Alpine.store('states').searchOn = true
         else Alpine.store('states').searchOn = false
-        console.log(Alpine.store('states').searchOn)
 
         pieces.forEach(piece => {
             if (piece.textContent.toLowerCase().includes(query)) {

@@ -10,6 +10,7 @@
         "astro": "astro"
     },
     "dependencies": {
+        "@alpinejs/persist": "^3.13.3",
         "@astrojs/alpinejs": "^0.3.2",
         "@astrojs/tailwind": "^5.1.0",
         "@fontsource-variable/dm-sans": "^5.0.3",

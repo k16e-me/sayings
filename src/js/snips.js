@@ -83,7 +83,6 @@ const scrollToTopOffset = (target, offset) => {
 
 
 
-
 // Exports
 export {
     body, slugify, $, $$, slideOut, slideIn, enter, leave, translateIn, translateOut, hidden, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile, dimOn, dimOff, invisible, visible

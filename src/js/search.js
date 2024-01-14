@@ -21,7 +21,7 @@ export default function Search() {
         if (input === document.activeElement && e.key === 'Escape') input.blur()
     })
     document.addEventListener('click', e => {
-        if (e.target.matches('[data-slideover="chapters"]') || e.target.matches('[data-link]'))
+        if (e.target.matches('[data-slideover="chapters"]'))
             clearSearch(input, pieces)
     })
 

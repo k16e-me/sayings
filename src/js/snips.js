@@ -81,9 +81,14 @@ const scrollToTopOffset = (target, offset) => {
     window.scrollTo({ top: offsetPos })
 }
 
+const clearSearch = (input, arr, obj) => {
+    input.value = ''
+    arr.map(a => hidePiece(a))
+}
+
 
 
 // Exports
 export {
-    body, slugify, $, $$, slideOut, slideIn, enter, leave, translateIn, translateOut, hidden, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile, dimOn, dimOff, invisible, visible
+    body, slugify, $, $$, slideOut, slideIn, enter, leave, translateIn, translateOut, hidden, splitFirstOccurrenceOnly, isEmpty, scrollToTopOffset, isMobile, dimOn, dimOff, invisible, visible, clearSearch
 }

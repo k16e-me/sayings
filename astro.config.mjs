@@ -15,6 +15,9 @@ export default defineConfig({
         defaultStrategy: 'viewport',
         ignoreSlowConnection: true
     },
+    experimental: {
+        clientPrerender: true
+    },
     integrations: [
         tailwind(),
         storyblok({

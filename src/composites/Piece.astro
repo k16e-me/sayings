@@ -1,29 +1,30 @@
 ---
+import { renderRichText } from '@storyblok/astro'
 import { slugify, splitFirstOccurrenceOnly } from '../js/snips'
 import Icon from 'astro-icon'
-import Fab from './Fab.astro'
+import Fab from '../blocks/Fab.astro'
 
-const { title, content } = Astro.props
+const { blok } = Astro.props
 ---
 <article
     class="mb-12 sm:mb-16 lg:mb-20"
     data-piece>
     <h3
-        id={ slugify(splitFirstOccurrenceOnly(title, '.')) }
+        id={ slugify(splitFirstOccurrenceOnly(blok.title, '.')) }
         class="font-display text-xl text-slate-950 dark:text-white/90 mb-3 inline-flex items-center">
-        <span class="inline-flex">{ title }</span>
+        <span class="inline-flex">{ blok.title }</span>
         <a
-            href={ `#${slugify(splitFirstOccurrenceOnly(title, '.'))}` }
+            href={ `#${slugify(splitFirstOccurrenceOnly(blok.title, '.'))}` }
             data-copy
             data-no-swup
             class="flex items-center ml-2 text-accent-600 mb-1 group">
             <Fab smallAndDiv class:list="bg-slate-100 pointer-events-none">
                 <Icon name="link" class="w-5"/>
-                <span class="sr-only">Jump to { title }</span>
+                <span class="sr-only">Jump to { blok.title }</span>
             </Fab>
         </a>
     </h3>
     <div>
-        <Fragment set:html={ content }/>
+        <Fragment set:html={ renderRichText(blok.piece) }/>
     </div>
 </article>

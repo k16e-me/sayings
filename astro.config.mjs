@@ -23,9 +23,9 @@ export default defineConfig({
         storyblok({
             accessToken: env.STORYBLOK_TOKEN,
             components: {
-                page: 'storyblok/Page',
-                collection: 'storyblok/Collection',
-                piece: 'storyblok/Piece'
+                page: 'composites/Page',
+                collection: 'composites/Collection',
+                piece: 'composites/Piece'
             }
         })
     ],

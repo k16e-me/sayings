@@ -4,9 +4,10 @@ const slugify = str => {
     str = str.replace(/^\s+|\s+$/g, '')
     str = str.toLowerCase()
     str = str
-        .replace(/[^a-z0-9 -]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-')
+        .replace(/\/+/g, '-') // replace forward slash with hyphen any no. of times
+        .replace(/[^a-z0-9 -]/g, '') // remove any character not corresponding to these
+        .replace(/\s+/g, '-') // remove any whitespace character any no. of times
+        .replace(/-+/g, '-') // replace even multiple hyphens with a single hyphen
     return str
 }
 

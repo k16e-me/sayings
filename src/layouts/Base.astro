@@ -5,7 +5,7 @@ import Head from '../globals/Head.astro'
 import Header from '../globals/Header.astro'
 import Footer from '../globals/Footer.astro'
 import BackToTop from '../components/BackToTop.astro'
-import Backdrop from '../components/Backdrop.astro'
+import Backdrop from '../blocks/Backdrop.astro'
 import { useStoryblokApi } from '@storyblok/astro'
 import Wrapper from './Wrapper.astro'
 import PageTitle from '../components/PageTitle.astro'
@@ -59,7 +59,7 @@ const site = settings.story.content
 	.r-piece {
 		@apply [&_p]:text-[1.0125rem] [&_p]:whitespace-pre-wrap [&_p]:leading-[1.595rem] [&_p:empty]:my-7 [&_hr]:max-w-[256px] dark:font-light;
 	}
-	[astro-icon] {
+	svg {
 		@apply flex-shrink-0 pointer-events-none;
 	}
 	.r-image-dim {
@@ -75,7 +75,6 @@ const site = settings.story.content
 
 <script>
 	import { body, $ } from '../js/snips'
-    import runAlpine from '../js/alpine'
 	import Swup from 'swup'
 	import SwupProgressPlugin from '@swup/progress-plugin'
 	import SwupA11yPlugin from '@swup/a11y-plugin'
@@ -133,7 +132,6 @@ const site = settings.story.content
 
 	function once() {
 		Astrolog()
-        runAlpine()
 		runAnimations()
 	}
 </script>

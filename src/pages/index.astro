@@ -1,6 +1,6 @@
 ---
 import { useStoryblokApi } from '@storyblok/astro'
-import Layout from '../layouts/Layout.astro'
+import Base from '../layouts/Base.astro'
 import Collections from '../components/Collections.astro'
 
 const
@@ -22,11 +22,11 @@ const
         }
     })
 ---
-<Layout
+<Base
 	pageTitle={ meta.title }
 	pageDescription={ meta.description }
     pageThumbnail={ meta.image.filename }>
 	<Collections
         collections={ collectionAll }
     />
-</Layout>
+</Base>

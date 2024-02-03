@@ -1,0 +1,27 @@
+---
+import { parse } from 'node-html-parser'
+
+const getSVG = (name: any) => {
+	const
+        filepath = `/src/svgs/${name}.svg`,
+        files = import.meta.glob('/src/svgs/**/*.svg', { as: 'raw', eager: true })
+
+	if (!(filepath in files)) throw new Error(`${filepath} not found`)
+
+	const
+        root = parse(files[filepath]),
+        svg = root.querySelector('svg'),
+        { attributes, innerHTML } = svg
+
+	return {
+		attributes,
+		innerHTML,
+	}
+}
+
+const
+    { name, ...attributes } = Astro.props,
+    { attributes: baseAttributes, innerHTML } = getSVG(name),
+    svgAttributes  = { ...baseAttributes, ...attributes }
+---
+<svg { ...svgAttributes } set:html={ innerHTML }/>

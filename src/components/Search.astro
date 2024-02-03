@@ -1,5 +1,5 @@
 ---
-import Icon from 'astro-icon'
+import Icon from '../atoms/Icon.astro'
 ---
 <div
     data-search
@@ -16,18 +16,18 @@ import Icon from 'astro-icon'
         <div
             class="absolute inset-y-0 right-0 flex group h-full"
             x-data>
-            <button data-search-icon x-show="!$store.states.searchOn" class="h-full px-3.5">
+            <button data-search-icon class="h-full px-3.5">
                 <Icon
                     name="search"
                     class="w-6 text-slate-400 dark:text-white/50 group-hover:text-accent-600 dark:group-hover:text-accent-300 transition duration-300 ease-in-out"
                 />
             </button>
-            <button data-search-close x-show="$store.states.searchOn" class="h-full px-3.5">
+            <!-- <button data-search-close class="h-full px-3.5">
                 <Icon
                     name="cancel"
                     class="w-6 text-slate-400 dark:text-white/50 group-hover:text-accent-600 dark:group-hover:text-accent-300 transition duration-300 ease-in-out"
                 />
-            </button>
+            </button> -->
         </div>
     </div>
 </div>

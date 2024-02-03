@@ -1,12 +1,12 @@
 ---
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
-import Layout from '../../layouts/Layout.astro'
+import Base from '../../layouts/Base.astro'
 import Cover from '../../components/Cover.astro'
 import BackTo from '../../components/BackTo.astro'
 import TitlePiece from '../../components/TitlePiece.astro'
 import FabToCard from '../../components/FabToCard.astro'
-import Icon from 'astro-icon'
+import Icon from '../../atoms/Icon.astro'
 import Toast from '../../components/Toast.astro'
 import ToggleOverview from '../../components/ToggleOverview.astro'
 import Chapters from '../../components/Chapters.astro'
@@ -40,7 +40,7 @@ const { data } = await sbApi.get(`cdn/stories/c/${slug}`, {
 const page = data.story
 const content = page.content
 ---
-<Layout
+<Base
     pageTitle={ content.title }
     pageDescription={ content.description }
     pageThumbnail={ content.image?.filename }>
@@ -90,4 +90,4 @@ const content = page.content
         <Overview content={ content.overview }/>
     </Slideover>
     <Toast/>
-</Layout>
+</Base>

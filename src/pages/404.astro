@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Base from '../layouts/Base.astro'
 import Silence from '../components/Silence.astro'
 import BackTo from '../components/BackTo.astro'
 import { useStoryblokApi, renderRichText } from '@storyblok/astro'
@@ -10,7 +10,7 @@ const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
 })
 const error = settings.story.content.error[0]
 ---
-<Layout
+<Base
     pageTitle={ error.title }
     pageDescription={ error.description }>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-14 sm:gap-y-16 lg:gap-9 py-5">
@@ -32,4 +32,4 @@ const error = settings.story.content.error[0]
             </div>
         </div>
     </div>
-</Layout>
+</Base>

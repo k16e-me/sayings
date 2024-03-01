@@ -5,9 +5,8 @@ import Icon from '../atoms/Icon.astro'
 const { text } = Astro.props
 ---
 <a
-    href="javascript:history.back()"
-    class="ml-auto"
-    data-no-swup>
+    href="/"
+    class="ml-auto">
     <Fab asDiv>
         <Icon name="arrow-left" class="w-7"/>
         <span class="sr-only">{ text || 'Back to parent page' }</span>

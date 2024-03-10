@@ -3,6 +3,7 @@ import { renderRichText } from '@storyblok/astro'
 import { slugify, splitFirstOccurrenceOnly } from '../js/snips'
 import Icon from '../atoms/Icon.astro'
 import Fab from '../blocks/Fab.astro'
+import Prose from '../components/Prose.astro'
 
 const { blok } = Astro.props
 ---
@@ -24,7 +25,7 @@ const { blok } = Astro.props
             </Fab>
         </a>
     </h3>
-    <div>
+    <Prose>
         <Fragment set:html={ renderRichText(blok.piece) }/>
-    </div>
+    </Prose>
 </article>

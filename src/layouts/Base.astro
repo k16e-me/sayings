@@ -56,9 +56,6 @@ const site = settings.story.content
 		animation: 300ms ease-in-out 1s 2 both blink;
 	}
 
-	.r-piece {
-		@apply [&_p]:text-[1.0125rem] [&_p]:whitespace-pre-wrap [&_p]:leading-[1.595rem] [&_p:empty]:my-7 [&_hr]:max-w-[256px] dark:font-light;
-	}
 	svg {
 		@apply flex-shrink-0 pointer-events-none;
 	}
@@ -82,7 +79,6 @@ const site = settings.story.content
 	import SwupScrollPlugin from '@swup/scroll-plugin'
 	import SwupHeadPlugin from '@swup/head-plugin'
 	import Jumplink from '../js/jumplink'
-	import Astrolog from '../js/astrolog'
 	import { Silence, runAnimations } from '../js/gsap'
 	import BackToTop from '../js/btt'
 	import Slideover from '../js/slideover'
@@ -131,7 +127,6 @@ const site = settings.story.content
 	}
 
 	function once() {
-		Astrolog()
 		runAnimations()
 	}
 </script>

@@ -24,4 +24,5 @@ const
     { attributes: baseAttributes, innerHTML } = getSVG(name),
     svgAttributes  = { ...baseAttributes, ...attributes }
 ---
+
 <svg { ...svgAttributes } set:html={ innerHTML }/>

@@ -11,20 +11,20 @@
     },
     "dependencies": {
         "@astrojs/tailwind": "^5.1.0",
-        "@fontsource-variable/dm-sans": "^5.0.4",
+        "@fontsource-variable/dm-sans": "^5.0.5",
         "@fontsource/limelight": "^5.0.19",
         "@storyblok/astro": "^4.0.4",
-        "@swup/a11y-plugin": "^4.5.0",
+        "@swup/a11y-plugin": "^4.5.1",
         "@swup/head-plugin": "^2.2.0",
         "@swup/preload-plugin": "^3.2.10",
-        "@swup/progress-plugin": "^3.1.2",
+        "@swup/progress-plugin": "^3.2.0",
         "@swup/scroll-plugin": "^3.3.2",
-        "astro": "^4.5.12",
+        "astro": "^4.5.16",
         "astro-seo": "^0.8.3",
         "gsap": "^3.12.5",
         "swup": "^4.6.1",
         "tailwindcss": "^3.4.3",
-        "vite": "^5.2.7"
+        "vite": "^5.2.8"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.7",

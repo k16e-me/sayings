@@ -6,7 +6,7 @@ const { class: classes, ...props } = Astro.props
 	{...props}
 	class:list={[
 		classes,
-		`prose prose-h1:font-bold prose-h1:text-xl prose-a:text-accent-600 prose-headings:underline prose-p:leading-[1.55] dark:prose-a:text-accent-300 dark:prose-p:font-light prose-p:text-slate-700 dark:prose-p:text-white/80 marker:text-accent-600 dark:marker:text-accent-300 [&>ol>li>p]:m-0 [&_p]:whitespace-pre-wrap`,
+		`prose prose-h1:font-bold prose-h1:text-xl prose-a:text-secondary-600 prose-headings:underline prose-p:leading-[1.55] dark:prose-a:text-secondary-300 dark:prose-p:font-light prose-p:text-slate-700 dark:prose-p:text-white/80 marker:text-secondary-600 dark:marker:text-secondary-300 [&>ol>li>p]:m-0 [&_p]:whitespace-pre-wrap`,
 	]}>
 	<slot />
 </div>

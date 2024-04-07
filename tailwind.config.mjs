@@ -12,7 +12,7 @@ export default {
                 display: 'Limelight, sans-serif'
             },
             colors: {
-                accent: colors.fuchsia
+                secondary: colors.fuchsia
             }
         }
 	},

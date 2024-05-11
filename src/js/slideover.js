@@ -30,6 +30,7 @@ export default function Slideover() {
                 body().style.overflow = 'hidden'
                 backdrop.classList.remove(...hidden())
                 slideover.classList.add(...translateIn())
+                slideover.setAttribute('aria-hidden', 'false')
                 slideover.classList.remove(...translateOut())
             })
         })
@@ -43,6 +44,7 @@ export default function Slideover() {
             body().style.overflow = 'auto'
             slideover.classList.remove(...translateIn())
             slideover.classList.add(...translateOut())
+            slideover.setAttribute('aria-hidden', 'true')
             hideSlideoverContent(slideoverContent)
             setTimeout(() => backdrop.classList.add(...hidden()), 300)
         }

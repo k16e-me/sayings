@@ -1,47 +1,69 @@
 ---
-const { id, toggle, small, asDiv, smallAndDiv, slideoverContent, class: parentClass, ...props } = Astro.props
+const {
+	id,
+	toggle,
+	small,
+	asDiv,
+	smallAndDiv,
+	slideoverContent,
+	class: parentClass,
+	...props
+} = Astro.props
 ---
+
 {
-    () => {
-        if (small) {
-            return (
-                <button
-                    { ...props }
-                    class:list={[ parentClass, `size-11 bg-white dark:text-secondary-600 flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`]}
-                    id={ id }
-                    data-toggle={ toggle || '' }
-                    data-slideover={ slideoverContent }>
-                    <slot/>
-                </button>
-            )
-        } else if (asDiv) {
-            return (
-                <div
-                    { ...props }
-                    class:list={[ parentClass, `size-14 bg-slate-100 dark:bg-neutral-800 dark:text-white flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`]}
-                    id={ id }>
-                    <slot/>
-                </div>
-            )
-        } else if (smallAndDiv) {
-            return (
-                <div
-                    { ...props }
-                    class:list={[ parentClass, `size-11 flex items-center justify-center rounded-full shadow hover:shadow-xl group-hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100 group-hover:opacity-100 dark:bg-neutral-800 dark:text-secondary-300 dark:hover:shadow-2xl dark:group-hover:shadow-2xl dark:hover:bg-neutral-700 dark:group-hover:bg-neutral-700 dark:hover:text-secondary-400 dark:group-hover:text-secondary-400`]}
-                    id={ id }>
-                    <slot/>
-                </div>
-            )
-        } else {
-            return (
-                <button
-                    class:list={[ parentClass, `size-14 bg-slate-100 dark:bg-neutral-800 dark:text-white flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`]}
-                    id={ id }
-                    data-toggle={ toggle || '' }
-                    data-slideover={ slideoverContent }>
-                    <slot/>
-                </button>
-            )
-        }
-    }
+	() => {
+		if (small) {
+			return (
+				<button
+					{...props}
+					class:list={[
+						parentClass,
+						`size-11 bg-white dark:text-secondary-600 flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100 focus:ring-2 focus:ring-inset focus:ring-secondary-600 dark:focus:ring-secondary-300 focus:outline-none`,
+					]}
+					id={id}
+					data-toggle={toggle || ''}
+					data-slideover={slideoverContent}>
+					<slot />
+				</button>
+			)
+		} else if (asDiv) {
+			return (
+				<div
+					{...props}
+					class:list={[
+						parentClass,
+						`size-14 bg-slate-100 dark:bg-neutral-800 dark:text-white flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`,
+					]}
+					id={id}>
+					<slot />
+				</div>
+			)
+		} else if (smallAndDiv) {
+			return (
+				<div
+					{...props}
+					class:list={[
+						parentClass,
+						`size-11 flex items-center justify-center rounded-full shadow hover:shadow-xl group-hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100 group-hover:opacity-100 dark:bg-neutral-800 dark:text-secondary-300 dark:hover:shadow-2xl dark:group-hover:shadow-2xl dark:hover:bg-neutral-700 dark:group-hover:bg-neutral-700 dark:hover:text-secondary-400 dark:group-hover:text-secondary-400`,
+					]}
+					id={id}>
+					<slot />
+				</div>
+			)
+		} else {
+			return (
+				<button
+					class:list={[
+						parentClass,
+						`size-14 bg-slate-100 dark:bg-neutral-800 dark:text-white flex items-center justify-center rounded-full shadow hover:shadow-xl transition duration-300 opacity-80 hover:opacity-100`,
+					]}
+					id={id}
+					data-toggle={toggle || ''}
+					data-slideover={slideoverContent}>
+					<slot />
+				</button>
+			)
+		}
+	}
 }

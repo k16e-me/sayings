@@ -1,10 +1,12 @@
 import {
     $, $$, translateIn, translateOut, hidden, body, dimOn, dimOff
 } from '../js/snips'
+import TrapFocus from './trap-focus'
 
 export default function Slideover() {
     if ($('#slideover')) {
         const
+            KEYCODE_ESCAPE = 27,
             slideoverToggles = $$('[data-toggle="slideover"]'),
             slideover = $('#slideover'),
             close = $('#close', slideover),
@@ -23,6 +25,7 @@ export default function Slideover() {
                     slideoverContentToShow = slideoverContent.find(el => (el.dataset.slideover === attr)),
                     title = slideoverContentToShow.getAttribute('data-slideover-title')
 
+                TrapFocus(slideover, slideoverContentToShow, removeSlideover)
                 showSlideoverContent(slideoverContentToShow)
                 slideoverTitle.textContent = title
 
@@ -37,6 +40,7 @@ export default function Slideover() {
 
         backdrop.addEventListener('click', () => removeSlideover())
         close.addEventListener('click', () => removeSlideover())
+        document.addEventListener('keydown', e => (e.key === 'Escape' || e.keyCode === KEYCODE_ESCAPE) && removeSlideover() )
         links.map(link => link.addEventListener('click', () => removeSlideover()))
 
         function removeSlideover() {

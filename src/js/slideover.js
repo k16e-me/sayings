@@ -53,7 +53,15 @@ export default function Slideover() {
             setTimeout(() => backdrop.classList.add(...hidden()), 300)
         }
 
-        function hideSlideoverContent(elAll) { elAll.forEach(elOne => elOne.classList.add('sr-only')) }
-        function showSlideoverContent(el) { el.classList.remove('sr-only') }
+        function hideSlideoverContent(elAll) {
+            elAll.forEach(elOne => {
+                elOne.setAttribute('inert', 'true')
+                elOne.classList.add('sr-only')
+            })
+        }
+        function showSlideoverContent(el) {
+            el.removeAttribute('inert')
+            el.classList.remove('sr-only')
+        }
     }
 }

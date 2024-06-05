@@ -1,7 +1,25 @@
 {
     "extends": "astro/tsconfigs/base",
     "compilerOptions": {
+        "strictNullChecks": true,
         "noImplicitAny": false,
-        "checkJs": false
+        "checkJs": false,
+        "skipLibCheck": true,
+        "jsx": "preserve",
+        "baseUrl": ".",
+        "paths": {
+            "@atoms/*": [
+                "src/atoms/*"
+            ],
+            "@blocks/*": [
+                "src/blocks/*"
+            ],
+            "@layouts/*": [
+                "src/layouts/*"
+            ],
+            "@composites/*": [
+                "src/composites/*"
+            ]
+        }
     }
 }

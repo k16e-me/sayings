@@ -1,9 +1,9 @@
 ---
-import Base from '../layouts/Base.astro'
-import Silence from '../components/Silence.astro'
-import BackTo from '../components/BackTo.astro'
+import Base from '@layouts/Base.astro'
+import Silence from '@blocks/Silence.astro'
+import BackTo from '@blocks/BackTo.astro'
 import { useStoryblokApi, renderRichText } from '@storyblok/astro'
-import Prose from '../blocks/Prose.astro'
+import Prose from '@blocks/Prose.astro'
 
 const storyblokApi = useStoryblokApi()
 const { data: settings } = await storyblokApi.get('cdn/stories/settings', {

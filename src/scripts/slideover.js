@@ -1,6 +1,6 @@
 import {
     $, $$, translateIn, translateOut, hidden, body, dimOn, dimOff
-} from '../js/snips'
+} from '@scripts/snips'
 import TrapFocus from './trap-focus'
 
 export default function Slideover() {

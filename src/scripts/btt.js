@@ -1,6 +1,6 @@
 import {
     slideOut, enter, leave, invisible, visible
-} from '../js/snips'
+} from '@scripts/snips'
 
 export default function BackToTop() {
     const

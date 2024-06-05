@@ -1,6 +1,6 @@
 import {
     $$
-} from '../js/snips'
+} from '@scripts/snips'
 
 export default function TrapFocus(el, content) {
     /**

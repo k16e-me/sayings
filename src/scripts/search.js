@@ -1,4 +1,4 @@
-import { $, $$, scrollToTopOffset } from '../js/snips'
+import { $, $$, scrollToTopOffset } from '@scripts/snips'
 import { gsap } from 'gsap'
 import { Flip } from 'gsap/all'
 

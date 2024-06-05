@@ -19,6 +19,9 @@
             ],
             "@composites/*": [
                 "src/composites/*"
+            ],
+            "@scripts/*": [
+                "src/scripts/*"
             ]
         }
     }

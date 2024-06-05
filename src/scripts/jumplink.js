@@ -1,6 +1,6 @@
 import {
     $, $$, scrollToTopOffset
-} from '../js/snips'
+} from '@scripts/snips'
 
 export default function Jumplink() {
     const

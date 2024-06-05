@@ -1,14 +1,14 @@
 ---
 import '@fontsource/limelight'
 import '@fontsource-variable/dm-sans'
-import Head from '../globals/Head.astro'
-import Header from '../globals/Header.astro'
-import Footer from '../globals/Footer.astro'
-import BackToTop from '../components/BackToTop.astro'
-import Backdrop from '../blocks/Backdrop.astro'
-import { useStoryblokApi } from '@storyblok/astro'
+import Head from './Head.astro'
+import Header from './Header.astro'
+import Footer from './Footer.astro'
 import Wrapper from './Wrapper.astro'
-import PageTitle from '../components/PageTitle.astro'
+import BackToTop from '@blocks/BackToTop.astro'
+import Backdrop from '@blocks/Backdrop.astro'
+import PageTitle from '@blocks/PageTitle.astro'
+import { useStoryblokApi } from '@storyblok/astro'
 
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 const storyblokApi = useStoryblokApi()
@@ -71,19 +71,19 @@ const site = settings.story.content
 </style>
 
 <script>
-	import { body, $ } from '../js/snips'
+	import { body, $ } from '@scripts/snips'
 	import Swup from 'swup'
 	import SwupProgressPlugin from '@swup/progress-plugin'
 	import SwupA11yPlugin from '@swup/a11y-plugin'
 	import SwupPreloadPlugin from '@swup/preload-plugin'
 	import SwupScrollPlugin from '@swup/scroll-plugin'
 	import SwupHeadPlugin from '@swup/head-plugin'
-	import Jumplink from '../js/jumplink'
-	import { Silence, runAnimations } from '../js/gsap'
-	import BackToTop from '../js/btt'
-	import Slideover from '../js/slideover'
-	import Toast from '../js/toast'
-	import Search from '../js/search'
+	import Jumplink from '@scripts/jumplink'
+	import { Silence, runAnimations } from '@scripts/gsap'
+	import BackToTop from '@scripts/btt'
+	import Slideover from '@scripts/slideover'
+	import Toast from '@scripts/toast'
+	import Search from '@scripts/search'
 
 	const swup = new Swup({
 		animationSelector: '[class*="swup-"]',

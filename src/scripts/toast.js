@@ -1,6 +1,6 @@
 import {
     $, $$, slideIn, slideOut, enter, leave
-} from '../js/snips'
+} from '@scripts/snips'
 
 export default function Toast() {
     const

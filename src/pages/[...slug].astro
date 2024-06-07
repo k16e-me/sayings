@@ -35,6 +35,7 @@ const { slug } = Astro.params,
 	meta = page.content.meta[0],
 	{ data: collection } = await storyblokApi.get('cdn/stories/', {
 		version: import.meta.env.DEV ? 'draft' : 'published',
+		// starts_with: `${page.content.list}/`,
 		starts_with: `c/`,
 		sort_by: 'content.position:desc',
 	}),

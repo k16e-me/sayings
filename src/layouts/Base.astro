@@ -13,120 +13,135 @@ import { useStoryblokApi } from '@storyblok/astro'
 const { pageTitle, pageDescription, pageThumbnail } = Astro.props
 const storyblokApi = useStoryblokApi()
 const { data: settings } = await storyblokApi.get('cdn/stories/settings', {
-    version: import.meta.env.DEV ? 'draft' : 'published'
+	version: import.meta.env.DEV ? 'draft' : 'published',
 })
 const site = settings.story.content
 ---
+
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang='en' class='scroll-smooth'>
 	<Head
-        title={ `${ pageTitle } | ${ site.title }` }
-        description={ pageDescription || site.description }
-        image={ pageThumbnail || '/og-image.webp' }
-    />
+		title={`${pageTitle} | ${site.title}`}
+		description={pageDescription || site.description}
+		image={pageThumbnail || '/og-image.webp'}
+	/>
 	<body
-        class="text-slate-700 dark:text-white/80 bg-white dark:bg-neutral-900 flex min-h-dvh flex-col"
-        data-body-exit
-        style="overflow: auto;">
-        <Header title={ site.title }/>
-		<main
-            class="flex-1 swup-in"
-            id="swup"
-            tabindex="-1">
-            <PageTitle title={ pageTitle }/>
-            <Wrapper data-wrapper class:list="py-5">
-                <slot/>
-            </Wrapper>
-        </main>
-        <Footer preferredName={ site.preferredName }/>
-        <BackToTop/>
-        <Backdrop/>
+		class='text-slate-700 dark:text-white/80 bg-white dark:bg-neutral-900 flex min-h-dvh flex-col'
+		data-body-exit
+		style='overflow: auto;'>
+		<Header title={site.title} />
+		<main class='flex-1 swup-in' id='swup' tabindex='-1'>
+			<PageTitle title={pageTitle} />
+			<Wrapper data-wrapper class:list='py-5'>
+				<slot />
+			</Wrapper>
+		</main>
+		<Footer preferredName={site.preferredName} />
+		<BackToTop />
+		<Backdrop />
 	</body>
+
+    <style is:global>
+		html.is-changing .swup-in {
+			@apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)];
+		}
+		html.is-animating .swup-in {
+			@apply opacity-0 scale-[.9999] translate-y-3 ease-in;
+		}
+		.swup-progress-bar {
+			@apply h-0.5 bg-fuchsia-600 dark:bg-fuchsia-300;
+		}
+		main:focus {
+			outline: none;
+		}
+		:target {
+			scroll-margin-top: 6.5rem;
+		}
+
+		.is-focused {
+			@apply rounded-lg bg-neutral-200 dark:bg-neutral-800;
+			animation: 300ms ease-in-out 1s 2 both blink;
+		}
+
+		svg {
+			@apply flex-shrink-0 pointer-events-none;
+		}
+		.r-image-dim {
+			@apply dark:contrast-[1.2] dark:brightness-[.8];
+		}
+		[data-body-exit] {
+			@apply opacity-0 scale-105 transition duration-500;
+		}
+
+		@keyframes blink {
+			0% {
+				@apply bg-opacity-0;
+			}
+			100% {
+				@apply bg-opacity-100;
+			}
+		}
+	</style>
+
+	<script>
+		import { body, $ } from '@scripts/snips'
+		import Swup from 'swup'
+		import SwupProgressPlugin from '@swup/progress-plugin'
+		import SwupA11yPlugin from '@swup/a11y-plugin'
+		import SwupPreloadPlugin from '@swup/preload-plugin'
+		import SwupScrollPlugin from '@swup/scroll-plugin'
+		import SwupHeadPlugin from '@swup/head-plugin'
+		import Jumplink from '@scripts/jumplink'
+		import { Silence, runAnimations } from '@scripts/gsap'
+		import BackToTop from '@scripts/btt'
+		import Slideover from '@scripts/slideover'
+		import Toast from '@scripts/toast'
+		import Search from '@scripts/search'
+
+		const swup = new Swup({
+			animationSelector: '[class*="swup-"]',
+			animateHistoryBrowsing: true,
+			plugins: [
+				new SwupProgressPlugin({
+					finishAnimation: false,
+				}),
+				new SwupA11yPlugin({
+					respectReducedMotion: true,
+					autofocus: true,
+				}),
+				new SwupPreloadPlugin({
+					preloadVisibleLinks: true,
+				}),
+				new SwupScrollPlugin({
+					offset: () =>
+						$('[data-main-header]').getBoundingClientRect().height +
+						72,
+				}),
+				new SwupHeadPlugin({
+					persistAssets: true,
+					awaitAssets: true,
+				}),
+			],
+		})
+
+		document.addEventListener('DOMContentLoaded', () => {
+			once()
+			init()
+			body().removeAttribute('data-body-exit')
+		})
+		swup.hooks.on('page:view', () => init())
+
+		function init() {
+			Jumplink()
+			Silence()
+			BackToTop()
+			Slideover()
+			$('[data-toast]') && Toast()
+			$('[data-search]') && Search()
+		}
+
+		function once() {
+			runAnimations()
+		}
+	</script>
 </html>
-
-<style is:global>
-	html.is-changing .swup-in { @apply opacity-100 duration-[.4s] ease-[cubic-bezier(0,0.16,0,1)]; }
-	html.is-animating .swup-in { @apply opacity-0 scale-[.9999] translate-y-3 ease-in; }
-	.swup-progress-bar { @apply h-0.5 bg-fuchsia-600 dark:bg-fuchsia-300; }
-	main:focus { outline: none; }
-	:target { scroll-margin-top: 6.5rem; }
-
-	.is-focused {
-		@apply rounded-lg bg-neutral-200 dark:bg-neutral-800;
-		animation: 300ms ease-in-out 1s 2 both blink;
-	}
-
-	svg {
-		@apply flex-shrink-0 pointer-events-none;
-	}
-	.r-image-dim {
-		@apply dark:contrast-[1.2] dark:brightness-[.8];
-	}
-	[data-body-exit] { @apply opacity-0 scale-105 transition duration-500; }
-
-	@keyframes blink {
-		0% { @apply bg-opacity-0; }
-		100% { @apply bg-opacity-100; }
-	}
-</style>
-
-<script>
-	import { body, $ } from '@scripts/snips'
-	import Swup from 'swup'
-	import SwupProgressPlugin from '@swup/progress-plugin'
-	import SwupA11yPlugin from '@swup/a11y-plugin'
-	import SwupPreloadPlugin from '@swup/preload-plugin'
-	import SwupScrollPlugin from '@swup/scroll-plugin'
-	import SwupHeadPlugin from '@swup/head-plugin'
-	import Jumplink from '@scripts/jumplink'
-	import { Silence, runAnimations } from '@scripts/gsap'
-	import BackToTop from '@scripts/btt'
-	import Slideover from '@scripts/slideover'
-	import Toast from '@scripts/toast'
-	import Search from '@scripts/search'
-
-	const swup = new Swup({
-		animationSelector: '[class*="swup-"]',
-		animateHistoryBrowsing: true,
-		plugins: [
-			new SwupProgressPlugin({
-				finishAnimation: false
-			}),
-			new SwupA11yPlugin({
-				respectReducedMotion: true,
-				autofocus: true,
-			}),
-			new SwupPreloadPlugin({
-				preloadVisibleLinks: true
-			}),
-			new SwupScrollPlugin({
-				offset: () =>
-					$('[data-main-header]').getBoundingClientRect().height + 72,
-			}),
-			new SwupHeadPlugin({
-				persistAssets: true,
-				awaitAssets: true,
-			})
-		]
-	})
-
-	document.addEventListener('DOMContentLoaded', () => {
-		once()
-		init()
-		body().removeAttribute('data-body-exit')
-	})
-	swup.hooks.on('page:view', () => init())
-
-	function init() {
-		Jumplink()
-		Silence()
-		BackToTop()
-		Slideover()
-		$('[data-toast]') && Toast()
-		$('[data-search]') && Search()
-	}
-
-	function once() {
-		runAnimations()
-	}
-</script>

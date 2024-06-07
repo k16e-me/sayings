@@ -3,7 +3,7 @@ import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
 import Cover from '@blocks/Cover.astro'
-import Collections from '@composites/Collections.astro'
+import { _collections, _addCollections } from '@scripts/store'
 
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi(),
@@ -35,7 +35,7 @@ const { slug } = Astro.params,
 	meta = page.content.meta[0],
 	{ data: collection } = await storyblokApi.get('cdn/stories/', {
 		version: import.meta.env.DEV ? 'draft' : 'published',
-		starts_with: `${page.content.list}/`,
+		starts_with: `c/`,
 		sort_by: 'content.position:desc',
 	}),
 	collectionAll = collection.stories.map((c: any) => {
@@ -44,7 +44,8 @@ const { slug } = Astro.params,
 			content: c.content,
 		}
 	})
-console.log(slug)
+
+_addCollections(collectionAll)
 ---
 
 <Base
@@ -54,7 +55,7 @@ console.log(slug)
 	{
 		() => {
 			if (slug == undefined)
-				return <Collections collections={collectionAll} />
+				return <StoryblokComponent blok={page.content} />
 			else {
 				return (
 					<div class='grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-9 lg:gap-9'>

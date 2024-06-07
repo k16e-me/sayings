@@ -25,6 +25,7 @@ export default defineConfig({
             components: {
                 page: 'composites/Page',
                 collection: 'composites/Collection',
+                collections: 'composites/Collections',
                 piece: 'composites/Piece'
             }
         })

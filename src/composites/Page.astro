@@ -5,7 +5,7 @@ const { blok } = Astro.props
 ---
 <div>
     {
-        blok.body?.map((blok: any) => {
+        blok.body.map((blok: any) => {
             return <StoryblokComponent blok={ blok } />
         })
     }

@@ -24,7 +24,7 @@
         "gsap": "^3.12.5",
         "swup": "^4.6.1",
         "tailwindcss": "^3.4.4",
-        "vite": "^5.2.12"
+        "vite": "^5.2.13"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.7",

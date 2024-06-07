@@ -3,47 +3,70 @@ import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
 import Cover from '@blocks/Cover.astro'
+import Collections from '@composites/Collections.astro'
 
 export async function getStaticPaths() {
-    const
-        storyblokApi = useStoryblokApi(),
-        { data: { links } } = await storyblokApi.get('cdn/links', {
-            version: import.meta.env.DEV ? 'draft' : 'published'
-        }),
-        filteredLinks = Object.values(links).filter((link: any) => link.slug.includes('pages/'))
+	const storyblokApi = useStoryblokApi(),
+		{ data } = await storyblokApi.get('cdn/links', {
+			version: import.meta.env.DEV ? 'draft' : 'published',
+		})
 
-    return filteredLinks.map((l: any) => {
-        return {
-            params: {
-                slug: l.slug.split('/')[1]
-            }
-        }
-    })
+	let links = data.links
+	links = Object.values(links).filter((link) => !(link.slug === 'settings'))
+
+	return links.map((link) => {
+		return {
+			params: {
+				slug: link.slug === 'home' ? undefined : link.slug,
+			},
+		}
+	})
 }
 
-const
-    { slug } = Astro.params,
-    storyblokApi = useStoryblokApi(),
-    { data: pageData } = await storyblokApi.get(`cdn/stories/pages/${slug}`, {
-        version: import.meta.env.DEV ? 'draft' : 'published'
-    }),
-    page = pageData.story,
-    meta = page.content.meta[0]
+const { slug } = Astro.params,
+	storyblokApi = useStoryblokApi(),
+	{ data: pageData } = await storyblokApi.get(
+		`cdn/stories/${slug === undefined ? 'home' : slug}`,
+		{
+			version: import.meta.env.DEV ? 'draft' : 'published',
+		},
+	),
+	page = pageData.story,
+	meta = page.content.meta[0],
+	{ data: collection } = await storyblokApi.get('cdn/stories/', {
+		version: import.meta.env.DEV ? 'draft' : 'published',
+		starts_with: `${page.content.list}/`,
+		sort_by: 'content.position:desc',
+	}),
+	collectionAll = collection.stories.map((c: any) => {
+		return {
+			slug: c.full_slug,
+			content: c.content,
+		}
+	})
+console.log(slug)
 ---
+
 <Base
-    pageTitle={ meta.title }
-    pageDescription={ meta.description }
-    pageThumbnail={ meta.image.filename }>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-9 lg:gap-9">
-        <div class="col-span-1">
-            <Cover
-                filename={ meta.image.filename }
-            />
-        </div>
-        <div class="lg:col-span-2 flex flex-col mt-px">
-            <StoryblokComponent
-                blok={ page.content }
-            />
-        </div>
-    </div>
+	pageTitle={meta.title}
+	pageDescription={meta.description}
+	pageThumbnail={meta.image.filename}>
+	{
+		() => {
+			if (slug == undefined)
+				return <Collections collections={collectionAll} />
+			else {
+				return (
+					<div class='grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-9 lg:gap-9'>
+						<div class='col-span-1'>
+							<Cover filename={meta.image.filename} />
+						</div>
+						<div class='lg:col-span-2 flex flex-col mt-px'>
+							<StoryblokComponent blok={page.content} />
+						</div>
+					</div>
+				)
+			}
+		}
+	}
 </Base>

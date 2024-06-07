@@ -1,12 +1,11 @@
 ---
-import { storyblokEditable } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Lipsum from '@blocks/Lipsum.astro'
 import { isEmpty } from '@scripts/snips'
 
 const { blok } = Astro.props
 ---
-<div {...storyblokEditable(blok)}>
+<div>
     {() => {
         if (isEmpty(blok.pieces)) return <Lipsum/>
         else {

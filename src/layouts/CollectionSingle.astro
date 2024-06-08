@@ -1,0 +1,67 @@
+---
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import BackTo from '@blocks/BackTo.astro'
+import Cover from '@blocks/Cover.astro'
+import TitlePiece from '@blocks/TitlePiece.astro'
+import FabToCard from '@blocks/FabToCard.astro'
+import Icon from '@atoms/Icon.astro'
+import Toast from '@blocks/Toast.astro'
+import ToggleOverview from '@blocks/ToggleOverview.astro'
+import Chapters from '@blocks/Chapters.astro'
+import Slideover from '@blocks/Slideover.astro'
+import Overview from '@blocks/Overview.astro'
+import Silence from '@blocks/Silence.astro'
+import Search from '@blocks/Search.astro'
+
+const { content } = Astro.props
+---
+
+<div
+	class='grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-9 lg:gap-9'
+	data-gsap='rise-in'
+	data-wrapper='main'>
+	<div class='col-span-1'>
+		<div
+			class='lg:sticky lg:top-10 space-y-5 flex flex-col items-end lg:items-stretch'>
+			<BackTo text={'Collections'} />
+			<div
+				class='relative min-w-[304px] max-w-[356px] rounded-xl overflow-clip'>
+				<Cover
+					filename={content.image.filename}
+					title={content.title}
+				/>
+				<ToggleOverview class:list={`absolute bottom-3 right-3`} />
+			</div>
+			<div
+				class='fixed left-3 bottom-12 md:bottom-9 lg:static flex flex-col gap-3 lg:gap-5 z-30'
+				data-gsap='rise-in'>
+				<button
+					class='lg:w-full group'
+					data-toggle='slideover'
+					data-slideover='chapters'>
+					<FabToCard>
+						<Icon name='list' class='w-6 pointer-events-none' />
+						<span
+							class='sr-only lg:not-sr-only lg:font-display pointer-events-none'>
+							Chapters
+						</span>
+					</FabToCard>
+				</button>
+				<TitlePiece
+					linkFragment={content.short_title}
+					bg={content.pastel}
+				/>
+			</div>
+		</div>
+	</div>
+	<div class='lg:col-span-2 flex flex-col mt-px' data-wrapper='content'>
+		<Search />
+		<StoryblokComponent blok={content} />
+		<Silence bg={content.pastel} class:list={`h-[152px]`} />
+	</div>
+</div>
+<Slideover>
+	<Chapters pieces={content.pieces} />
+	<Overview content={content.overview} />
+</Slideover>
+<Toast />

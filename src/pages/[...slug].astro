@@ -24,7 +24,6 @@ export async function getStaticPaths() {
 
 	let links = data.links
 	links = Object.values(links).filter((link) => (link.slug !== 'settings' && link.published))
-	console.log(links)
 
 	return links.map((link) => {
 		return {

@@ -4,6 +4,7 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Base from '@layouts/Base.astro'
 import { _collections, _addCollections } from '@scripts/store'
 import CollectionSingle from '@layouts/CollectionSingle.astro'
+import { isEmpty } from '@scripts/snips'
 
 export async function getStaticPaths() {
 	const storyblokApi = useStoryblokApi(),
@@ -38,7 +39,6 @@ const { slug } = Astro.params,
 	meta = page.content.meta[0] ? page.content.meta[0] : content,
 	{ data: collection } = await storyblokApi.get('cdn/stories/', {
 		version: import.meta.env.DEV ? 'draft' : 'published',
-		// starts_with: `${page.content.list}/`,
 		starts_with: `c/`,
 		sort_by: 'content.position:desc',
 	}),
@@ -59,7 +59,7 @@ _addCollections(collectionAll)
 	{
 		() => {
 			if (slug == undefined)
-				return <StoryblokComponent blok={page.content} />
+				return <StoryblokComponent blok={content} />
 			else return <CollectionSingle content={content} />
 		}
 	}

@@ -7,7 +7,7 @@ import { _collections } from '@scripts/store'
 	data-swup-preload-all
 	data-gsap='list-fly-in'>
 	{
-		_collections.value.map((c: any) => (
+		_collections.value.map(c => (
 			<li class='w-full min-w-[304px] max-w-[356px] md:max-w-none'>
 				<a href={`/${c.slug}`}>
 					<article class='rounded-xl hover:shadow-2xl transition duration-300 overflow-clip'>

@@ -54,9 +54,13 @@ const splitFirstOccurrenceOnly = (str, delim) => {
 }
 
 
-const isEmpty = obj => {
-    if (obj === undefined || obj === null) return true
-    if (!Object.keys(obj).length) return true
+const isEmpty = val => {
+    return (
+        val === undefined ||
+        val === null ||
+        (typeof val === 'object' && Object.keys(val).length === 0) ||
+        (typeof val === 'string' && value.trim().length === 0)
+    )
 }
 
 

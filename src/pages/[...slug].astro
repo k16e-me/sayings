@@ -23,12 +23,13 @@ export async function getStaticPaths() {
 		})
 
 	let links = data.links
-	links = Object.values(links).filter((link) => !(link.slug === 'settings'))
+	links = Object.values(links).filter((link) => (link.slug !== 'settings' && link.published))
+	console.log(links)
 
 	return links.map((link) => {
 		return {
 			params: {
-				slug: link.slug === 'home' ? undefined : link.slug
+				slug: link.slug === 'home' ? undefined : link.slug,
 			},
 		}
 	})
@@ -43,7 +44,7 @@ const { slug } = Astro.params,
 		},
 	),
 	page = pageData.story,
-    content = page.content,
+	content = page.content,
 	meta = page.content.meta[0] ? page.content.meta[0] : content,
 	{ data: collection } = await storyblokApi.get('cdn/stories/', {
 		version: import.meta.env.DEV ? 'draft' : 'published',

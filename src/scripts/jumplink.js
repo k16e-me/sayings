@@ -1,6 +1,7 @@
 import {
-    $, $$, scrollToTopOffset
+    $, $$
 } from '@scripts/snips'
+import _scrollTopOffset from './scroll-top-offset'
 
 export default function Jumplink() {
     const
@@ -16,7 +17,7 @@ export default function Jumplink() {
                 linkEl = $(e.target.hash),
                 parent = linkEl.parentNode
 
-            scrollToTopOffset(linkEl, headerHeight)
+            _scrollTopOffset(linkEl, headerHeight)
 
             setTimeout(parent.classList.add('is-focused'), 1)
             parent.addEventListener('animationend', () => parent.classList.remove('is-focused'), false)

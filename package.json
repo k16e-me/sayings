@@ -19,7 +19,7 @@
         "@swup/preload-plugin": "^3.2.10",
         "@swup/progress-plugin": "^3.2.0",
         "@swup/scroll-plugin": "^3.3.2",
-        "astro": "^4.10.3",
+        "astro": "^4.11.0",
         "astro-seo": "^0.8.4",
         "gsap": "^3.12.5",
         "nanostores": "^0.10.3",

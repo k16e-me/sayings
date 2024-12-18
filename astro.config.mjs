@@ -3,13 +3,11 @@ import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import { loadEnv } from 'vite'
 
-const
-    env = loadEnv('', process.cwd(), 'STORYBLOK'),
-    redirectHome = { status: 301, destination: '/' }
+const env = loadEnv('', process.cwd(), 'STORYBLOK')
+const redirectHome = { status: 301, destination: '/' }
 
-// https://astro.build/config
 export default defineConfig({
-    site: 'https://sayings.cc',
+    site: 'https://sayings.k16e.co',
     prefetch: {
         prefetchAll: true,
         defaultStrategy: 'viewport',
@@ -32,9 +30,7 @@ export default defineConfig({
     ],
     redirects: {
         '/pages': redirectHome,
-        '/pages/': redirectHome,
         '/c': redirectHome,
-        '/c/': redirectHome
     },
     image: {
         domains: ['a.storyblok.com']

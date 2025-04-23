@@ -7,7 +7,7 @@ const env = loadEnv('', process.cwd(), 'STORYBLOK')
 const redirectHome = { status: 301, destination: '/' }
 
 export default defineConfig({
-    site: 'https://sayings.k16e.co',
+    site: 'https://sayings.k16e.com',
     prefetch: {
         prefetchAll: true,
         defaultStrategy: 'viewport',
